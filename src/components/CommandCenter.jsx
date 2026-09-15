@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { 
   Activity, AlertTriangle, ShieldCheck, MapPin, Search, Filter, 
-  ExternalLink, ChevronRight, X, Clock, CheckCircle2, Sliders, Layers, Sparkles 
+  ChevronRight, X, Clock, CheckCircle2, Sliders, Layers 
 } from 'lucide-react';
 import { COMMAND_CENTER_STATS, MOCK_ASSETS } from '../data/mockData';
 
-export default function CommandCenter({ onOpenDemo }) {
+export default function CommandCenter() {
   const [selectedAsset, setSelectedAsset] = useState(MOCK_ASSETS[0]);
   const [filterType, setFilterType] = useState('All');
   const [drawerOpen, setDrawerOpen] = useState(true);
@@ -26,7 +26,7 @@ export default function CommandCenter({ onOpenDemo }) {
         <div className="section-header">
           <div className="section-pill" style={{ background: '#DBEAFE', color: '#2563EB', borderColor: '#BFDBFE' }}>
             <Activity size={15} />
-            <span>Interactive Road & Bridge Checker</span>
+            <span>Experience Center</span>
           </div>
           <h2 className="section-title">
             All Roads, Bridges & Tunnels in One Place
@@ -62,7 +62,7 @@ export default function CommandCenter({ onOpenDemo }) {
             <div className="metric-hud-value" style={{ color: '#2563EB' }}>
               {COMMAND_CENTER_STATS.openWorkOrders}
             </div>
-            <div className="metric-hud-sub">Repair vans currently on site</div>
+            <div className="metric-hud-sub">Repair teams currently on site</div>
           </div>
 
           <div className="metric-hud">
@@ -149,7 +149,7 @@ export default function CommandCenter({ onOpenDemo }) {
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
                 <div style={{ fontSize: '14px', fontWeight: 700, color: '#0F172A', display: 'flex', alignItems: 'center', gap: '6px' }}>
                   <MapPin size={18} color="#2563EB" />
-                  <span>Sample Highway Network ({filteredAssets.length} Stretches)</span>
+                  <span>Highway Network ({filteredAssets.length} Stretches Monitored)</span>
                 </div>
                 <div style={{ fontSize: '13px', color: '#64748B' }}>
                   Click a card to see details &rarr;
@@ -231,7 +231,7 @@ export default function CommandCenter({ onOpenDemo }) {
                 })}
               </div>
 
-              {/* Bottom Expand Demo Bar */}
+              {/* Bottom Quick Link */}
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -240,20 +240,17 @@ export default function CommandCenter({ onOpenDemo }) {
                 borderTop: '1px solid #E2E8F0',
                 fontSize: '13px'
               }}>
-                <span style={{ color: '#64748B' }}>Want to try full simulation mode?</span>
-                <button
-                  onClick={onOpenDemo}
+                <span style={{ color: '#64748B' }}>All data is continuously updated from on-ground cameras and drone logs.</span>
+                <a
+                  href="#contact"
                   style={{
                     color: '#2563EB',
                     fontWeight: 700,
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '4px',
-                    cursor: 'pointer'
+                    textDecoration: 'none'
                   }}
                 >
-                  Open Fullscreen Demo <ExternalLink size={14} />
-                </button>
+                  Request Pilot on Your Corridor &rarr;
+                </a>
               </div>
             </div>
 

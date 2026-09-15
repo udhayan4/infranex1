@@ -1,8 +1,8 @@
 import React from 'react';
-import { ArrowRight, Play, Shield, CheckCircle2, Sparkles, MapPin, Eye, HeartHandshake } from 'lucide-react';
+import { ArrowRight, Shield, Sparkles, HeartHandshake, FileText, Mail } from 'lucide-react';
 import { COMPANY_INFO, COMMAND_CENTER_STATS } from '../data/mockData';
 
-export default function Hero({ onOpenDemo }) {
+export default function Hero({ onOpenPdf }) {
   return (
     <section id="hero" style={{
       background: 'linear-gradient(180deg, #EFF6FF 0%, #FFFFFF 100%)',
@@ -21,7 +21,7 @@ export default function Hero({ onOpenDemo }) {
         }}>
           <div className="badge-blue" style={{ fontSize: '13px', padding: '6px 14px' }}>
             <Sparkles size={15} />
-            <span>Smart Road & Bridge Safety</span>
+            <span>AI Infrastructure Intelligence</span>
           </div>
 
           <div className="badge-green" style={{ fontSize: '13px', padding: '6px 14px' }}>
@@ -31,7 +31,7 @@ export default function Hero({ onOpenDemo }) {
 
           <div className="badge-purple" style={{ fontSize: '13px', padding: '6px 14px' }}>
             <HeartHandshake size={15} />
-            <span>Made for Highway & City Teams</span>
+            <span>Built for Highway Authorities & Municipalities</span>
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export default function Hero({ onOpenDemo }) {
             {COMPANY_INFO.heroSub}
           </p>
 
-          {/* Large, Easy-to-Click Buttons */}
+          {/* Large, Easy-to-Click Buttons (No Demo Buttons) */}
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -70,27 +70,27 @@ export default function Hero({ onOpenDemo }) {
             marginBottom: '56px'
           }}>
             <button
-              onClick={onOpenDemo}
+              onClick={onOpenPdf}
               className="btn-primary"
               style={{ fontSize: '16px', padding: '16px 32px' }}
-              id="hero-demo-btn"
+              id="hero-solutions-btn"
             >
-              <Play size={18} fill="#FFFFFF" />
-              <span>Try Interactive Demo (Free)</span>
+              <FileText size={18} />
+              <span>Explore Solutions (14-Page PDF)</span>
             </button>
 
             <a
-              href="#command-center"
+              href="#contact"
               className="btn-secondary"
               style={{ fontSize: '16px', padding: '16px 30px' }}
-              id="hero-explore-btn"
+              id="hero-contact-btn"
             >
-              <span>See How It Works</span>
-              <ArrowRight size={18} />
+              <Mail size={18} />
+              <span>Talk to Our Team</span>
             </a>
 
             <a
-              href="#solution-pdf"
+              href="#road-ai"
               style={{
                 fontSize: '14.5px',
                 color: '#2563EB',
@@ -101,7 +101,7 @@ export default function Hero({ onOpenDemo }) {
                 padding: '12px 16px'
               }}
             >
-              <span>View 14 Presentation Slides</span>
+              <span>See Road & Bridge Features</span>
               <span>→</span>
             </a>
           </div>
@@ -122,7 +122,7 @@ export default function Hero({ onOpenDemo }) {
             boxShadow: '0 4px 12px rgba(37, 99, 235, 0.08)'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#2563EB' }}>ROADS & BRIDGES COVERED</span>
+              <span style={{ fontSize: '13px', fontWeight: 700, color: '#2563EB' }}>ROADS & BRIDGES MONITORED</span>
               <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#2563EB' }}></div>
             </div>
             <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.1 }}>

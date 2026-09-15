@@ -17,86 +17,78 @@ import Roadmap from './components/Roadmap';
 import RodicRequirements from './components/RodicRequirements';
 import SolutionPdf from './components/SolutionPdf';
 import ContactSection from './components/ContactSection';
-import LiveDemoModal from './components/LiveDemoModal';
 import PdfModal from './components/PdfModal';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const [isPdfModalOpen, setIsPdfModalOpen] = useState(false);
 
   return (
-    <div className="infrasight-app">
-      {/* Sticky Navigation Bar */}
+    <div className="infranite-app">
+      {/* Navigation Bar with 8 exact headings and Solutions PDF Dropdown */}
       <Navbar
-        onOpenDemo={() => setIsDemoModalOpen(true)}
         onOpenPdf={() => setIsPdfModalOpen(true)}
       />
 
-      {/* Hero Section with Dynamic Network Canvas */}
-      <Hero onOpenDemo={() => setIsDemoModalOpen(true)} />
+      {/* Hero Section */}
+      <Hero
+        onOpenPdf={() => setIsPdfModalOpen(true)}
+      />
 
-      {/* The Problem: Fragmented Data vs Converged Intelligence */}
+      {/* The Problem & Solution Overview */}
       <ProblemSection />
 
-      {/* Why InfraSight AI & The IGT Advantage */}
+      {/* Why Infranite Globaltech & The IGT Advantage */}
       <WhyUsSection />
 
-      {/* Signature AI Scan Interactive Laser Comparison */}
+      {/* AI Computer Vision & Camera Detection */}
       <AiScanSection />
 
-      {/* Core AI Infrastructure Command & Control Centre */}
-      <CommandCenter onOpenDemo={() => setIsDemoModalOpen(true)} />
+      {/* Experience Center / City & Highway Operations */}
+      <CommandCenter />
 
-      {/* Use Case 01: Road Condition & Pavement Intelligence */}
+      {/* Road Health & Pothole Intelligence */}
       <ConditionIntelligence />
 
-      {/* Use Case 02: Bridge Health Intelligence */}
+      {/* Bridge Health Intelligence */}
       <BridgeIntelligence />
 
-      {/* Use Case 03: Tunnel Condition & Safety Intelligence */}
+      {/* Tunnel Condition & Safety Intelligence */}
       <TunnelIntelligence />
 
-      {/* Use Case 04: AI Asset Risk & Prioritisation */}
+      {/* Asset Risk & Priority Engine */}
       <RiskEngine />
 
-      {/* Use Case 05: Closed-Loop Maintenance Operations */}
+      {/* Closed-Loop Maintenance Workflow */}
       <MaintenanceWorkflow />
 
-      {/* Unified Digital Twin Layer */}
+      {/* Virtual Infrastructure Models */}
       <DigitalTwin />
 
-      {/* Infrastructure Value & Asset Monetisation */}
+      {/* Marketplace & Smart Amenities Monetisation */}
       <ValueMonetisation />
 
-      {/* System Architecture & Key Enablers */}
+      {/* System Architecture */}
       <Architecture />
 
-      {/* Implementation Roadmap: Prove First, Scale Modularly */}
+      {/* Implementation Roadmap */}
       <Roadmap />
 
-      {/* What We Need From Rodic Collaboration */}
+      {/* Collaboration Framework */}
       <RodicRequirements />
 
-      {/* Explore the Complete Solution PDF */}
+      {/* Solutions & Official 14-Page PDF Pitch */}
       <SolutionPdf onOpenPdfModal={() => setIsPdfModalOpen(true)} />
 
-      {/* User-Friendly Contact & Consultation Form */}
+      {/* Contact & Consultation Form */}
       <ContactSection />
 
-      {/* Enterprise Engineering Footer */}
+      {/* Footer */}
       <Footer
         onOpenPdf={() => setIsPdfModalOpen(true)}
-        onOpenDemo={() => setIsDemoModalOpen(true)}
       />
 
-      {/* Fullscreen Interactive Command Centre Simulation Modal */}
-      <LiveDemoModal
-        isOpen={isDemoModalOpen}
-        onClose={() => setIsDemoModalOpen(false)}
-      />
-
-      {/* Embedded High-Resolution PDF Viewer Modal */}
+      {/* Embedded 14-Page PDF Modal */}
       <PdfModal
         isOpen={isPdfModalOpen}
         onClose={() => setIsPdfModalOpen(false)}

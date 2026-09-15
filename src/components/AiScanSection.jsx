@@ -23,7 +23,7 @@ export default function AiScanSection() {
         <div className="section-header">
           <div className="section-pill" style={{ background: '#DCFCE7', color: '#16A34A', borderColor: '#BBF7D0' }}>
             <Camera size={15} />
-            <span>Interactive Demo</span>
+            <span>AI Inspection Scanner</span>
           </div>
           <h2 className="section-title">
             See How We Spot Potholes & Cracks Automatically

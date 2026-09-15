@@ -16,7 +16,7 @@ export default function SolutionPdf({ onOpenPdfModal }) {
   const current = SLIDE_METADATA[currentSlideIndex];
 
   return (
-    <section id="solution-pdf" className="section-wrapper" style={{
+    <section id="solutions" className="section-wrapper" style={{
       background: '#FFFFFF',
       borderTop: '1px solid #E2E8F0',
       borderBottom: '1px solid #E2E8F0'
