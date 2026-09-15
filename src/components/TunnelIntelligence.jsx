@@ -1,68 +1,71 @@
 import React, { useState } from 'react';
-import { ShieldCheck, Wind, AlertTriangle, Eye, Video, Thermometer, Radio, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Wind, ShieldCheck, AlertTriangle, Eye, CheckCircle2, ChevronRight } from 'lucide-react';
 import { TUNNEL_TELEMETRY } from '../data/mockData';
 
 export default function TunnelIntelligence() {
-  const [activeAlert, setActiveAlert] = useState(TUNNEL_TELEMETRY.alerts[1]); // Water leakage at 2.6 km
+  const [activeAlert, setActiveAlert] = useState(TUNNEL_TELEMETRY.alerts[2]); // Light bulb
 
   return (
     <section id="tunnel-safety" className="section-wrapper" style={{
-      background: '#060B13',
-      position: 'relative'
+      background: '#FFFFFF',
+      borderTop: '1px solid #E2E8F0',
+      borderBottom: '1px solid #E2E8F0'
     }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">
-            <Wind size={12} color="#8B5CF6" />
-            <span>Use Case 03</span>
+          <div className="section-pill" style={{ background: '#EDE9FE', color: '#7C3AED', borderColor: '#DDD6FE' }}>
+            <Wind size={15} />
+            <span>Tunnel Safety</span>
           </div>
           <h2 className="section-title">
-            AI Tunnel Condition & Safety Intelligence
+            Tunnel Safety, Fresh Air & Bright Lighting
           </h2>
           <p className="section-subtitle">
-            Continuous Monitoring. Predictive Maintenance. Safer Operations.
-            See beyond the surface to prevent lining collapses, water seepage, ventilation failure, and electrical blackouts.
+            Long mountain tunnels need fresh air ventilation, bright lighting, and dry walls. We monitor all three continuously.
           </p>
         </div>
 
-        {/* Top Status Cards */}
+        {/* 4 Status Cards */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
           gap: '16px',
           marginBottom: '36px'
         }}>
-          <div className="metric-hud bracket-corner">
-            <span className="metric-hud-label">STRUCTURAL STATUS</span>
-            <div className="metric-hud-value" style={{ color: '#00E5A3', fontSize: '1.6rem' }}>SAFE</div>
-            <div className="metric-hud-sub">{TUNNEL_TELEMETRY.structuralStatus}</div>
+          <div className="metric-hud">
+            <span className="metric-hud-label">TUNNEL STRUCTURE</span>
+            <div className="metric-hud-value" style={{ color: '#16A34A', fontSize: '1.8rem' }}>SAFE & DRY</div>
+            <div className="metric-hud-sub">Walls in top condition (90%)</div>
           </div>
 
-          <div className="metric-hud bracket-corner">
-            <span className="metric-hud-label">VENTILATION SYSTEM</span>
-            <div className="metric-hud-value" style={{ color: '#00F0FF', fontSize: '1.6rem' }}>OPTIMAL</div>
-            <div className="metric-hud-sub">8 Jet Fans Operational • CO: 2 ppm</div>
+          <div className="metric-hud">
+            <span className="metric-hud-label">FRESH AIR FANS</span>
+            <div className="metric-hud-value" style={{ color: '#2563EB', fontSize: '1.8rem' }}>ALL WORKING</div>
+            <div className="metric-hud-sub">8 of 8 Fans Running Smoothly</div>
           </div>
 
-          <div className="metric-hud bracket-corner">
-            <span className="metric-hud-label">TRAFFIC DISPATCH</span>
-            <div className="metric-hud-value" style={{ color: '#E2E8F0', fontSize: '1.6rem' }}>NORMAL</div>
-            <div className="metric-hud-sub">Clearance: OK • Speed: 45 km/h avg</div>
+          <div className="metric-hud">
+            <span className="metric-hud-label">TRAFFIC SPEED</span>
+            <div className="metric-hud-value" style={{ color: '#0F172A', fontSize: '1.8rem' }}>35 MPH</div>
+            <div className="metric-hud-sub">Smooth & Clear Driving</div>
           </div>
 
-          <div className="metric-hud bracket-corner">
-            <span className="metric-hud-label">ANOMALY DETECTED</span>
-            <div className="metric-hud-value" style={{ color: '#FFB020', fontSize: '1.6rem' }}>4 ACTIVE</div>
-            <div className="metric-hud-sub">1 High • 1 Med • 2 Low Watch</div>
+          <div className="metric-hud">
+            <span className="metric-hud-label">MAINTENANCE ITEM</span>
+            <div className="metric-hud-value" style={{ color: '#D97706', fontSize: '1.8rem' }}>1 Light Bulb</div>
+            <div className="metric-hud-sub">Scheduled for night replacement</div>
           </div>
         </div>
 
-        {/* Tunnel Cross-Section & Operations Control Console */}
-        <div className="glass-panel bracket-corner" style={{
+        {/* Tunnel Cross-Section & Operations Box */}
+        <div style={{
+          background: '#F8FAFC',
+          borderRadius: '20px',
+          border: '1.5px solid #E2E8F0',
           padding: '28px',
-          background: 'rgba(8, 15, 27, 0.9)',
-          marginBottom: '40px'
+          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)',
+          marginBottom: '36px'
         }}>
           {/* Header */}
           <div style={{
@@ -71,129 +74,81 @@ export default function TunnelIntelligence() {
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '12px',
-            marginBottom: '24px',
-            borderBottom: '1px solid rgba(0, 240, 255, 0.15)',
+            marginBottom: '20px',
+            borderBottom: '1px solid #E2E8F0',
             paddingBottom: '14px'
           }}>
             <div>
-              <div style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)' }}>
-                TUNNEL OPERATIONS SCADA CONSOLE
-              </div>
-              <div style={{ fontSize: '18px', fontWeight: 700, color: '#FFFFFF', marginTop: '2px' }}>
-                {TUNNEL_TELEMETRY.name} (Length: {TUNNEL_TELEMETRY.length})
+              <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#0F172A' }}>
+                {TUNNEL_TELEMETRY.name}
+              </h3>
+              <div style={{ fontSize: '13px', color: '#64748B' }}>
+                Length: {TUNNEL_TELEMETRY.length} • Clean & Safe
               </div>
             </div>
 
-            {/* Live Environmental Badges */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-              <span style={{
-                padding: '4px 10px',
-                borderRadius: '4px',
-                background: 'rgba(0, 229, 163, 0.12)',
-                color: '#00E5A3',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                border: '1px solid rgba(0, 229, 163, 0.25)'
-              }}>
-                CO: {TUNNEL_TELEMETRY.airQuality.co}
-              </span>
-              <span style={{
-                padding: '4px 10px',
-                borderRadius: '4px',
-                background: 'rgba(0, 240, 255, 0.12)',
-                color: '#00F0FF',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                border: '1px solid rgba(0, 240, 255, 0.25)'
-              }}>
-                TEMP: {TUNNEL_TELEMETRY.airQuality.temperature}
-              </span>
-              <span style={{
-                padding: '4px 10px',
-                borderRadius: '4px',
-                background: 'rgba(192, 132, 252, 0.12)',
-                color: '#C084FC',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                border: '1px solid rgba(192, 132, 252, 0.25)'
-              }}>
-                OPTICAL VISIBILITY: {TUNNEL_TELEMETRY.airQuality.visibility}
-              </span>
+            {/* Environmental Badges */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+              <span className="badge-green">Air Quality: Clean</span>
+              <span className="badge-blue">Temperature: 24°C</span>
+              <span className="badge-purple">Visibility: 98% Clear</span>
             </div>
           </div>
 
-          {/* Interactive Tunnel Cross-Section Schematic */}
+          {/* Clean Tunnel Schematic */}
           <div style={{
             position: 'relative',
-            height: '300px',
-            background: 'radial-gradient(ellipse at 50% 80%, rgba(139, 92, 246, 0.1), #040810 70%)',
-            borderRadius: '8px',
-            border: '1px solid rgba(139, 92, 246, 0.3)',
+            height: '260px',
+            background: 'linear-gradient(180deg, #F1F5F9 0%, #E2E8F0 100%)',
+            borderRadius: '12px',
+            border: '1.5px solid #CBD5E1',
             overflow: 'hidden',
             marginBottom: '24px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-            <svg width="100%" height="100%" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid meet">
-              {/* Mountain Bedrock Hatch */}
-              <rect width="800" height="300" fill="#060C16" />
+            <svg width="100%" height="100%" viewBox="0 0 800 260" preserveAspectRatio="xMidYMid meet">
+              {/* Mountain Profile */}
+              <rect width="800" height="260" fill="#94A3B8" />
 
-              {/* Tunnel Tube Profile (Arch Horseshoe) */}
-              <path d="M 120 280 L 120 170 Q 120 50 400 50 Q 680 50 680 170 L 680 280 Z" fill="#0A1424" stroke="rgba(139, 92, 246, 0.4)" strokeWidth="4" />
-              <path d="M 140 280 L 140 175 Q 140 70 400 70 Q 660 70 660 175 L 660 280 Z" fill="#040810" stroke="rgba(0, 240, 255, 0.2)" strokeWidth="2" />
+              {/* Tunnel Arch */}
+              <path d="M 120 250 L 120 150 Q 120 40 400 40 Q 680 40 680 150 L 680 250 Z" fill="#334155" />
+              <path d="M 140 250 L 140 155 Q 140 60 400 60 Q 660 60 660 155 L 660 250 Z" fill="#1E293B" />
 
-              {/* Road Pavement Invert */}
-              <rect x="140" y="240" width="520" height="40" fill="#141E2D" stroke="#334155" />
-              <line x1="140" y1="260" x2="660" y2="260" stroke="#FFB020" strokeWidth="2" strokeDasharray="20 15" />
+              {/* Road Pavement */}
+              <rect x="140" y="210" width="520" height="40" fill="#0F172A" />
+              <line x1="140" y1="230" x2="660" y2="230" stroke="#FBBF24" strokeWidth="2" strokeDasharray="18 12" />
 
-              {/* Jet Fan at Arch Crown */}
-              <rect x="360" y="76" width="80" height="24" rx="6" fill="#1E293B" stroke="#00F0FF" strokeWidth="1.5" />
-              <text x="400" y="92" textAnchor="middle" fill="#00F0FF" fontSize="9" fontFamily="var(--font-mono)">JET FAN J-08</text>
+              {/* Ventilation Fan */}
+              <rect x="360" y="66" width="80" height="22" rx="4" fill="#2563EB" />
+              <text x="400" y="81" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="bold">FAN #08 (ON)</text>
 
-              {/* Lighting fixtures */}
-              <circle cx="210" cy="110" r="4" fill="#00F0FF" />
-              <circle cx="270" cy="85" r="4" fill="#00F0FF" />
-              <circle cx="530" cy="85" r="4" fill="#00F0FF" />
-              <circle cx="590" cy="110" r="4" fill="#FF3B57" /> {/* Trip indicator */}
+              {/* Lights */}
+              <circle cx="210" cy="100" r="5" fill="#FBBF24" />
+              <circle cx="270" cy="75" r="5" fill="#FBBF24" />
+              <circle cx="530" cy="75" r="5" fill="#FBBF24" />
+              <circle cx="590" cy="100" r="6" fill="#E11D48" stroke="#FFFFFF" strokeWidth="1.5" />
 
-              {/* CCTV Camera with Cone */}
-              <g transform="translate(190, 130)">
-                <polygon points="0,0 20,-6 20,6" fill="#00E5A3" />
-                <path d="M 20 -6 L 140 60 L 60 100 Z" fill="rgba(0, 229, 163, 0.05)" />
-              </g>
+              {/* Vehicle */}
+              <rect x="360" y="210" width="55" height="18" rx="4" fill="#38BDF8" />
+              <circle cx="372" cy="228" r="4" fill="#0F172A" />
+              <circle cx="403" cy="228" r="4" fill="#0F172A" />
 
-              {/* Interactive Anomaly Indicators */}
-              {/* Alert 1: Lining Crack KM 1.2 */}
-              <g style={{ cursor: 'pointer' }} onClick={() => setActiveAlert(TUNNEL_TELEMETRY.alerts[0])}>
-                <circle cx="260" cy="150" r="10" fill="rgba(0, 240, 255, 0.2)" stroke="#00F0FF" strokeWidth="1.5" />
-                <circle cx="260" cy="150" r="3" fill="#00F0FF" />
-                <text x="260" y="172" textAnchor="middle" fill="#00F0FF" fontSize="9" fontFamily="var(--font-mono)">KM 1.2 (0.6mm)</text>
-              </g>
-
-              {/* Alert 2: Seepage KM 2.6 */}
-              <g style={{ cursor: 'pointer' }} onClick={() => setActiveAlert(TUNNEL_TELEMETRY.alerts[1])}>
-                <circle cx="340" cy="72" r="12" fill="rgba(255, 176, 32, 0.25)" stroke="#FFB020" strokeWidth="2" />
-                <circle cx="340" cy="72" r="4" fill="#FFB020" />
-                <text x="340" y="58" textAnchor="middle" fill="#FFB020" fontSize="9" fontWeight="bold" fontFamily="var(--font-mono)">KM 2.6 SEEPAGE</text>
-              </g>
-
-              {/* Alert 3: Lighting Trip KM 3.4 */}
+              {/* Hotspot Markers */}
               <g style={{ cursor: 'pointer' }} onClick={() => setActiveAlert(TUNNEL_TELEMETRY.alerts[2])}>
-                <circle cx="590" cy="110" r="12" fill="rgba(255, 59, 87, 0.25)" stroke="#FF3B57" strokeWidth="2" />
-                <circle cx="590" cy="110" r="4" fill="#FF3B57" />
-                <text x="590" y="134" textAnchor="middle" fill="#FF3B57" fontSize="9" fontWeight="bold" fontFamily="var(--font-mono)">KM 3.4 LIGHT TRIP</text>
+                <circle cx="590" cy="100" r="14" fill="rgba(225, 29, 72, 0.3)" stroke="#E11D48" strokeWidth="2" />
+                <text x="590" y="125" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="bold">Light Bulb</text>
               </g>
 
-              {/* Vehicle inside tunnel */}
-              <rect x="360" y="235" width="50" height="22" rx="4" fill="#38BDF8" />
-              <polygon points="365,235 375,225 395,225 405,235" fill="#0284C7" />
-              <circle cx="372" cy="257" r="5" fill="#0F172A" />
-              <circle cx="398" cy="257" r="5" fill="#0F172A" />
+              <g style={{ cursor: 'pointer' }} onClick={() => setActiveAlert(TUNNEL_TELEMETRY.alerts[1])}>
+                <circle cx="340" cy="65" r="12" fill="rgba(217, 119, 6, 0.3)" stroke="#D97706" strokeWidth="2" />
+                <text x="340" y="52" textAnchor="middle" fill="#FFFFFF" fontSize="10" fontWeight="bold">Water Check</text>
+              </g>
             </svg>
           </div>
 
-          {/* Anomaly Cards List */}
+          {/* 4 Simple Alerts List */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
@@ -201,8 +156,7 @@ export default function TunnelIntelligence() {
           }}>
             {TUNNEL_TELEMETRY.alerts.map((alert, idx) => {
               const isSelected = activeAlert.chainage === alert.chainage;
-              const isHigh = alert.severity === 'High';
-              const isMed = alert.severity === 'Medium';
+              const isLight = alert.severity === 'Easy Fix';
 
               return (
                 <div
@@ -210,34 +164,26 @@ export default function TunnelIntelligence() {
                   onClick={() => setActiveAlert(alert)}
                   style={{
                     padding: '14px',
-                    borderRadius: '8px',
+                    borderRadius: '10px',
                     cursor: 'pointer',
-                    background: isSelected ? 'rgba(139, 92, 246, 0.18)' : 'rgba(6, 11, 19, 0.8)',
-                    border: isSelected ? '1.5px solid #A855F7' : '1px solid rgba(255, 255, 255, 0.08)',
-                    transition: 'all 0.2s'
+                    background: isSelected ? '#EFF6FF' : '#FFFFFF',
+                    border: isSelected ? '2px solid #2563EB' : '1.5px solid #E2E8F0',
+                    boxShadow: isSelected ? '0 4px 12px rgba(37, 99, 235, 0.1)' : 'none'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '6px' }}>
-                    <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#00F0FF', fontWeight: 600 }}>
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '4px' }}>
+                    <span style={{ fontSize: '12px', fontWeight: 700, color: '#2563EB' }}>
                       {alert.chainage}
                     </span>
-                    <span style={{
-                      fontSize: '10px',
-                      fontFamily: 'var(--font-mono)',
-                      padding: '2px 6px',
-                      borderRadius: '3px',
-                      background: isHigh ? 'rgba(255, 59, 87, 0.2)' : isMed ? 'rgba(255, 176, 32, 0.2)' : 'rgba(0, 240, 255, 0.2)',
-                      color: isHigh ? '#FF3B57' : isMed ? '#FFB020' : '#00F0FF',
-                      fontWeight: 700
-                    }}>
+                    <span className={isLight ? 'badge-yellow' : 'badge-blue'} style={{ fontSize: '10.5px' }}>
                       {alert.severity}
                     </span>
                   </div>
 
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#FFFFFF', marginBottom: '4px' }}>
+                  <div style={{ fontSize: '13.5px', fontWeight: 700, color: '#0F172A', marginBottom: '2px' }}>
                     {alert.defect}
                   </div>
-                  <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>{alert.time}</div>
+                  <div style={{ fontSize: '11.5px', color: '#64748B' }}>{alert.time}</div>
                 </div>
               );
             })}

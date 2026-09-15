@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ShieldCheck } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, ShieldCheck, HeartHandshake } from 'lucide-react';
 
 export default function ContactSection() {
   const [formData, setFormData] = useState({
@@ -7,19 +7,19 @@ export default function ContactSection() {
     email: '',
     phone: '',
     organization: '',
-    solution: 'Road Condition & Pavement Intelligence',
+    solution: 'Roads & Pothole Spotting',
     message: ''
   });
 
   const [status, setStatus] = useState({ state: 'idle', message: '' });
 
   const solutionOptions = [
-    'Road Condition & Pavement Intelligence',
-    'Bridge Health & Structural Monitoring',
-    'Tunnel Safety & Airflow Telemetry',
-    'AI Risk Matrix & Asset Prioritisation',
-    'Digital Twin & Asset Monetisation',
-    '14-Day Pilot Corridor PoC'
+    'Roads & Pothole Spotting',
+    'Bridge Safety & Pillar Health',
+    'Tunnel Safety & Ventilation',
+    'Priority Repair List',
+    '14-Day Pilot Demonstration',
+    'General Inquiry'
   ];
 
   const handleChange = (e) => {
@@ -30,18 +30,18 @@ export default function ContactSection() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setStatus({ state: 'error', message: 'Please fill in all required fields (Name, Email, and Message).' });
+      setStatus({ state: 'error', message: 'Please enter your name, email, and a short message.' });
       return;
     }
 
-    setStatus({ state: 'loading', message: 'Submitting your inquiry...' });
+    setStatus({ state: 'loading', message: 'Sending your message...' });
 
     setTimeout(() => {
       setStatus({
         state: 'success',
-        message: `Thank you, ${formData.name}! Your inquiry regarding ${formData.solution} has been received. Our infrastructure engineering team will contact you within 24 hours.`
+        message: `Thank you, ${formData.name}! We have received your inquiry regarding ${formData.solution}. Our team will contact you within 24 hours.`
       });
-    }, 600);
+    }, 400);
   };
 
   const handleReset = () => {
@@ -50,7 +50,7 @@ export default function ContactSection() {
       email: '',
       phone: '',
       organization: '',
-      solution: 'Road Condition & Pavement Intelligence',
+      solution: 'Roads & Pothole Spotting',
       message: ''
     });
     setStatus({ state: 'idle', message: '' });
@@ -58,141 +58,142 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="section-wrapper" style={{
-      background: 'linear-gradient(180deg, #060B13 0%, #0B1626 50%, #060B13 100%)',
-      position: 'relative',
-      borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-      paddingTop: '80px',
-      paddingBottom: '90px'
+      background: '#F8FAFC',
+      borderTop: '1px solid #E2E8F0',
+      borderBottom: '1px solid #E2E8F0',
+      paddingTop: '64px',
+      paddingBottom: '80px'
     }}>
       <div className="container">
         {/* Section Header */}
-        <div className="section-header" style={{ marginBottom: '48px' }}>
-          <div className="section-pill" style={{ marginBottom: '14px' }}>
-            <Mail size={12} color="#00F0FF" />
-            <span>Connect With Us</span>
+        <div className="section-header" style={{ marginBottom: '40px' }}>
+          <div className="section-pill" style={{ background: '#DBEAFE', color: '#2563EB', borderColor: '#BFDBFE' }}>
+            <Mail size={15} />
+            <span>Contact Us</span>
           </div>
-          <h2 className="section-title" style={{ marginBottom: '14px' }}>
-            Get in Touch With Our AI Team
+          <h2 className="section-title">
+            Let's Talk About Your Roads & Bridges
           </h2>
-          <p className="section-subtitle" style={{ maxWidth: '640px' }}>
-            Explore how InfraSight AI can be tailored for your road networks, bridges, or tunnel corridors. Schedule a live briefing or initiate a 14-day demonstration pilot.
+          <p className="section-subtitle">
+            Want to see how it works on your highways or schedule a 14-day test? Send a message below or call us directly.
           </p>
         </div>
 
-        {/* Two-Column User-Friendly Grid: Contact Channels + Form */}
+        {/* Two-Column Grid */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '32px',
           alignItems: 'start',
-          maxWidth: '1120px',
+          maxWidth: '1080px',
           margin: '0 auto'
         }}>
-          {/* Left Column: Direct Communication Channels & Credentials */}
+          {/* Left Column: Direct Contact & Info */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <div className="glass-panel" style={{
+            <div style={{
+              background: '#FFFFFF',
+              borderRadius: '20px',
               padding: '32px',
-              background: 'rgba(11, 20, 36, 0.85)',
-              border: '1px solid rgba(0, 240, 255, 0.2)',
-              borderRadius: '16px'
+              border: '1.5px solid #E2E8F0',
+              boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
             }}>
               <h3 style={{
                 fontSize: '20px',
-                color: '#FFFFFF',
-                fontWeight: 700,
+                color: '#0F172A',
+                fontWeight: 800,
                 marginBottom: '10px'
               }}>
-                Direct Communication Channels
+                Contact Information
               </h3>
               <p style={{
-                fontSize: '14px',
-                color: 'var(--text-secondary)',
+                fontSize: '14.5px',
+                color: '#64748B',
                 lineHeight: 1.6,
                 marginBottom: '24px'
               }}>
-                Speak directly with Infranite Globaltech's technology leads and infrastructure architects.
+                Speak directly with Infranite Globaltech's engineering team and project coordinators.
               </p>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
-                {/* Email Item */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+                {/* Email */}
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
                   <div style={{
-                    width: '40px',
-                    height: '40px',
+                    width: '42px',
+                    height: '42px',
                     borderRadius: '10px',
-                    background: 'rgba(0, 240, 255, 0.1)',
-                    border: '1px solid rgba(0, 240, 255, 0.25)',
+                    background: '#EFF6FF',
+                    border: '1px solid #BFDBFE',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0
                   }}>
-                    <Mail size={18} color="#00F0FF" />
+                    <Mail size={20} color="#2563EB" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                      Official Inquiries
+                    <div style={{ fontSize: '11px', color: '#64748B', textTransform: 'uppercase', fontWeight: 700 }}>
+                      EMAIL INQUIRIES
                     </div>
-                    <a href="mailto:contact@infrasight.ai" style={{ fontSize: '15px', color: '#FFFFFF', fontWeight: 600, textDecoration: 'none' }}>
-                      contact@infrasight.ai
+                    <a href="mailto:contact@infraniteglobal.com" style={{ fontSize: '15px', color: '#0F172A', fontWeight: 700, textDecoration: 'none' }}>
+                      contact@infraniteglobal.com
                     </a>
-                    <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
+                    <div style={{ fontSize: '12.5px', color: '#64748B' }}>
                       partnerships@infranite.com
                     </div>
                   </div>
                 </div>
 
-                {/* Phone Item */}
+                {/* Phone */}
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
                   <div style={{
-                    width: '40px',
-                    height: '40px',
+                    width: '42px',
+                    height: '42px',
                     borderRadius: '10px',
-                    background: 'rgba(0, 229, 163, 0.1)',
-                    border: '1px solid rgba(0, 229, 163, 0.25)',
+                    background: '#F0FDF4',
+                    border: '1px solid #BBF7D0',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0
                   }}>
-                    <Phone size={18} color="#00E5A3" />
+                    <Phone size={20} color="#16A34A" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                      Direct Line
+                    <div style={{ fontSize: '11px', color: '#64748B', textTransform: 'uppercase', fontWeight: 700 }}>
+                      PHONE NUMBER
                     </div>
-                    <div style={{ fontSize: '15px', color: '#FFFFFF', fontWeight: 600 }}>
+                    <div style={{ fontSize: '15px', color: '#0F172A', fontWeight: 700 }}>
                       +91 (080) 4123 8890 / +91 94480 55120
                     </div>
-                    <div style={{ fontSize: '12px', color: 'var(--text-secondary)' }}>
-                      Mon - Sat, 9:00 AM - 7:00 PM IST
+                    <div style={{ fontSize: '12.5px', color: '#64748B' }}>
+                      Monday - Saturday, 9:00 AM - 7:00 PM
                     </div>
                   </div>
                 </div>
 
-                {/* Office Location */}
+                {/* Office */}
                 <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
                   <div style={{
-                    width: '40px',
-                    height: '40px',
+                    width: '42px',
+                    height: '42px',
                     borderRadius: '10px',
-                    background: 'rgba(56, 189, 248, 0.1)',
-                    border: '1px solid rgba(56, 189, 248, 0.25)',
+                    background: '#FAF5FF',
+                    border: '1px solid #DDD6FE',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     flexShrink: 0
                   }}>
-                    <MapPin size={18} color="#38BDF8" />
+                    <MapPin size={20} color="#7C3AED" />
                   </div>
                   <div>
-                    <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
-                      Engineering Headquarters
+                    <div style={{ fontSize: '11px', color: '#64748B', textTransform: 'uppercase', fontWeight: 700 }}>
+                      HEAD OFFICE
                     </div>
-                    <div style={{ fontSize: '14px', color: '#FFFFFF', fontWeight: 600 }}>
+                    <div style={{ fontSize: '15px', color: '#0F172A', fontWeight: 700 }}>
                       Infranite Globaltech Pvt Ltd (IGT)
                     </div>
-                    <div style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.4 }}>
+                    <div style={{ fontSize: '13px', color: '#64748B' }}>
                       Bengaluru & New Delhi, India
                     </div>
                   </div>
@@ -200,184 +201,119 @@ export default function ContactSection() {
               </div>
             </div>
 
-            {/* SLA Response Guarantee */}
-            <div className="glass-panel" style={{
-              padding: '24px',
-              background: 'rgba(11, 20, 36, 0.6)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '14px'
+            {/* Guarantee Badge Box */}
+            <div style={{
+              background: '#FFFFFF',
+              borderRadius: '16px',
+              padding: '20px',
+              border: '1.5px solid #E2E8F0',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '12px'
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '10px' }}>
-                <Clock size={16} color="#00E5A3" />
-                <span style={{ fontSize: '13px', color: '#FFFFFF', fontWeight: 600 }}>
-                  24-Hour Engineering Response Guarantee
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <Clock size={18} color="#16A34A" />
+                <span style={{ fontSize: '13.5px', fontWeight: 700, color: '#0F172A' }}>
+                  24-Hour Response Guarantee
                 </span>
               </div>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5, margin: 0 }}>
-                Every inquiry is reviewed by senior infrastructure data engineers. Technical briefing calls include custom corridor feasibility estimates.
-              </p>
-
-              <div style={{
-                marginTop: '16px',
-                paddingTop: '16px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                flexWrap: 'wrap',
-                gap: '8px'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <ShieldCheck size={14} color="#00F0FF" />
-                  <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#CBD5E1' }}>
-                    DPIIT Recognised Startup
-                  </span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <CheckCircle2 size={14} color="#00E5A3" />
-                  <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#CBD5E1' }}>
-                    ISO 9001:2015 QMS
-                  </span>
-                </div>
+              <div style={{ display: 'flex', gap: '6px' }}>
+                <span className="badge-green">DPIIT Recognised</span>
+                <span className="badge-blue">ISO Certified</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: User-Friendly Contact Form */}
-          <div className="glass-panel" style={{
-            padding: '36px',
-            background: 'rgba(11, 20, 36, 0.95)',
-            border: '1px solid rgba(0, 240, 255, 0.25)',
-            borderRadius: '16px',
-            boxShadow: '0 12px 36px rgba(0, 0, 0, 0.4)'
+          {/* Right Column: Simple Form */}
+          <div style={{
+            background: '#FFFFFF',
+            borderRadius: '20px',
+            padding: '32px',
+            border: '1.5px solid #E2E8F0',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
           }}>
             {status.state === 'success' ? (
               <div style={{
                 textAlign: 'center',
-                padding: '36px 16px',
+                padding: '32px 16px',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
                 gap: '16px'
               }}>
                 <div style={{
-                  width: '64px',
-                  height: '64px',
+                  width: '60px',
+                  height: '60px',
                   borderRadius: '50%',
-                  background: 'rgba(0, 229, 163, 0.15)',
-                  border: '2px solid #00E5A3',
+                  background: '#DCFCE7',
+                  border: '2px solid #16A34A',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}>
-                  <CheckCircle2 size={36} color="#00E5A3" />
+                  <CheckCircle2 size={32} color="#16A34A" />
                 </div>
-                <h3 style={{ fontSize: '22px', color: '#FFFFFF', fontWeight: 700 }}>
-                  Inquiry Sent Successfully!
+                <h3 style={{ fontSize: '22px', color: '#0F172A', fontWeight: 800 }}>
+                  Message Sent Successfully!
                 </h3>
-                <p style={{ fontSize: '14px', color: '#CBD5E1', lineHeight: 1.6, maxWidth: '440px' }}>
+                <p style={{ fontSize: '14.5px', color: '#475569', lineHeight: 1.6, maxWidth: '420px' }}>
                   {status.message}
                 </p>
                 <button
                   onClick={handleReset}
                   className="btn-secondary"
-                  style={{ marginTop: '12px', padding: '10px 24px', fontSize: '13px' }}
+                  style={{ marginTop: '10px', padding: '10px 24px', fontSize: '14px' }}
                 >
                   Send Another Message
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+              <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 <div>
-                  <h3 style={{ fontSize: '20px', color: '#FFFFFF', fontWeight: 700, marginBottom: '6px' }}>
-                    Request Consultation or Demo
+                  <h3 style={{ fontSize: '20px', color: '#0F172A', fontWeight: 800, marginBottom: '4px' }}>
+                    Send Us a Message
                   </h3>
-                  <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>
-                    Fill in your details below and our solution architects will prepare a live demo sandbox for your team.
+                  <p style={{ fontSize: '13.5px', color: '#64748B', margin: 0 }}>
+                    Fill out the short form below and we will get back to you promptly.
                   </p>
                 </div>
 
-                {/* Name and Email Row */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
-                  <div>
-                    <label style={{
-                      display: 'block',
-                      fontSize: '12px',
-                      fontFamily: 'var(--font-mono)',
-                      color: '#CBD5E1',
-                      marginBottom: '6px'
-                    }}>
-                      Full Name <span style={{ color: '#00F0FF' }}>*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="e.g. Rajesh Sharma"
-                      required
-                      style={{
-                        width: '100%',
-                        padding: '12px 14px',
-                        background: 'rgba(6, 11, 19, 0.75)',
-                        border: '1px solid rgba(255, 255, 255, 0.12)',
-                        borderRadius: '8px',
-                        color: '#FFFFFF',
-                        fontSize: '14px',
-                        fontFamily: 'var(--font-body)',
-                        outline: 'none',
-                        transition: 'border-color 0.2s'
-                      }}
-                      onFocus={(e) => (e.target.style.borderColor = '#00F0FF')}
-                      onBlur={(e) => (e.target.style.borderColor = 'rgba(255, 255, 255, 0.12)')}
-                    />
-                  </div>
-
-                  <div>
-                    <label style={{
-                      display: 'block',
-                      fontSize: '12px',
-                      fontFamily: 'var(--font-mono)',
-                      color: '#CBD5E1',
-                      marginBottom: '6px'
-                    }}>
-                      Work Email <span style={{ color: '#00F0FF' }}>*</span>
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="e.g. rajesh@agency.gov.in"
-                      required
-                      style={{
-                        width: '100%',
-                        padding: '12px 14px',
-                        background: 'rgba(6, 11, 19, 0.75)',
-                        border: '1px solid rgba(255, 255, 255, 0.12)',
-                        borderRadius: '8px',
-                        color: '#FFFFFF',
-                        fontSize: '14px',
-                        fontFamily: 'var(--font-body)',
-                        outline: 'none',
-                        transition: 'border-color 0.2s'
-                      }}
-                      onFocus={(e) => (e.target.style.borderColor = '#00F0FF')}
-                      onBlur={(e) => (e.target.style.borderColor = 'rgba(255, 255, 255, 0.12)')}
-                    />
-                  </div>
+                {/* Name */}
+                <div>
+                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="e.g. Rajesh Sharma"
+                    required
+                  />
                 </div>
 
-                {/* Phone Number and Organization Row */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
+                {/* Email */}
+                <div>
+                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                    Your Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="e.g. rajesh@agency.gov.in"
+                    required
+                  />
+                </div>
+
+                {/* Phone & Org */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px' }}>
                   <div>
-                    <label style={{
-                      display: 'block',
-                      fontSize: '12px',
-                      fontFamily: 'var(--font-mono)',
-                      color: '#CBD5E1',
-                      marginBottom: '6px'
-                    }}>
+                    <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
                       Phone Number
                     </label>
                     <input
@@ -385,128 +321,54 @@ export default function ContactSection() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="e.g. +91 98765 43210"
-                      style={{
-                        width: '100%',
-                        padding: '12px 14px',
-                        background: 'rgba(6, 11, 19, 0.75)',
-                        border: '1px solid rgba(255, 255, 255, 0.12)',
-                        borderRadius: '8px',
-                        color: '#FFFFFF',
-                        fontSize: '14px',
-                        fontFamily: 'var(--font-body)',
-                        outline: 'none',
-                        transition: 'border-color 0.2s'
-                      }}
-                      onFocus={(e) => (e.target.style.borderColor = '#00F0FF')}
-                      onBlur={(e) => (e.target.style.borderColor = 'rgba(255, 255, 255, 0.12)')}
+                      placeholder="e.g. 98765 43210"
                     />
                   </div>
 
                   <div>
-                    <label style={{
-                      display: 'block',
-                      fontSize: '12px',
-                      fontFamily: 'var(--font-mono)',
-                      color: '#CBD5E1',
-                      marginBottom: '6px'
-                    }}>
-                      Organization / Agency
+                    <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                      Organization / City
                     </label>
                     <input
                       type="text"
                       name="organization"
                       value={formData.organization}
                       onChange={handleChange}
-                      placeholder="e.g. NHAI / State PWD / Concessionaire"
-                      style={{
-                        width: '100%',
-                        padding: '12px 14px',
-                        background: 'rgba(6, 11, 19, 0.75)',
-                        border: '1px solid rgba(255, 255, 255, 0.12)',
-                        borderRadius: '8px',
-                        color: '#FFFFFF',
-                        fontSize: '14px',
-                        fontFamily: 'var(--font-body)',
-                        outline: 'none',
-                        transition: 'border-color 0.2s'
-                      }}
-                      onFocus={(e) => (e.target.style.borderColor = '#00F0FF')}
-                      onBlur={(e) => (e.target.style.borderColor = 'rgba(255, 255, 255, 0.12)')}
+                      placeholder="e.g. Highway Authority"
                     />
                   </div>
                 </div>
 
-                {/* Solution Area Dropdown */}
+                {/* Topic */}
                 <div>
-                  <label style={{
-                    display: 'block',
-                    fontSize: '12px',
-                    fontFamily: 'var(--font-mono)',
-                    color: '#CBD5E1',
-                    marginBottom: '6px'
-                  }}>
-                    Area of Interest
+                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                    Topic of Interest
                   </label>
                   <select
                     name="solution"
                     value={formData.solution}
                     onChange={handleChange}
-                    style={{
-                      width: '100%',
-                      padding: '12px 14px',
-                      background: '#0B1424',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
-                      borderRadius: '8px',
-                      color: '#FFFFFF',
-                      fontSize: '14px',
-                      fontFamily: 'var(--font-body)',
-                      outline: 'none',
-                      cursor: 'pointer'
-                    }}
                   >
                     {solutionOptions.map((opt) => (
-                      <option key={opt} value={opt} style={{ background: '#0B1424', color: '#FFFFFF' }}>
+                      <option key={opt} value={opt}>
                         {opt}
                       </option>
                     ))}
                   </select>
                 </div>
 
-                {/* Message Field */}
+                {/* Message */}
                 <div>
-                  <label style={{
-                    display: 'block',
-                    fontSize: '12px',
-                    fontFamily: 'var(--font-mono)',
-                    color: '#CBD5E1',
-                    marginBottom: '6px'
-                  }}>
-                    Message / Project Details <span style={{ color: '#00F0FF' }}>*</span>
+                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: '#334155', marginBottom: '4px' }}>
+                    Your Message *
                   </label>
                   <textarea
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    rows={4}
-                    placeholder="Tell us about your infrastructure assets, corridor length, key challenges, or demonstration goals..."
+                    rows={3}
+                    placeholder="Tell us about your road stretch, questions, or goals..."
                     required
-                    style={{
-                      width: '100%',
-                      padding: '12px 14px',
-                      background: 'rgba(6, 11, 19, 0.75)',
-                      border: '1px solid rgba(255, 255, 255, 0.12)',
-                      borderRadius: '8px',
-                      color: '#FFFFFF',
-                      fontSize: '14px',
-                      fontFamily: 'var(--font-body)',
-                      outline: 'none',
-                      resize: 'vertical',
-                      lineHeight: 1.5,
-                      transition: 'border-color 0.2s'
-                    }}
-                    onFocus={(e) => (e.target.style.borderColor = '#00F0FF')}
-                    onBlur={(e) => (e.target.style.borderColor = 'rgba(255, 255, 255, 0.12)')}
                   />
                 </div>
 
@@ -514,32 +376,26 @@ export default function ContactSection() {
                 {status.state === 'error' && (
                   <div style={{
                     padding: '10px 14px',
-                    borderRadius: '6px',
-                    background: 'rgba(239, 68, 68, 0.12)',
-                    border: '1px solid rgba(239, 68, 68, 0.3)',
-                    color: '#FCA5A5',
-                    fontSize: '13px'
+                    borderRadius: '8px',
+                    background: '#FFE4E6',
+                    border: '1px solid #FECDD3',
+                    color: '#BE123C',
+                    fontSize: '13px',
+                    fontWeight: 600
                   }}>
                     {status.message}
                   </div>
                 )}
 
-                {/* Submit Action Button */}
+                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={status.state === 'loading'}
                   className="btn-primary"
-                  style={{
-                    padding: '14px 24px',
-                    fontSize: '14px',
-                    fontWeight: 700,
-                    width: '100%',
-                    justifyContent: 'center',
-                    cursor: status.state === 'loading' ? 'wait' : 'pointer'
-                  }}
+                  style={{ width: '100%', padding: '14px', fontSize: '15px' }}
                 >
                   <Send size={16} />
-                  <span>{status.state === 'loading' ? 'Sending Inquiry...' : 'Submit Inquiry & Request Consultation'}</span>
+                  <span>{status.state === 'loading' ? 'Sending Message...' : 'Send Message Now'}</span>
                 </button>
               </form>
             )}

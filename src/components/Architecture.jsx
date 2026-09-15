@@ -1,144 +1,140 @@
 import React from 'react';
-import { Cpu, Server, Database, Layers, ArrowDown, Shield, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Cpu, Server, Database, Layers, CheckCircle2, Shield, Sparkles } from 'lucide-react';
 import { ARCHITECTURE_LAYERS } from '../data/mockData';
 
 export default function Architecture() {
   const enablers = [
-    { title: "Cloud + Edge Deployment", desc: "Edge inference in survey vehicles for real-time offline detection; cloud synchronization for network analytics." },
-    { title: "Modular Architecture", desc: "Start with road pavement scanning; plug in bridge telemetry and tunnel SCADA modules as required." },
-    { title: "Use Existing Data", desc: "No immediate heavy hardware needed. Ingests existing Rodic inspection videos, GIS layers, and drone logs." },
-    { title: "Engineer-in-the-Loop", desc: "Every AI classification and priority score allows engineer validation and feedback to continuously calibrate models." },
-    { title: "Standards-Based APIs", desc: "Built to interface smoothly with Rodic Eye, PMIS, ERP, and NHAI / State PWD data guidelines." },
-    { title: "Enterprise Security", desc: "Role-based access control, cryptographic audit logs, and sovereign on-prem / Indian cloud compliance." }
+    { title: "Works on Regular Patrol Cars", desc: "Attach simple dashcams to existing vehicles. No expensive specialized trucks needed." },
+    { title: "No New Hardware Upfront", desc: "Start immediately using existing highway inspection videos, photos, and drone flights." },
+    { title: "Works Offline in Remote Areas", desc: "Cameras record and detect problems even in rural hills with zero mobile signal." },
+    { title: "Engineers Always in Control", desc: "Road engineers review and approve all repair suggestions before work orders are sent." },
+    { title: "Connects with Existing Systems", desc: "Easily shares reports with government portals, ERPs, and municipal software." },
+    { title: "High Privacy & Security", desc: "Follows strict government data security standards and keeps road records safe." }
   ];
 
   return (
     <section id="architecture" className="section-wrapper" style={{
-      background: 'linear-gradient(180deg, #060B13 0%, #0A1424 50%, #060B13 100%)',
-      position: 'relative'
+      background: '#F8FAFC',
+      borderTop: '1px solid #E2E8F0',
+      borderBottom: '1px solid #E2E8F0'
     }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">
-            <Layers size={12} color="#00F0FF" />
-            <span>System Architecture (Slide 13)</span>
+          <div className="section-pill" style={{ background: '#DBEAFE', color: '#2563EB', borderColor: '#BFDBFE' }}>
+            <Layers size={15} />
+            <span>How It Works</span>
           </div>
           <h2 className="section-title">
-            InfraSight AI Platform Architecture
+            How Our System Works Together in 4 Steps
           </h2>
           <p className="section-subtitle">
-            A modular, enterprise-grade, four-layer intelligence stack that leverages existing infrastructure
-            and proven multimodal deep learning models.
+            A simple, practical process that turns ordinary camera video into verified road repairs without disrupting traffic.
           </p>
         </div>
 
-        {/* 4-Layer Architecture Stack */}
+        {/* 4 Clean Step Layers */}
         <div style={{
           display: 'flex',
           flexDirection: 'column',
-          gap: '20px',
-          maxWidth: '1000px',
-          margin: '0 auto 56px'
+          gap: '16px',
+          maxWidth: '900px',
+          margin: '0 auto 48px'
         }}>
-          {ARCHITECTURE_LAYERS.map((layer, idx) => (
-            <div key={idx} className="glass-panel bracket-corner" style={{
-              padding: '24px 30px',
-              background: 'rgba(8, 16, 28, 0.9)',
-              border: '1px solid rgba(0, 240, 255, 0.2)'
-            }}>
-              <div style={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                gap: '12px',
-                marginBottom: '16px',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-                paddingBottom: '12px'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-                  <span style={{
-                    fontSize: '12px',
-                    fontFamily: 'var(--font-mono)',
-                    color: '#00F0FF',
-                    fontWeight: 800,
-                    padding: '4px 8px',
-                    borderRadius: '4px',
-                    background: 'rgba(0, 240, 255, 0.15)',
-                    border: '1px solid rgba(0, 240, 255, 0.3)'
-                  }}>
-                    LAYER {layer.layer}
-                  </span>
-                  <h3 style={{ fontSize: '18px', color: '#FFFFFF' }}>{layer.name}</h3>
-                </div>
+          {ARCHITECTURE_LAYERS.map((layer, idx) => {
+            const colors = ['#2563EB', '#16A34A', '#D97706', '#7C3AED'];
+            const color = colors[idx % colors.length];
 
-                {idx === 2 && (
-                  <span style={{
-                    fontSize: '11px',
-                    fontFamily: 'var(--font-mono)',
-                    color: '#C084FC',
-                    background: 'rgba(192, 132, 252, 0.15)',
-                    border: '1px solid rgba(192, 132, 252, 0.3)',
-                    padding: '3px 8px',
-                    borderRadius: '4px',
+            return (
+              <div key={idx} style={{
+                background: '#FFFFFF',
+                borderRadius: '16px',
+                padding: '24px 28px',
+                border: '1.5px solid #E2E8F0',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
+              }}>
+                <div style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  marginBottom: '14px',
+                  borderBottom: '1px solid #F1F5F9',
+                  paddingBottom: '12px'
+                }}>
+                  <div style={{
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '50%',
+                    background: color,
+                    color: '#FFFFFF',
+                    fontWeight: 800,
+                    fontSize: '14px',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '4px'
+                    justifyContent: 'center'
                   }}>
-                    <Sparkles size={12} /> Includes GenAI Copilot
-                  </span>
-                )}
-              </div>
-
-              {/* Layer Items Grid */}
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-                gap: '12px'
-              }}>
-                {layer.items.map((item, i) => (
-                  <div key={i} style={{
-                    display: 'flex',
-                    alignItems: 'flex-start',
-                    gap: '8px',
-                    fontSize: '13px',
-                    color: '#CBD5E1'
-                  }}>
-                    <span style={{ color: '#00F0FF', marginTop: '3px' }}>&bull;</span>
-                    <span>{item}</span>
+                    {layer.layer}
                   </div>
-                ))}
+                  <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#0F172A', margin: 0 }}>
+                    {layer.name}
+                  </h3>
+                </div>
+
+                <div style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+                  gap: '10px'
+                }}>
+                  {layer.items.map((item, i) => (
+                    <div key={i} style={{
+                      display: 'flex',
+                      alignItems: 'flex-start',
+                      gap: '8px',
+                      fontSize: '14px',
+                      color: '#475569'
+                    }}>
+                      <span style={{ color: color, fontWeight: 700 }}>✓</span>
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        {/* Key Technical Enablers Grid */}
+        {/* 6 Practical Enablers */}
         <div>
           <div style={{
-            fontSize: '13px',
-            fontFamily: 'var(--font-mono)',
-            color: 'var(--cyan-primary)',
-            letterSpacing: '0.08em',
+            fontSize: '14px',
+            fontWeight: 700,
+            color: '#2563EB',
+            textAlign: 'center',
             marginBottom: '20px',
-            textAlign: 'center'
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em'
           }}>
-            KEY ENABLERS FOR SUCCESSFUL IMPLEMENTATION
+            Why It Works So Well in Real Life
           </div>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '18px'
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '16px'
           }}>
             {enablers.map((item, idx) => (
-              <div key={idx} className="glass-panel" style={{ padding: '20px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-                  <CheckCircle2 size={16} color="#00E5A3" />
-                  <h4 style={{ fontSize: '15px', color: '#FFFFFF' }}>{item.title}</h4>
+              <div key={idx} style={{
+                background: '#FFFFFF',
+                borderRadius: '14px',
+                padding: '20px',
+                border: '1.5px solid #E2E8F0',
+                boxShadow: '0 2px 6px rgba(0, 0, 0, 0.04)'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                  <CheckCircle2 size={18} color="#16A34A" />
+                  <h4 style={{ fontSize: '15px', fontWeight: 700, color: '#0F172A' }}>{item.title}</h4>
                 </div>
-                <p style={{ fontSize: '12.5px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
+                <p style={{ fontSize: '13.5px', color: '#64748B', lineHeight: 1.5, margin: 0 }}>
                   {item.desc}
                 </p>
               </div>

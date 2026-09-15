@@ -1,53 +1,39 @@
 import React from 'react';
-import { ArrowUpRight, ArrowUp, Shield, Cpu, ExternalLink, Layers, CheckCircle2 } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, ShieldCheck, HeartHandshake } from 'lucide-react';
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
-  const capabilities = [
-    'Telecom Infrastructure',
-    'Digital Infrastructure',
-    'AI & Digital Transformation',
-    'Data Center & NOC',
-    'Smart Cities',
-    'Energy & Renewable',
-    'Managed Engineering'
+  const whatWeDo = [
+    'Road Health & Potholes',
+    'Bridge Safety & Pillars',
+    'Tunnel Clean Air & Lights',
+    'Before & After Photo Check',
+    'Smart Priority Repair List'
   ];
 
-  const solutions = [
-    'InfraNex',
-    'Enterprise AI',
-    'Digital PMO',
-    'Infrastructure Intelligence'
+  const quickSolutions = [
+    '14-Day Quick Test',
+    'Highway Corridor Pilot',
+    'Statewide Network Rollout',
+    'EV Chargers & Solar Amenities'
   ];
 
   const company = [
-    'About IGT',
-    'Industries',
-    'Case Studies',
-    'Insights',
-    'Careers',
-    'Contact'
-  ];
-
-  const adminCrm = [
-    'Admin & Operations Portal',
-    'Field Dispatch CRM',
-    'Asset Lifecycle Management',
-    'SLA & Contract Governance',
-    'Real-Time Ticket Resolution',
-    'Multi-Tenant Role Access'
+    'About Infranite (IGT)',
+    '1,680+ Villages Connected',
+    'DPIIT & ISO Certified',
+    'Contact Our Team'
   ];
 
   return (
     <footer style={{
-      background: 'linear-gradient(180deg, #060B13 0%, #03060B 100%)',
-      borderTop: '1px solid rgba(0, 240, 255, 0.15)',
-      paddingTop: '64px',
+      background: '#FFFFFF',
+      borderTop: '1.5px solid #E2E8F0',
+      paddingTop: '56px',
       paddingBottom: '32px',
-      position: 'relative',
       fontFamily: 'var(--font-body)'
     }}>
       <div className="container">
@@ -57,133 +43,90 @@ export default function Footer() {
           flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
-          gap: '24px',
-          paddingBottom: '40px',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-          marginBottom: '48px'
+          gap: '20px',
+          paddingBottom: '36px',
+          borderBottom: '1px solid #E2E8F0',
+          marginBottom: '40px'
         }}>
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '6px' }}>
               <div style={{
-                width: '36px',
-                height: '36px',
+                width: '38px',
+                height: '38px',
                 borderRadius: '8px',
-                background: 'rgba(0, 240, 255, 0.12)',
-                border: '1px solid #00F0FF',
+                background: '#2563EB',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 0 12px rgba(0, 240, 255, 0.3)'
+                color: '#FFFFFF',
+                fontWeight: 800,
+                fontSize: '16px'
               }}>
-                <Cpu size={20} color="#00F0FF" />
+                IGT
               </div>
               <h2 style={{
-                fontSize: 'clamp(1.2rem, 2.2vw, 1.6rem)',
+                fontSize: 'clamp(1.2rem, 2.2vw, 1.5rem)',
                 fontWeight: 800,
-                color: '#FFFFFF',
-                letterSpacing: '-0.02em',
+                color: '#0F172A',
                 margin: 0
               }}>
-                INFRANITE GLOBALTECH <span style={{ color: '#00F0FF' }}>PVT. LTD.</span> <span style={{ color: '#94A3B8', fontWeight: 600 }}>— IGT</span>
+                INFRANITE GLOBALTECH <span style={{ color: '#2563EB' }}>PVT. LTD.</span>
               </h2>
             </div>
             <p style={{
               fontSize: '14.5px',
-              color: '#94A3B8',
-              margin: 0,
-              maxWidth: '680px',
-              lineHeight: 1.5
+              color: '#64748B',
+              margin: 0
             }}>
-              Deep infrastructure expertise. Digital intelligence. Enterprise scale.
+              Making roads, bridges and tunnels safer across India with simple, smart technology.
             </p>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
-            <div style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '6px 14px',
-              borderRadius: '999px',
-              background: 'rgba(0, 240, 255, 0.08)',
-              border: '1px solid rgba(0, 240, 255, 0.25)',
-              color: '#00F0FF',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
-              letterSpacing: '0.08em'
-            }}>
-              INFRASTRUCTURE · DIGITAL · INTELLIGENT
-            </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
+            <span className="badge-green">
+              DPIIT Recognised Startup
+            </span>
 
             <a
               href="https://infraniteglobal.com"
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '8px',
-                padding: '8px 18px',
-                borderRadius: '6px',
-                background: 'rgba(255, 255, 255, 0.06)',
-                border: '1px solid rgba(255, 255, 255, 0.15)',
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                fontSize: '13px',
-                fontFamily: 'var(--font-mono)',
-                fontWeight: 600,
-                transition: 'all 0.2s ease'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#00F0FF';
-                e.currentTarget.style.background = 'rgba(0, 240, 255, 0.12)';
-                e.currentTarget.style.color = '#00F0FF';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.06)';
-                e.currentTarget.style.color = '#FFFFFF';
-              }}
+              className="btn-secondary"
+              style={{ padding: '8px 16px', fontSize: '13px' }}
             >
               <span>infraniteglobal.com</span>
-              <ArrowUpRight size={15} />
+              <ArrowUpRight size={14} />
             </a>
           </div>
         </div>
 
-        {/* 4 Navigation Columns */}
+        {/* 3 Navigation Columns */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
-          gap: '36px',
-          marginBottom: '56px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '32px',
+          marginBottom: '48px'
         }}>
-          {/* Column 1: CAPABILITIES */}
+          {/* Column 1 */}
           <div>
             <div style={{
-              fontSize: '12px',
-              fontFamily: 'var(--font-mono)',
-              color: '#00F0FF',
-              fontWeight: 700,
-              letterSpacing: '0.1em',
-              marginBottom: '18px',
+              fontSize: '13px',
+              fontWeight: 800,
+              color: '#2563EB',
+              letterSpacing: '0.04em',
+              marginBottom: '16px',
               textTransform: 'uppercase'
             }}>
-              CAPABILITIES
+              WHAT WE DO
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', padding: 0, margin: 0 }}>
-              {capabilities.map((item) => (
+              {whatWeDo.map((item) => (
                 <li key={item}>
                   <a
                     href="#road-ai"
-                    style={{
-                      fontSize: '13.5px',
-                      color: '#94A3B8',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => (e.target.style.color = '#00F0FF')}
-                    onMouseLeave={(e) => (e.target.style.color = '#94A3B8')}
+                    style={{ fontSize: '14px', color: '#475569', textDecoration: 'none' }}
+                    onMouseEnter={(e) => (e.target.style.color = '#2563EB')}
+                    onMouseLeave={(e) => (e.target.style.color = '#475569')}
                   >
                     {item}
                   </a>
@@ -192,32 +135,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2: SOLUTIONS */}
+          {/* Column 2 */}
           <div>
             <div style={{
-              fontSize: '12px',
-              fontFamily: 'var(--font-mono)',
-              color: '#00F0FF',
-              fontWeight: 700,
-              letterSpacing: '0.1em',
-              marginBottom: '18px',
+              fontSize: '13px',
+              fontWeight: 800,
+              color: '#16A34A',
+              letterSpacing: '0.04em',
+              marginBottom: '16px',
               textTransform: 'uppercase'
             }}>
-              SOLUTIONS
+              SOLUTIONS & PILOTS
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', padding: 0, margin: 0 }}>
-              {solutions.map((item) => (
+              {quickSolutions.map((item) => (
                 <li key={item}>
                   <a
-                    href="#command-center"
-                    style={{
-                      fontSize: '13.5px',
-                      color: '#94A3B8',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => (e.target.style.color = '#00F0FF')}
-                    onMouseLeave={(e) => (e.target.style.color = '#94A3B8')}
+                    href="#roadmap"
+                    style={{ fontSize: '14px', color: '#475569', textDecoration: 'none' }}
+                    onMouseEnter={(e) => (e.target.style.color = '#16A34A')}
+                    onMouseLeave={(e) => (e.target.style.color = '#475569')}
                   >
                     {item}
                   </a>
@@ -226,66 +163,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: COMPANY */}
+          {/* Column 3 */}
           <div>
             <div style={{
-              fontSize: '12px',
-              fontFamily: 'var(--font-mono)',
-              color: '#00F0FF',
-              fontWeight: 700,
-              letterSpacing: '0.1em',
-              marginBottom: '18px',
+              fontSize: '13px',
+              fontWeight: 800,
+              color: '#7C3AED',
+              letterSpacing: '0.04em',
+              marginBottom: '16px',
               textTransform: 'uppercase'
             }}>
-              COMPANY
+              ABOUT US
             </div>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', padding: 0, margin: 0 }}>
               {company.map((item) => (
                 <li key={item}>
                   <a
-                    href={item === 'Contact' ? '#contact' : '#why-us'}
-                    style={{
-                      fontSize: '13.5px',
-                      color: '#94A3B8',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => (e.target.style.color = '#00F0FF')}
-                    onMouseLeave={(e) => (e.target.style.color = '#94A3B8')}
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Column 4: ADMIN & CRM CONCEPT */}
-          <div>
-            <div style={{
-              fontSize: '12px',
-              fontFamily: 'var(--font-mono)',
-              color: '#00E5A3',
-              fontWeight: 700,
-              letterSpacing: '0.1em',
-              marginBottom: '18px',
-              textTransform: 'uppercase'
-            }}>
-              ADMIN & CRM CONCEPT
-            </div>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', padding: 0, margin: 0 }}>
-              {adminCrm.map((item) => (
-                <li key={item}>
-                  <a
-                    href="#command-center"
-                    style={{
-                      fontSize: '13.5px',
-                      color: '#94A3B8',
-                      textDecoration: 'none',
-                      transition: 'color 0.2s ease'
-                    }}
-                    onMouseEnter={(e) => (e.target.style.color = '#00E5A3')}
-                    onMouseLeave={(e) => (e.target.style.color = '#94A3B8')}
+                    href="#why-us"
+                    style={{ fontSize: '14px', color: '#475569', textDecoration: 'none' }}
+                    onMouseEnter={(e) => (e.target.style.color = '#7C3AED')}
+                    onMouseLeave={(e) => (e.target.style.color = '#475569')}
                   >
                     {item}
                   </a>
@@ -295,52 +192,29 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar with Copyright & Back to Top */}
+        {/* Bottom Bar */}
         <div style={{
           paddingTop: '24px',
-          borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+          borderTop: '1px solid #E2E8F0',
           display: 'flex',
           flexWrap: 'wrap',
           alignItems: 'center',
           justifyContent: 'space-between',
           gap: '16px',
-          fontSize: '12px',
-          fontFamily: 'var(--font-mono)',
+          fontSize: '13px',
           color: '#64748B'
         }}>
           <div>
             &copy; 2026 Infranite Globaltech Pvt. Ltd. All rights reserved.
-            <span style={{ margin: '0 8px', color: 'rgba(255, 255, 255, 0.2)' }}>|</span>
-            <span style={{ color: '#00F0FF' }}>INFRASTRUCTURE · DIGITAL · INTELLIGENT</span>
           </div>
 
           <button
             onClick={scrollToTop}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              color: '#CBD5E1',
-              cursor: 'pointer',
-              padding: '6px 14px',
-              borderRadius: '4px',
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              fontSize: '11.5px',
-              fontFamily: 'var(--font-mono)',
-              transition: 'all 0.2s ease'
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = '#00F0FF';
-              e.currentTarget.style.color = '#00F0FF';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.12)';
-              e.currentTarget.style.color = '#CBD5E1';
-            }}
+            className="btn-secondary"
+            style={{ padding: '6px 14px', fontSize: '12px', gap: '6px' }}
           >
             <span>Back to Top</span>
-            <ArrowUp size={12} />
+            <ArrowUp size={14} />
           </button>
         </div>
       </div>

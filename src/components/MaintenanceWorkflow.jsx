@@ -1,17 +1,12 @@
 import React, { useState } from 'react';
-import { ClipboardList, CheckCircle2, UserCheck, ShieldCheck, ArrowRight, RotateCcw, AlertTriangle, Eye } from 'lucide-react';
+import { ClipboardList, CheckCircle2, ShieldCheck, ArrowRight, RotateCcw, Eye, Camera, ThumbsUp } from 'lucide-react';
 import { WORK_ORDER_SAMPLE } from '../data/mockData';
 
 export default function MaintenanceWorkflow() {
-  const [woStatus, setWoStatus] = useState('Assigned'); // 'Assigned' -> 'Verifying' -> 'Closed'
-  const [isVerifying, setIsVerifying] = useState(false);
+  const [woStatus, setWoStatus] = useState('Assigned'); // 'Assigned' -> 'Closed'
 
   const handleSimulateVerification = () => {
-    setIsVerifying(true);
-    setTimeout(() => {
-      setIsVerifying(false);
-      setWoStatus('Closed');
-    }, 1800);
+    setWoStatus('Closed');
   };
 
   const handleReset = () => {
@@ -19,60 +14,69 @@ export default function MaintenanceWorkflow() {
   };
 
   const steps = [
-    { num: "01", title: "AI Detects Issue", sub: "Auto-Identify & Size", icon: "🤖" },
-    { num: "02", title: "Risk Assessment", sub: "Evaluate Consequence", icon: "📊" },
-    { num: "03", title: "Prioritisation", sub: "Network Rank & Budget", icon: "⚖️" },
-    { num: "04", title: "Work Order", sub: "Auto-Generate BOQ", icon: "📝" },
-    { num: "05", title: "Field Execution", sub: "Contractor Mobile App", icon: "👷" },
-    { num: "06", title: "AI Verification", sub: "Before/After Match", icon: "🔍" },
-    { num: "07", title: "Closed-Loop Learn", sub: "Model Self-Improvement", icon: "🔄" }
+    { num: "1", title: "Spot Problem", sub: "Cameras spot hole", icon: "📸", color: "#2563EB", bg: "#EFF6FF" },
+    { num: "2", title: "Check Urgency", sub: "Calculates danger", icon: "⚠️", color: "#D97706", bg: "#FEF3C7" },
+    { num: "3", title: "Job Card Created", sub: "Exact GPS spot", icon: "📝", color: "#7C3AED", bg: "#FAF5FF" },
+    { num: "4", title: "Van Arrives", sub: "Fills with asphalt", icon: "🚜", color: "#0284C7", bg: "#E0F2FE" },
+    { num: "5", title: "Photo Quality Check", sub: "Snaps after photo", icon: "🔍", color: "#16A34A", bg: "#F0FDF4" },
+    { num: "6", title: "Repair Verified", sub: "Safe for driving", icon: "✅", color: "#16A34A", bg: "#DCFCE7" }
   ];
 
   return (
     <section id="workflow" className="section-wrapper" style={{
-      background: '#060B13',
-      position: 'relative'
+      background: '#FFFFFF',
+      borderTop: '1px solid #E2E8F0',
+      borderBottom: '1px solid #E2E8F0'
     }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">
-            <ClipboardList size={12} color="#00E5A3" />
-            <span>Use Case 05</span>
+          <div className="section-pill" style={{ background: '#DCFCE7', color: '#16A34A', borderColor: '#BBF7D0' }}>
+            <ClipboardList size={15} />
+            <span>How Repairs Work</span>
           </div>
           <h2 className="section-title">
-            AI Maintenance Operations & Closed-Loop Workflow
+            Simple 6-Step Repair & Verification Process
           </h2>
           <p className="section-subtitle">
-            From detection to verified closure. A unified, audit-ready workflow that ensures field repairs are completed to engineering standards.
+            From the moment a camera spots a pothole to the final photo check, every repair is tracked so nothing is forgotten.
           </p>
         </div>
 
-        {/* 7-Step Animated Closed Loop */}
+        {/* 6 Simple Step Cards */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(135px, 1fr))',
-          gap: '12px',
-          marginBottom: '56px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+          gap: '14px',
+          marginBottom: '48px'
         }}>
           {steps.map((s, idx) => (
-            <div key={idx} className="glass-panel bracket-corner" style={{ padding: '16px', textAlign: 'center' }}>
-              <div style={{ fontSize: '24px', marginBottom: '8px' }}>{s.icon}</div>
-              <div style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', color: '#00F0FF' }}>{s.num}</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#FFFFFF', marginTop: '2px' }}>{s.title}</div>
-              <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', marginTop: '2px' }}>{s.sub}</div>
+            <div key={idx} style={{
+              background: s.bg,
+              border: `1.5px solid ${s.color}30`,
+              borderRadius: '16px',
+              padding: '20px',
+              textAlign: 'center'
+            }}>
+              <div style={{ fontSize: '28px', marginBottom: '8px' }}>{s.icon}</div>
+              <div style={{ fontSize: '12px', fontWeight: 800, color: s.color }}>Step {s.num}</div>
+              <div style={{ fontSize: '15px', fontWeight: 800, color: '#0F172A', marginTop: '2px' }}>{s.title}</div>
+              <div style={{ fontSize: '12.5px', color: '#64748B', marginTop: '2px' }}>{s.sub}</div>
             </div>
           ))}
         </div>
 
-        {/* Interactive Work Order Simulator Ticket */}
-        <div className="glass-panel bracket-corner" style={{
-          maxWidth: '920px',
+        {/* Interactive Work Order Ticket */}
+        <div style={{
+          maxWidth: '900px',
           margin: '0 auto',
           padding: '32px',
-          background: 'rgba(8, 16, 28, 0.92)'
+          background: '#F8FAFC',
+          borderRadius: '20px',
+          border: '1.5px solid #E2E8F0',
+          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
         }}>
-          {/* Ticket Header */}
+          {/* Header */}
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -80,93 +84,82 @@ export default function MaintenanceWorkflow() {
             justifyContent: 'space-between',
             gap: '16px',
             marginBottom: '24px',
-            borderBottom: '1px solid rgba(0, 240, 255, 0.2)',
+            borderBottom: '1px solid #E2E8F0',
             paddingBottom: '16px'
           }}>
             <div>
-              <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)' }}>
-                SMART MAINTENANCE WORK ORDER
-              </div>
-              <h3 style={{ fontSize: '22px', color: '#FFFFFF', marginTop: '2px' }}>
+              <span className="badge-blue" style={{ fontSize: '11px' }}>SAMPLE DIGITAL WORK ORDER</span>
+              <h3 style={{ fontSize: '22px', fontWeight: 800, color: '#0F172A', marginTop: '4px' }}>
                 {WORK_ORDER_SAMPLE.id}
               </h3>
             </div>
 
-            {/* Live Status Badge */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span style={{
-                padding: '6px 14px',
-                borderRadius: '6px',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '12px',
-                fontWeight: 700,
-                background: woStatus === 'Closed' ? 'rgba(0, 229, 163, 0.2)' : 'rgba(255, 176, 32, 0.2)',
-                color: woStatus === 'Closed' ? '#00E5A3' : '#FFB020',
-                border: woStatus === 'Closed' ? '1px solid #00E5A3' : '1px solid #FFB020'
-              }}>
-                STATUS: {woStatus.toUpperCase()}
+              <span className={woStatus === 'Closed' ? 'badge-green' : 'badge-yellow'} style={{ fontSize: '13px', padding: '6px 14px' }}>
+                STATUS: {woStatus === 'Closed' ? 'COMPLETED & VERIFIED' : 'REPAIR IN PROGRESS'}
               </span>
 
               {woStatus === 'Closed' && (
                 <button
                   onClick={handleReset}
                   className="btn-secondary"
-                  style={{ padding: '6px 12px', fontSize: '11px', gap: '4px' }}
+                  style={{ padding: '6px 12px', fontSize: '12px', gap: '4px' }}
                 >
-                  <RotateCcw size={12} /> Reset Demo
+                  <RotateCcw size={14} /> Reset
                 </button>
               )}
             </div>
           </div>
 
-          {/* Ticket Details Grid */}
+          {/* Ticket Details */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '16px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gap: '14px',
             marginBottom: '28px'
           }}>
-            <div style={{ padding: '12px', background: 'rgba(6, 11, 19, 0.7)', borderRadius: '6px' }}>
-              <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>TARGET ASSET</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#FFFFFF', marginTop: '2px' }}>{WORK_ORDER_SAMPLE.asset}</div>
+            <div style={{ padding: '14px', background: '#FFFFFF', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+              <div style={{ fontSize: '11px', color: '#64748B', fontWeight: 700 }}>ROAD LOCATION</div>
+              <div style={{ fontSize: '14px', fontWeight: 700, color: '#0F172A', marginTop: '2px' }}>{WORK_ORDER_SAMPLE.asset}</div>
             </div>
 
-            <div style={{ padding: '12px', background: 'rgba(6, 11, 19, 0.7)', borderRadius: '6px' }}>
-              <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>DEFECT TYPE</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#FF3B57', marginTop: '2px' }}>{WORK_ORDER_SAMPLE.defect}</div>
+            <div style={{ padding: '14px', background: '#FFFFFF', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+              <div style={{ fontSize: '11px', color: '#64748B', fontWeight: 700 }}>ISSUE TYPE</div>
+              <div style={{ fontSize: '14px', fontWeight: 700, color: '#E11D48', marginTop: '2px' }}>{WORK_ORDER_SAMPLE.defect}</div>
             </div>
 
-            <div style={{ padding: '12px', background: 'rgba(6, 11, 19, 0.7)', borderRadius: '6px' }}>
-              <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>ASSIGNED CONTRACTOR</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#00F0FF', marginTop: '2px' }}>{WORK_ORDER_SAMPLE.contractor}</div>
+            <div style={{ padding: '14px', background: '#FFFFFF', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+              <div style={{ fontSize: '11px', color: '#64748B', fontWeight: 700 }}>ASSIGNED TEAM</div>
+              <div style={{ fontSize: '14px', fontWeight: 700, color: '#2563EB', marginTop: '2px' }}>{WORK_ORDER_SAMPLE.contractor}</div>
             </div>
 
-            <div style={{ padding: '12px', background: 'rgba(6, 11, 19, 0.7)', borderRadius: '6px' }}>
-              <div style={{ fontSize: '10.5px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>SLA TARGET TIMELINE</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#00E5A3', marginTop: '2px' }}>{WORK_ORDER_SAMPLE.turnaroundTime}</div>
+            <div style={{ padding: '14px', background: '#FFFFFF', borderRadius: '10px', border: '1px solid #E2E8F0' }}>
+              <div style={{ fontSize: '11px', color: '#64748B', fontWeight: 700 }}>TARGET FIX TIME</div>
+              <div style={{ fontSize: '14px', fontWeight: 700, color: '#16A34A', marginTop: '2px' }}>{WORK_ORDER_SAMPLE.turnaroundTime}</div>
             </div>
           </div>
 
-          {/* Before & After Image Comparison Simulation */}
+          {/* Before & After Photo Check Box */}
           <div style={{
-            background: 'rgba(4, 8, 16, 0.95)',
-            border: '1px solid rgba(0, 240, 255, 0.15)',
-            borderRadius: '8px',
-            padding: '20px',
+            background: '#FFFFFF',
+            border: '1.5px solid #E2E8F0',
+            borderRadius: '14px',
+            padding: '24px',
             marginBottom: '24px'
           }}>
             <div style={{
-              fontSize: '11px',
-              fontFamily: 'var(--font-mono)',
-              color: '#00F0FF',
-              fontWeight: 600,
-              marginBottom: '14px',
+              fontSize: '13px',
+              fontWeight: 700,
+              color: '#0F172A',
+              marginBottom: '16px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between'
             }}>
-              <span>AI REPAIR AUDIT & VERIFICATION ENGINE</span>
-              <span>{woStatus === 'Closed' ? 'VERIFICATION PASSED' : 'PENDING FIELD PHOTO AUDIT'}</span>
+              <span>Before & After Photo Quality Check:</span>
+              <span className={woStatus === 'Closed' ? 'badge-green' : 'badge-yellow'}>
+                {woStatus === 'Closed' ? '✓ Repair Verified 100%' : 'Awaiting Finished Photo'}
+              </span>
             </div>
 
             <div style={{
@@ -174,135 +167,104 @@ export default function MaintenanceWorkflow() {
               gridTemplateColumns: '1fr 1fr',
               gap: '16px'
             }}>
-              {/* Before Card */}
+              {/* Before */}
               <div style={{
                 position: 'relative',
                 height: '160px',
-                background: '#141E2D',
-                borderRadius: '6px',
-                border: '1px solid #FF3B57',
+                background: '#F1F5F9',
+                borderRadius: '10px',
+                border: '2px solid #E11D48',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                overflow: 'hidden'
+                justifyContent: 'center'
               }}>
-                <svg width="100%" height="100%">
-                  <rect width="100%" height="100%" fill="#141E2D" />
-                  <ellipse cx="50%" cy="50%" rx="44" ry="28" fill="#0A0F18" stroke="#FF3B57" strokeWidth="2" />
-                  <text x="50%" y="54%" textAnchor="middle" fill="#FF3B57" fontSize="11" fontFamily="var(--font-mono)">
-                    POTHOLE 0.8m × 0.6m
-                  </text>
-                </svg>
-                <div style={{
-                  position: 'absolute',
-                  top: '8px',
-                  left: '8px',
-                  background: 'rgba(255, 59, 87, 0.85)',
-                  color: '#FFFFFF',
-                  fontSize: '9.5px',
-                  fontFamily: 'var(--font-mono)',
-                  padding: '2px 6px',
-                  borderRadius: '2px',
-                  fontWeight: 700
-                }}>
-                  BEFORE (AI DETECTED)
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{
+                    width: '70px',
+                    height: '40px',
+                    background: '#E2E8F0',
+                    border: '2px solid #E11D48',
+                    borderRadius: '50%',
+                    margin: '0 auto 8px'
+                  }}></div>
+                  <div style={{ fontSize: '13px', fontWeight: 800, color: '#E11D48' }}>Before: Pothole Found</div>
+                  <div style={{ fontSize: '11.5px', color: '#64748B' }}>2.5 ft wide • 2 in deep</div>
                 </div>
               </div>
 
-              {/* After Card */}
+              {/* After */}
               <div style={{
                 position: 'relative',
                 height: '160px',
-                background: woStatus === 'Closed' ? '#142820' : '#101724',
-                borderRadius: '6px',
-                border: woStatus === 'Closed' ? '1.5px solid #00E5A3' : '1px dashed rgba(255, 255, 255, 0.2)',
+                background: woStatus === 'Closed' ? '#F0FDF4' : '#F8FAFC',
+                borderRadius: '10px',
+                border: woStatus === 'Closed' ? '2.5px solid #16A34A' : '1.5px dashed #CBD5E1',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                overflow: 'hidden'
+                justifyContent: 'center'
               }}>
                 {woStatus === 'Closed' ? (
-                  <svg width="100%" height="100%">
-                    <rect width="100%" height="100%" fill="#132B20" />
-                    <ellipse cx="50%" cy="50%" rx="48" ry="32" fill="#1B3A2C" stroke="#00E5A3" strokeWidth="2" />
-                    <text x="50%" y="54%" textAnchor="middle" fill="#00E5A3" fontSize="11" fontFamily="var(--font-mono)">
-                      REPAIR VERIFIED (95% MATCH)
-                    </text>
-                  </svg>
+                  <div style={{ textAlign: 'center' }}>
+                    <div style={{
+                      width: '70px',
+                      height: '40px',
+                      background: '#BBF7D0',
+                      border: '2px solid #16A34A',
+                      borderRadius: '8px',
+                      margin: '0 auto 8px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: '#15803D',
+                      fontWeight: 800
+                    }}>
+                      ✓ FLAT
+                    </div>
+                    <div style={{ fontSize: '13px', fontWeight: 800, color: '#16A34A' }}>After: Filled Smoothly</div>
+                    <div style={{ fontSize: '11.5px', color: '#64748B' }}>100% Level Asphalt</div>
+                  </div>
                 ) : (
-                  <div style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
-                    <Eye size={24} style={{ margin: '0 auto 6px' }} />
-                    <div style={{ fontSize: '11px', fontFamily: 'var(--font-mono)' }}>Awaiting Repair Photo Upload</div>
+                  <div style={{ textAlign: 'center', color: '#64748B' }}>
+                    <Camera size={28} style={{ margin: '0 auto 6px', color: '#94A3B8' }} />
+                    <div style={{ fontSize: '12.5px', fontWeight: 600 }}>Click button below to simulate fix</div>
                   </div>
                 )}
-
-                <div style={{
-                  position: 'absolute',
-                  top: '8px',
-                  left: '8px',
-                  background: woStatus === 'Closed' ? 'rgba(0, 229, 163, 0.9)' : 'rgba(100, 116, 139, 0.8)',
-                  color: '#060B13',
-                  fontSize: '9.5px',
-                  fontFamily: 'var(--font-mono)',
-                  padding: '2px 6px',
-                  borderRadius: '2px',
-                  fontWeight: 700
-                }}>
-                  AFTER (POST-REPAIR)
-                </div>
               </div>
             </div>
 
             {woStatus === 'Closed' && (
               <div style={{
                 marginTop: '16px',
-                padding: '12px',
-                borderRadius: '6px',
-                background: 'rgba(0, 229, 163, 0.1)',
-                border: '1px solid rgba(0, 229, 163, 0.3)',
-                fontSize: '12px',
-                color: '#CBD5E1',
-                lineHeight: 1.5
+                padding: '12px 16px',
+                borderRadius: '8px',
+                background: '#F0FDF4',
+                border: '1px solid #BBF7D0',
+                fontSize: '13.5px',
+                color: '#15803D',
+                fontWeight: 500
               }}>
-                <strong style={{ color: '#00E5A3' }}>Audit Verified:</strong> {WORK_ORDER_SAMPLE.aiVerificationText}
+                <strong>Quality Check Passed:</strong> {WORK_ORDER_SAMPLE.aiVerificationText}
               </div>
             )}
           </div>
 
-          {/* Interactive Trigger Buttons */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '12px' }}>
-            {woStatus !== 'Closed' && (
+          {/* Trigger Button */}
+          <div>
+            {woStatus !== 'Closed' ? (
               <button
                 onClick={handleSimulateVerification}
-                disabled={isVerifying}
                 className="btn-primary"
-                style={{ flex: 1, padding: '12px', fontSize: '13px' }}
+                style={{ width: '100%', padding: '14px', fontSize: '15px' }}
                 id="verify-repair-btn"
               >
-                {isVerifying ? (
-                  <span>Running AI Vision Verification Scan...</span>
-                ) : (
-                  <>
-                    <ShieldCheck size={16} />
-                    <span>Simulate Field Repair Verification by AI</span>
-                  </>
-                )}
+                <ThumbsUp size={18} />
+                <span>Simulate Worker Uploading Finished Photo (Verify Quality)</span>
               </button>
+            ) : (
+              <div style={{ textAlign: 'center', color: '#16A34A', fontWeight: 700, fontSize: '14px' }}>
+                ✓ Work Order Closed & Saved to Audit Record
+              </div>
             )}
-
-            <button
-              className="btn-secondary"
-              style={{ padding: '12px 20px', fontSize: '13px' }}
-            >
-              Export Inspection BOQ
-            </button>
-
-            <button
-              className="btn-secondary"
-              style={{ padding: '12px 20px', fontSize: '13px' }}
-            >
-              Dispatch to Mobile App
-            </button>
           </div>
         </div>
       </div>

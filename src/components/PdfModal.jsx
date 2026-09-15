@@ -20,9 +20,8 @@ export default function PdfModal({ isOpen, onClose }) {
       left: 0,
       width: '100vw',
       height: '100vh',
-      background: 'rgba(4, 8, 16, 0.98)',
-      backdropFilter: 'blur(20px)',
-      WebkitBackdropFilter: 'blur(20px)',
+      background: 'rgba(15, 23, 42, 0.75)',
+      backdropFilter: 'blur(8px)',
       zIndex: 10000,
       display: 'flex',
       flexDirection: 'column',
@@ -31,8 +30,8 @@ export default function PdfModal({ isOpen, onClose }) {
       {/* Modal Header */}
       <div style={{
         height: '64px',
-        background: '#060B13',
-        borderBottom: '1px solid rgba(0, 240, 255, 0.3)',
+        background: '#FFFFFF',
+        borderBottom: '1.5px solid #E2E8F0',
         padding: '0 24px',
         display: 'flex',
         alignItems: 'center',
@@ -41,23 +40,23 @@ export default function PdfModal({ isOpen, onClose }) {
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
           <div style={{
-            width: '34px',
-            height: '34px',
-            borderRadius: '6px',
-            background: 'rgba(0, 240, 255, 0.15)',
-            border: '1px solid #00F0FF',
+            width: '36px',
+            height: '36px',
+            borderRadius: '8px',
+            background: '#EFF6FF',
+            border: '1px solid #BFDBFE',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center'
           }}>
-            <FileText size={18} color="#00F0FF" />
+            <FileText size={20} color="#2563EB" />
           </div>
           <div>
-            <div style={{ fontSize: '15px', fontWeight: 700, color: '#FFFFFF' }}>
-              Rodic Challenge.pdf — Solution Architecture & Pitch
+            <div style={{ fontSize: '16px', fontWeight: 800, color: '#0F172A' }}>
+              Official Presentation Slides
             </div>
-            <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
-              Infranite Globaltech (IGT) • 14 Slides • Authentic Submission Document
+            <div style={{ fontSize: '12px', color: '#64748B' }}>
+              Infranite Globaltech (IGT) • 14 Slides
             </div>
           </div>
         </div>
@@ -65,48 +64,46 @@ export default function PdfModal({ isOpen, onClose }) {
         {/* Center Mode Switcher */}
         <div style={{
           display: 'flex',
-          background: 'rgba(10, 20, 36, 0.8)',
-          borderRadius: '6px',
+          background: '#F1F5F9',
+          borderRadius: '8px',
           padding: '3px',
-          border: '1px solid rgba(0, 240, 255, 0.2)'
+          border: '1px solid #CBD5E1'
         }}>
           <button
             onClick={() => setViewMode('slides')}
             style={{
               padding: '6px 14px',
-              borderRadius: '4px',
-              fontSize: '12px',
-              fontFamily: 'var(--font-mono)',
-              fontWeight: 600,
-              background: viewMode === 'slides' ? 'rgba(0, 240, 255, 0.2)' : 'transparent',
-              color: viewMode === 'slides' ? '#00F0FF' : 'var(--text-secondary)',
-              border: viewMode === 'slides' ? '1px solid #00F0FF' : 'none',
+              borderRadius: '6px',
+              fontSize: '13px',
+              fontWeight: 700,
+              background: viewMode === 'slides' ? '#2563EB' : 'transparent',
+              color: viewMode === 'slides' ? '#FFFFFF' : '#475569',
+              border: 'none',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '6px'
             }}
           >
-            <Layers size={13} /> High-Res Slides ({currentSlide + 1}/14)
+            <Layers size={14} /> Slides ({currentSlide + 1}/14)
           </button>
           <button
             onClick={() => setViewMode('embed')}
             style={{
               padding: '6px 14px',
-              borderRadius: '4px',
-              fontSize: '12px',
-              fontFamily: 'var(--font-mono)',
-              fontWeight: 600,
-              background: viewMode === 'embed' ? 'rgba(0, 240, 255, 0.2)' : 'transparent',
-              color: viewMode === 'embed' ? '#00F0FF' : 'var(--text-secondary)',
-              border: viewMode === 'embed' ? '1px solid #00F0FF' : 'none',
+              borderRadius: '6px',
+              fontSize: '13px',
+              fontWeight: 700,
+              background: viewMode === 'embed' ? '#2563EB' : 'transparent',
+              color: viewMode === 'embed' ? '#FFFFFF' : '#475569',
+              border: 'none',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '6px'
             }}
           >
-            <Layout size={13} /> Native PDF Frame
+            <Layout size={14} /> Full PDF Frame
           </button>
         </div>
 
@@ -116,36 +113,25 @@ export default function PdfModal({ isOpen, onClose }) {
             href="/Rodic-Challenge.pdf"
             download="Rodic-Challenge-InfraSightAI.pdf"
             className="btn-secondary"
-            style={{ padding: '6px 14px', fontSize: '12px' }}
+            style={{ padding: '6px 14px', fontSize: '13px' }}
           >
             <Download size={14} /> Download PDF
-          </a>
-
-          <a
-            href="/Rodic-Challenge.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary"
-            style={{ padding: '6px 14px', fontSize: '12px' }}
-          >
-            <ExternalLink size={14} /> New Tab
           </a>
 
           <button
             onClick={onClose}
             style={{
               padding: '6px 14px',
-              borderRadius: '6px',
-              background: 'rgba(255, 59, 87, 0.15)',
-              border: '1px solid rgba(255, 59, 87, 0.4)',
-              color: '#FF3B57',
+              borderRadius: '8px',
+              background: '#FFE4E6',
+              border: '1px solid #FECDD3',
+              color: '#BE123C',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               gap: '4px',
-              fontSize: '12px',
-              fontFamily: 'var(--font-mono)',
-              fontWeight: 600
+              fontSize: '13px',
+              fontWeight: 700
             }}
             id="close-pdf-modal-btn"
           >
@@ -155,7 +141,7 @@ export default function PdfModal({ isOpen, onClose }) {
       </div>
 
       {/* Main Viewer Body */}
-      <div style={{ flex: 1, position: 'relative', background: '#040810', overflow: 'hidden' }}>
+      <div style={{ flex: 1, position: 'relative', background: '#F8FAFC', overflow: 'hidden' }}>
         {viewMode === 'slides' ? (
           <div style={{
             width: '100%',
@@ -166,25 +152,20 @@ export default function PdfModal({ isOpen, onClose }) {
             justifyContent: 'space-between',
             padding: '20px'
           }}>
-            {/* Slide Navigation Header */}
+            {/* Header */}
             <div style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
               width: '100%',
-              maxWidth: '1200px',
+              maxWidth: '1100px',
               marginBottom: '10px'
             }}>
               <div>
-                <span style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '12px',
-                  color: '#00F0FF',
-                  fontWeight: 700
-                }}>
-                  SLIDE {activeSlide.page} OF 14:
+                <span className="badge-blue" style={{ fontSize: '12px' }}>
+                  SLIDE {activeSlide.page} OF 14
                 </span>
-                <span style={{ fontSize: '15px', fontWeight: 600, color: '#FFFFFF', marginLeft: '8px' }}>
+                <span style={{ fontSize: '16px', fontWeight: 800, color: '#0F172A', marginLeft: '10px' }}>
                   {activeSlide.title}
                 </span>
               </div>
@@ -193,35 +174,34 @@ export default function PdfModal({ isOpen, onClose }) {
                 <button
                   onClick={prevSlide}
                   className="btn-secondary"
-                  style={{ padding: '6px 14px', fontSize: '12px' }}
+                  style={{ padding: '6px 14px', fontSize: '13px' }}
                 >
-                  <ChevronLeft size={16} /> Previous Slide
+                  <ChevronLeft size={16} /> Prev Slide
                 </button>
                 <button
                   onClick={nextSlide}
                   className="btn-primary"
-                  style={{ padding: '6px 14px', fontSize: '12px' }}
+                  style={{ padding: '6px 14px', fontSize: '13px' }}
                 >
                   Next Slide <ChevronRight size={16} />
                 </button>
               </div>
             </div>
 
-            {/* Slide High-Res Image Container */}
+            {/* Slide Image Container */}
             <div style={{
               flex: 1,
               width: '100%',
-              maxWidth: '1200px',
-              maxHeight: 'calc(100vh - 190px)',
-              background: '#060B13',
-              borderRadius: '8px',
-              border: '1px solid rgba(0, 240, 255, 0.25)',
-              boxShadow: '0 0 40px rgba(0, 0, 0, 0.6)',
+              maxWidth: '1100px',
+              maxHeight: 'calc(100vh - 200px)',
+              background: '#FFFFFF',
+              borderRadius: '12px',
+              border: '1.5px solid #CBD5E1',
+              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.08)',
               overflow: 'hidden',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center',
-              position: 'relative'
+              justifyContent: 'center'
             }}>
               <img
                 src={activeSlide.img}
@@ -235,12 +215,12 @@ export default function PdfModal({ isOpen, onClose }) {
               />
             </div>
 
-            {/* Slide Thumbnails Rail */}
+            {/* Thumbnails */}
             <div style={{
               display: 'flex',
               gap: '6px',
               overflowX: 'auto',
-              maxWidth: '1200px',
+              maxWidth: '1100px',
               width: '100%',
               paddingTop: '12px',
               justifyContent: 'center'
@@ -250,14 +230,14 @@ export default function PdfModal({ isOpen, onClose }) {
                   key={s.page}
                   onClick={() => setCurrentSlide(idx)}
                   style={{
-                    padding: '4px 10px',
-                    borderRadius: '4px',
-                    fontSize: '11px',
-                    fontFamily: 'var(--font-mono)',
-                    fontWeight: 600,
-                    background: currentSlide === idx ? '#00F0FF' : 'rgba(255, 255, 255, 0.05)',
-                    color: currentSlide === idx ? '#060B13' : 'var(--text-secondary)',
-                    border: currentSlide === idx ? '1px solid #00F0FF' : '1px solid transparent',
+                    width: '32px',
+                    height: '32px',
+                    borderRadius: '6px',
+                    fontSize: '12px',
+                    fontWeight: 700,
+                    background: currentSlide === idx ? '#2563EB' : '#FFFFFF',
+                    color: currentSlide === idx ? '#FFFFFF' : '#475569',
+                    border: currentSlide === idx ? '1px solid #2563EB' : '1px solid #CBD5E1',
                     cursor: 'pointer'
                   }}
                 >
@@ -269,7 +249,7 @@ export default function PdfModal({ isOpen, onClose }) {
         ) : (
           <iframe
             src="/Rodic-Challenge.pdf#toolbar=1&navpanes=0&scrollbar=1"
-            title="Rodic Challenge PDF Document"
+            title="Presentation PDF"
             style={{
               width: '100%',
               height: '100%',

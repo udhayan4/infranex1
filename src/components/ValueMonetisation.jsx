@@ -1,49 +1,54 @@
 import React from 'react';
-import { DollarSign, Wifi, BatteryCharging, Tv, ShoppingBag, Eye, TrendingUp, Sparkles } from 'lucide-react';
+import { DollarSign, Wifi, BatteryCharging, Tv, ShoppingBag, Eye, TrendingUp, Sparkles, Sun } from 'lucide-react';
 import { MONETISATION_OPPORTUNITIES } from '../data/mockData';
 
 export default function ValueMonetisation() {
   const pillars = [
     {
-      step: "SEE",
-      title: "Real-Time Visibility",
-      desc: "Continuous optical and structural monitoring across every kilometer of the corridor."
+      num: "1",
+      title: "Spot Road Issues Early",
+      color: "#2563EB",
+      bg: "#EFF6FF",
+      desc: "Catching small surface cracks before they turn into deep potholes saves cities millions of rupees."
     },
     {
-      step: "OPTIMISE",
-      title: "Lower Lifecycle Costs",
-      desc: "Preventive micro-repairs that halt subbase water degradation and extend bridge deck life."
+      num: "2",
+      title: "Lower Long-Term Repair Costs",
+      color: "#16A34A",
+      bg: "#F0FDF4",
+      desc: "Preventive care extends highway life by over 5 years and keeps road traffic moving smoothly."
     },
     {
-      step: "MONETISE",
-      title: "New Public Revenue",
-      desc: "Transforming passive highway right-of-way assets into self-funding digital smart poles & hubs."
+      num: "3",
+      title: "Add Smart Public Amenities",
+      color: "#D97706",
+      bg: "#FEF3C7",
+      desc: "Adding EV chargers, solar light poles, and public mobile connectivity to highway corridors."
     }
   ];
 
   return (
     <section id="monetisation" className="section-wrapper" style={{
-      background: '#060B13',
-      position: 'relative'
+      background: '#FFFFFF',
+      borderTop: '1px solid #E2E8F0',
+      borderBottom: '1px solid #E2E8F0'
     }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">
-            <DollarSign size={12} color="#00E5A3" />
-            <span>Infrastructure Value (Slide 10)</span>
+          <div className="section-pill" style={{ background: '#DCFCE7', color: '#16A34A', borderColor: '#BBF7D0' }}>
+            <Sun size={15} />
+            <span>Smart Highway Amenities</span>
           </div>
           <h2 className="section-title">
-            From Infrastructure Management <br />
-            <span style={{ color: '#00E5A3' }}>to Infrastructure Value.</span>
+            Smart Ways Roads Can Create Value for Travelers
           </h2>
           <p className="section-subtitle">
-            "Same Infrastructure. Greater Possibilities."
-            Beyond preventing failures, InfraSight AI enables highway agencies and Rodic to turn public infrastructure into a safer, smarter, and self-sustaining commercial ecosystem.
+            Beyond fixing potholes, highways can host EV charging stations, solar lighting, and public mobile connectivity.
           </p>
         </div>
 
-        {/* 3 Pillars: See, Optimise, Monetise */}
+        {/* 3 Value Pillars */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
@@ -51,124 +56,102 @@ export default function ValueMonetisation() {
           marginBottom: '48px'
         }}>
           {pillars.map((p, idx) => (
-            <div key={idx} className="glass-panel bracket-corner" style={{ padding: '24px' }}>
+            <div key={idx} style={{
+              background: p.bg,
+              border: `1.5px solid ${p.color}40`,
+              borderRadius: '16px',
+              padding: '24px'
+            }}>
               <div style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                color: idx === 2 ? '#00E5A3' : '#00F0FF',
-                fontWeight: 700,
-                letterSpacing: '0.1em',
-                marginBottom: '6px'
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                background: p.color,
+                color: '#FFFFFF',
+                fontWeight: 800,
+                fontSize: '14px',
+                marginBottom: '12px'
               }}>
-                PILLAR 0{idx + 1} // {p.step}
+                {p.num}
               </div>
-              <h3 style={{ fontSize: '18px', color: '#FFFFFF', marginBottom: '8px' }}>{p.title}</h3>
-              <p style={{ fontSize: '13px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>{p.desc}</p>
+              <h3 style={{ fontSize: '18px', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
+                {p.title}
+              </h3>
+              <p style={{ fontSize: '14px', color: '#475569', lineHeight: 1.5, margin: 0 }}>
+                {p.desc}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Illustrative Commercial Dashboard Callout */}
-        <div className="glass-panel bracket-corner" style={{
-          padding: '32px',
-          background: 'rgba(8, 16, 28, 0.9)',
-          border: '1px solid rgba(0, 229, 163, 0.25)',
-          marginBottom: '48px'
+        {/* Opportunities Box */}
+        <div style={{
+          background: '#F8FAFC',
+          borderRadius: '20px',
+          border: '1.5px solid #E2E8F0',
+          padding: '32px'
         }}>
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '16px',
-            marginBottom: '28px',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            gap: '12px',
+            marginBottom: '24px',
+            borderBottom: '1px solid #E2E8F0',
             paddingBottom: '16px'
           }}>
             <div>
-              <div style={{ fontSize: '18px', fontWeight: 700, color: '#FFFFFF' }}>
-                Right-of-Way (RoW) Commercialisation Potential
-              </div>
-              <div style={{ fontSize: '12.5px', color: 'var(--text-secondary)' }}>
-                Monetisable assets across highway corridors, bus shelters, and viaduct pillars
-              </div>
+              <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#0F172A' }}>
+                Connected Highway Opportunities
+              </h3>
+              <p style={{ fontSize: '14px', color: '#64748B', margin: 0 }}>
+                Useful services that make travel easier and generate revenue for public infrastructure:
+              </p>
             </div>
 
-            <span style={{
-              fontSize: '11px',
-              fontFamily: 'var(--font-mono)',
-              padding: '4px 10px',
-              borderRadius: '4px',
-              background: 'rgba(0, 229, 163, 0.15)',
-              color: '#00E5A3',
-              border: '1px solid rgba(0, 229, 163, 0.3)'
-            }}>
-              Illustrative Financial Model (Slide 10)
+            <span className="badge-green">
+              Self-Sustaining Infrastructure
             </span>
           </div>
 
-          {/* Revenue HUD Metrics */}
+          {/* 4 Opportunity Cards */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '16px',
-            marginBottom: '32px'
-          }}>
-            <div style={{ padding: '16px', background: 'rgba(6, 11, 19, 0.8)', borderRadius: '8px' }}>
-              <div style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>POTENTIAL ANNUAL VALUE</div>
-              <div style={{ fontSize: '2rem', fontWeight: 800, color: '#00E5A3', marginTop: '4px' }}>₹42 Cr</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Modelled across multi-corridors</div>
-            </div>
-
-            <div style={{ padding: '16px', background: 'rgba(6, 11, 19, 0.8)', borderRadius: '8px' }}>
-              <div style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>MONETISABLE ASSETS</div>
-              <div style={{ fontSize: '2rem', fontWeight: 800, color: '#FFFFFF', marginTop: '4px' }}>1,284</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Poles, shelters & gantries</div>
-            </div>
-
-            <div style={{ padding: '16px', background: 'rgba(6, 11, 19, 0.8)', borderRadius: '8px' }}>
-              <div style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>ACTIVE CONTRACTS</div>
-              <div style={{ fontSize: '2rem', fontWeight: 800, color: '#00F0FF', marginTop: '4px' }}>312</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Telecom, DOOH & EV leases</div>
-            </div>
-
-            <div style={{ padding: '16px', background: 'rgba(6, 11, 19, 0.8)', borderRadius: '8px' }}>
-              <div style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>ASSET UTILISATION</div>
-              <div style={{ fontSize: '2rem', fontWeight: 800, color: '#E2E8F0', marginTop: '4px' }}>87%</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>High yield operational density</div>
-            </div>
-          </div>
-
-          {/* Opportunities Catalog */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '16px'
           }}>
-            {MONETISATION_OPPORTUNITIES.map((opp, idx) => (
-              <div key={idx} style={{
-                padding: '16px',
-                borderRadius: '8px',
-                background: 'rgba(6, 11, 19, 0.7)',
-                border: '1px solid rgba(255, 255, 255, 0.08)'
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-                  <span style={{ fontSize: '13.5px', fontWeight: 600, color: '#FFFFFF' }}>{opp.title}</span>
-                </div>
-                <div style={{
-                  fontSize: '12px',
-                  fontFamily: 'var(--font-mono)',
-                  color: '#00E5A3',
-                  fontWeight: 600,
-                  marginBottom: '8px'
+            {MONETISATION_OPPORTUNITIES.map((opp, idx) => {
+              const icons = ["📡", "🚏", "⚡", "🌤️"];
+              return (
+                <div key={idx} style={{
+                  padding: '20px',
+                  borderRadius: '14px',
+                  background: '#FFFFFF',
+                  border: '1.5px solid #E2E8F0',
+                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
                 }}>
-                  {opp.yield}
+                  <div style={{ fontSize: '28px', marginBottom: '8px' }}>{icons[idx]}</div>
+                  <div style={{ fontSize: '16px', fontWeight: 800, color: '#0F172A', marginBottom: '4px' }}>
+                    {opp.title}
+                  </div>
+                  <div style={{
+                    fontSize: '13px',
+                    fontWeight: 700,
+                    color: '#16A34A',
+                    marginBottom: '8px'
+                  }}>
+                    {opp.yield}
+                  </div>
+                  <div style={{ fontSize: '13.5px', color: '#64748B', lineHeight: 1.5 }}>
+                    {opp.potential}
+                  </div>
                 </div>
-                <div style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>
-                  {opp.potential}
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

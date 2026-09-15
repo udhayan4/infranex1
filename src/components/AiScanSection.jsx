@@ -1,122 +1,94 @@
-import React, { useState, useEffect } from 'react';
-import { Scan, Eye, Cpu, AlertTriangle, CheckCircle, ArrowRight, Play, Pause } from 'lucide-react';
+import React, { useState } from 'react';
+import { Camera, CheckCircle2, ArrowRight, Eye, Sparkles } from 'lucide-react';
 
 export default function AiScanSection() {
-  const [sliderPos, setSliderPos] = useState(55);
-  const [isAutoScanning, setIsAutoScanning] = useState(true);
+  const [sliderPos, setSliderPos] = useState(50);
 
-  // Auto-scan sweep animation
-  useEffect(() => {
-    if (!isAutoScanning) return;
-    let direction = 1;
-    const interval = setInterval(() => {
-      setSliderPos((prev) => {
-        if (prev >= 92) direction = -1;
-        if (prev <= 12) direction = 1;
-        return prev + direction * 0.6;
-      });
-    }, 24);
-    return () => clearInterval(interval);
-  }, [isAutoScanning]);
+  const steps = [
+    { num: "Step 1", title: "Take Photo / Video", sub: "Car drives at normal speed", color: "#2563EB", bg: "#EFF6FF" },
+    { num: "Step 2", title: "Spot Problem", sub: "Instantly finds potholes", color: "#16A34A", bg: "#F0FDF4" },
+    { num: "Step 3", title: "Measure Size", sub: "Calculates depth & width", color: "#D97706", bg: "#FEF3C7" },
+    { num: "Step 4", title: "Rank Urgency", sub: "Marks high priority", color: "#E11D48", bg: "#FFE4E6" },
+    { num: "Step 5", title: "Send Repair Team", sub: "Repair order dispatched", color: "#7C3AED", bg: "#FAF5FF" }
+  ];
 
   return (
     <section id="ai-scan" className="section-wrapper" style={{
-      background: '#060B13',
-      position: 'relative',
-      overflow: 'hidden'
+      background: '#FFFFFF',
+      borderTop: '1px solid #E2E8F0',
+      borderBottom: '1px solid #E2E8F0'
     }}>
       <div className="container">
-        {/* Header */}
+        {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">
-            <Scan size={12} color="#00F0FF" />
-            <span>Signature Interaction</span>
+          <div className="section-pill" style={{ background: '#DCFCE7', color: '#16A34A', borderColor: '#BBF7D0' }}>
+            <Camera size={15} />
+            <span>Interactive Demo</span>
           </div>
           <h2 className="section-title">
-            The AI Computer Vision Scan
+            See How We Spot Potholes & Cracks Automatically
           </h2>
           <p className="section-subtitle">
-            From raw camera frames to micro-millimeter defect detection, depth assessment, and instant work-order dispatch.
-            Drag the cyan beam or watch the live neural sweep.
+            Move the slider below from left to right. See how normal road video turns into clear, labeled alerts with exact hole measurements.
           </p>
         </div>
 
         {/* Scanner Container */}
-        <div className="glass-panel bracket-corner" style={{
-          padding: '24px',
-          maxWidth: '1040px',
-          margin: '0 auto',
-          background: 'rgba(8, 16, 28, 0.85)'
+        <div style={{
+          background: '#F8FAFC',
+          borderRadius: '20px',
+          border: '1.5px solid #E2E8F0',
+          padding: '28px',
+          maxWidth: '960px',
+          margin: '0 auto 48px',
+          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
         }}>
-          {/* Top Telemetry Header */}
+          {/* Header Bar */}
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '12px',
-            marginBottom: '16px',
-            paddingBottom: '14px',
-            borderBottom: '1px solid rgba(0, 240, 255, 0.15)',
-            fontFamily: 'var(--font-mono)',
-            fontSize: '12px'
+            marginBottom: '20px',
+            borderBottom: '1px solid #E2E8F0',
+            paddingBottom: '14px'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span className="status-dot cyan"></span>
-              <span style={{ color: '#00F0FF', fontWeight: 600 }}>FEED: NH-48_KM124.3_LANE1.RAW</span>
-              <span style={{ color: 'var(--text-muted)' }}>[80 KM/H MOBILE SCAN]</span>
+              <span className="badge-blue">Highway NH-48 Camera View</span>
+              <span style={{ fontSize: '13px', color: '#64748B' }}>Mile 124.3 (Pune Road)</span>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-              <span style={{ color: 'var(--text-secondary)' }}>SCAN OFFSET: {Math.round(sliderPos)}%</span>
-              <button
-                onClick={() => setIsAutoScanning(!isAutoScanning)}
-                className="btn-secondary"
-                style={{ padding: '4px 12px', fontSize: '11px', gap: '6px' }}
-              >
-                {isAutoScanning ? <Pause size={12} /> : <Play size={12} />}
-                <span>{isAutoScanning ? 'Pause Auto' : 'Resume Auto'}</span>
-              </button>
+            <div style={{ fontSize: '13px', fontWeight: 600, color: '#2563EB' }}>
+              Slide to Compare &larr; &rarr;
             </div>
           </div>
 
           {/* Interactive Visual Comparison Stage */}
           <div style={{
             position: 'relative',
-            height: '420px',
-            borderRadius: '10px',
+            height: '380px',
+            borderRadius: '14px',
             overflow: 'hidden',
-            border: '1px solid rgba(0, 240, 255, 0.25)',
-            background: '#040810',
+            border: '2px solid #CBD5E1',
+            background: '#334155',
             userSelect: 'none'
           }}>
-            {/* Background Simulated Asphalt Road Canvas */}
+            {/* Background Simulated Asphalt Road */}
             <svg width="100%" height="100%" style={{ position: 'absolute', top: 0, left: 0 }}>
-              <defs>
-                <pattern id="asphalt-texture" width="100" height="100" patternUnits="userSpaceOnUse">
-                  <rect width="100" height="100" fill="#141E2D" />
-                  <circle cx="20" cy="30" r="1.5" fill="#253245" />
-                  <circle cx="70" cy="65" r="2" fill="#253245" />
-                  <circle cx="45" cy="85" r="1.2" fill="#202D40" />
-                  <circle cx="85" cy="20" r="1" fill="#202D40" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#asphalt-texture)" />
+              <rect width="100%" height="100%" fill="#475569" />
+              {/* White dashed center line */}
+              <line x1="0" y1="50%" x2="100%" y2="50%" stroke="#FFFFFF" strokeWidth="6" strokeDasharray="35 25" />
+              {/* Yellow side line */}
+              <line x1="0" y1="88%" x2="100%" y2="88%" stroke="#FBBF24" strokeWidth="4" />
 
-              {/* Road markings */}
-              <line x1="0" y1="50%" x2="100%" y2="50%" stroke="rgba(255, 255, 255, 0.15)" strokeWidth="6" strokeDasharray="40 30" />
-              <line x1="0" y1="90%" x2="100%" y2="90%" stroke="#FFB020" strokeWidth="4" />
-
-              {/* Defect 1: Pothole at center-left */}
-              <ellipse cx="38%" cy="58%" rx="52" ry="34" fill="#0A0F18" stroke="#1E2A3A" strokeWidth="3" />
-              {/* Internal cracks */}
-              <path d="M 36% 56% Q 38% 60% 41% 62% T 43% 66%" stroke="#16202C" strokeWidth="2" fill="none" />
-
-              {/* Defect 2: Longitudinal crack at right */}
-              <path d="M 68% 25% Q 72% 45% 70% 65% T 74% 85%" stroke="#0F1722" strokeWidth="3.5" fill="none" />
+              {/* Defect 1: Pothole */}
+              <ellipse cx="36%" cy="60%" rx="48" ry="30" fill="#1E293B" stroke="#0F172A" strokeWidth="3" />
+              {/* Defect 2: Road Crack */}
+              <path d="M 68% 25% Q 72% 45% 70% 65% T 74% 85%" stroke="#1E293B" strokeWidth="4" fill="none" />
             </svg>
 
-            {/* AI Augmented Neural Layer (Revealed to the left of the slider) */}
+            {/* AI Highlight Layer (Revealed on Left Side of Slider) */}
             <div style={{
               position: 'absolute',
               top: 0,
@@ -124,113 +96,97 @@ export default function AiScanSection() {
               bottom: 0,
               width: `${sliderPos}%`,
               overflow: 'hidden',
-              background: 'rgba(0, 15, 30, 0.25)',
-              borderRight: '2px solid #00F0FF',
-              boxShadow: '0 0 25px rgba(0, 240, 255, 0.6)'
+              background: 'rgba(255, 255, 255, 0.1)',
+              borderRight: '3px solid #2563EB'
             }}>
-              {/* Neural grid overlay */}
+              {/* Pothole Highlight Box */}
               <div style={{
                 position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '1000px',
-                height: '100%',
-                backgroundImage: 'radial-gradient(rgba(0, 240, 255, 0.15) 1px, transparent 1px)',
-                backgroundSize: '20px 20px',
+                left: 'calc(36% - 58px)',
+                top: 'calc(60% - 42px)',
+                width: '116px',
+                height: '84px',
+                border: '3px solid #E11D48',
+                borderRadius: '8px',
+                background: 'rgba(225, 29, 72, 0.25)',
                 pointerEvents: 'none'
-              }} />
+              }}>
+                <div style={{
+                  position: 'absolute',
+                  top: '-26px',
+                  left: 0,
+                  background: '#E11D48',
+                  color: '#FFFFFF',
+                  fontSize: '11px',
+                  fontWeight: 800,
+                  padding: '3px 8px',
+                  borderRadius: '4px',
+                  whiteSpace: 'nowrap'
+                }}>
+                  POTHOLE (Fix Today)
+                </div>
+                <div style={{
+                  position: 'absolute',
+                  bottom: '-22px',
+                  left: 0,
+                  fontSize: '11px',
+                  fontWeight: 700,
+                  color: '#0F172A',
+                  background: '#FFFFFF',
+                  padding: '2px 6px',
+                  borderRadius: '4px',
+                  whiteSpace: 'nowrap',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.2)'
+                }}>
+                  2.5 ft wide • 2 in deep
+                </div>
+              </div>
 
-              {/* AI Detection Overlay for Pothole */}
+              {/* Road Crack Highlight Box */}
               <div style={{
                 position: 'absolute',
-                left: 'calc(38% - 64px)',
-                top: 'calc(58% - 48px)',
-                width: '128px',
-                height: '96px',
-                border: '2px solid #FF3B57',
-                borderRadius: '6px',
-                background: 'rgba(255, 59, 87, 0.18)',
-                boxShadow: '0 0 16px rgba(255, 59, 87, 0.4)',
+                left: 'calc(70% - 30px)',
+                top: '22%',
+                width: '60px',
+                height: '240px',
+                border: '2.5px dashed #D97706',
+                borderRadius: '8px',
+                background: 'rgba(217, 119, 6, 0.2)',
                 pointerEvents: 'none'
               }}>
                 <div style={{
                   position: 'absolute',
                   top: '-24px',
                   left: 0,
-                  background: '#FF3B57',
+                  background: '#D97706',
                   color: '#FFFFFF',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '10px',
-                  fontWeight: 700,
-                  padding: '2px 6px',
-                  borderRadius: '3px',
+                  fontSize: '11px',
+                  fontWeight: 800,
+                  padding: '3px 8px',
+                  borderRadius: '4px',
                   whiteSpace: 'nowrap'
                 }}>
-                  POTHOLE #01 | 94% CONF
-                </div>
-                <div style={{
-                  position: 'absolute',
-                  bottom: '-20px',
-                  left: 0,
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '9.5px',
-                  color: '#FFB020',
-                  background: 'rgba(6, 11, 19, 0.9)',
-                  padding: '1px 5px',
-                  borderRadius: '2px',
-                  whiteSpace: 'nowrap'
-                }}>
-                  0.8m × 0.6m | DEPTH: 55mm
+                  SURFACE CRACK (7 ft)
                 </div>
               </div>
 
-              {/* AI Detection Overlay for Longitudinal Crack */}
-              <div style={{
-                position: 'absolute',
-                left: 'calc(70% - 30px)',
-                top: '25%',
-                width: '60px',
-                height: '240px',
-                border: '1.5px dashed #00F0FF',
-                borderRadius: '6px',
-                background: 'rgba(0, 240, 255, 0.12)',
-                pointerEvents: 'none'
-              }}>
-                <div style={{
-                  position: 'absolute',
-                  top: '-20px',
-                  left: 0,
-                  background: '#00F0FF',
-                  color: '#060B13',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '9.5px',
-                  fontWeight: 700,
-                  padding: '2px 6px',
-                  borderRadius: '3px',
-                  whiteSpace: 'nowrap'
-                }}>
-                  CRACK #04 | 91% CONF
-                </div>
-              </div>
-
-              {/* Watermark in AI side */}
+              {/* Watermark Tag */}
               <div style={{
                 position: 'absolute',
                 bottom: '16px',
                 left: '16px',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '11px',
-                color: '#00F0FF',
-                background: 'rgba(6, 11, 19, 0.85)',
-                padding: '4px 10px',
-                borderRadius: '4px',
-                border: '1px solid rgba(0, 240, 255, 0.3)'
+                background: '#2563EB',
+                color: '#FFFFFF',
+                fontSize: '12px',
+                fontWeight: 700,
+                padding: '6px 12px',
+                borderRadius: '6px'
               }}>
-                AI VISION PASS: COMPLETE
+                Smart Detection: 2 Problems Found
               </div>
             </div>
 
-            {/* Cyan Laser Beam / Slider Handle */}
+            {/* Slider Handle */}
             <div
               style={{
                 position: 'absolute',
@@ -238,116 +194,94 @@ export default function AiScanSection() {
                 bottom: 0,
                 left: `${sliderPos}%`,
                 transform: 'translateX(-50%)',
-                width: '32px',
+                width: '36px',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'ew-resize',
                 zIndex: 10
               }}
-              onMouseDown={() => setIsAutoScanning(false)}
-              onTouchStart={() => setIsAutoScanning(false)}
             >
               <div style={{
-                width: '2px',
-                height: '100%',
-                background: 'linear-gradient(180deg, transparent, #FFFFFF, #00F0FF, #FFFFFF, transparent)',
-                boxShadow: '0 0 15px #00F0FF, 0 0 30px #00F0FF'
-              }} />
-              <div style={{
-                position: 'absolute',
-                width: '28px',
-                height: '28px',
+                width: '32px',
+                height: '32px',
                 borderRadius: '50%',
-                background: '#060B13',
-                border: '2px solid #00F0FF',
+                background: '#2563EB',
+                border: '2px solid #FFFFFF',
+                boxShadow: '0 2px 8px rgba(0, 0, 0, 0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                boxShadow: '0 0 12px #00F0FF',
-                color: '#00F0FF',
-                fontSize: '12px'
+                color: '#FFFFFF',
+                fontSize: '14px',
+                fontWeight: 800
               }}>
                 ⇄
               </div>
             </div>
 
-            {/* Right Side Raw Label */}
+            {/* Right Side Original Photo Label */}
             <div style={{
               position: 'absolute',
               bottom: '16px',
               right: '16px',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
-              color: '#94A3B8',
-              background: 'rgba(6, 11, 19, 0.85)',
-              padding: '4px 10px',
-              borderRadius: '4px',
-              border: '1px solid rgba(255, 255, 255, 0.1)'
+              background: '#0F172A',
+              color: '#FFFFFF',
+              fontSize: '12px',
+              fontWeight: 600,
+              padding: '6px 12px',
+              borderRadius: '6px'
             }}>
-              RAW OPTICAL INPUT (CCTV / DRONE)
+              Original Camera Photo
             </div>
           </div>
 
-          {/* Interactive Manual Range Slider */}
-          <div style={{ marginTop: '16px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-            <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: 'var(--text-muted)' }}>RAW</span>
+          {/* Slider Input Bar */}
+          <div style={{ marginTop: '20px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+            <span style={{ fontSize: '13px', fontWeight: 700, color: '#16A34A' }}>Original Photo</span>
             <input
               type="range"
               min="0"
               max="100"
               value={sliderPos}
-              onChange={(e) => {
-                setIsAutoScanning(false);
-                setSliderPos(Number(e.target.value));
-              }}
+              onChange={(e) => setSliderPos(Number(e.target.value))}
               style={{
                 flex: 1,
-                accentColor: '#00F0FF',
-                cursor: 'pointer'
+                accentColor: '#2563EB',
+                cursor: 'pointer',
+                height: '8px'
               }}
             />
-            <span style={{ fontSize: '11px', fontFamily: 'var(--font-mono)', color: '#00F0FF' }}>AI INFERENCE</span>
+            <span style={{ fontSize: '13px', fontWeight: 700, color: '#2563EB' }}>Smart Detection</span>
           </div>
 
-          {/* Pipeline Stages Flow Strip */}
+          {/* 5 Simple Step Pills */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
             gap: '12px',
-            marginTop: '24px',
+            marginTop: '28px',
             paddingTop: '20px',
-            borderTop: '1px solid rgba(255, 255, 255, 0.08)'
+            borderTop: '1px solid #E2E8F0'
           }}>
-            <div style={{ padding: '10px', background: 'rgba(6, 11, 19, 0.6)', borderRadius: '6px' }}>
-              <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>STAGE 01</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#FFFFFF' }}>Raw Video / Drone</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>80-100 km/day vehicle pass</div>
-            </div>
-
-            <div style={{ padding: '10px', background: 'rgba(6, 11, 19, 0.6)', borderRadius: '6px' }}>
-              <div style={{ fontSize: '10px', color: '#00F0FF', fontFamily: 'var(--font-mono)' }}>STAGE 02</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#00F0FF' }}>Computer Vision</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>CNN defect segmentation</div>
-            </div>
-
-            <div style={{ padding: '10px', background: 'rgba(6, 11, 19, 0.6)', borderRadius: '6px' }}>
-              <div style={{ fontSize: '10px', color: '#FFB020', fontFamily: 'var(--font-mono)' }}>STAGE 03</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#FFB020' }}>Defect Measurement</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>0.8m x 0.6m, depth 55mm</div>
-            </div>
-
-            <div style={{ padding: '10px', background: 'rgba(6, 11, 19, 0.6)', borderRadius: '6px' }}>
-              <div style={{ fontSize: '10px', color: '#FF3B57', fontFamily: 'var(--font-mono)' }}>STAGE 04</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#FF3B57' }}>AI Risk Scoring</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>Score: 92/100 (Immediate)</div>
-            </div>
-
-            <div style={{ padding: '10px', background: 'rgba(6, 11, 19, 0.6)', borderRadius: '6px' }}>
-              <div style={{ fontSize: '10px', color: '#00E5A3', fontFamily: 'var(--font-mono)' }}>STAGE 05</div>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#00E5A3' }}>Auto Work Order</div>
-              <div style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>WO-45872 dispatched</div>
-            </div>
+            {steps.map((s, idx) => (
+              <div key={idx} style={{
+                background: s.bg,
+                border: `1.5px solid ${s.color}30`,
+                borderRadius: '12px',
+                padding: '14px'
+              }}>
+                <div style={{ fontSize: '11px', fontWeight: 700, color: s.color, textTransform: 'uppercase' }}>
+                  {s.num}
+                </div>
+                <div style={{ fontSize: '14px', fontWeight: 700, color: '#0F172A', marginTop: '2px' }}>
+                  {s.title}
+                </div>
+                <div style={{ fontSize: '12px', color: '#64748B', marginTop: '2px' }}>
+                  {s.sub}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

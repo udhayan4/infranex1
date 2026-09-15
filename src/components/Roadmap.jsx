@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, CheckCircle2, ChevronRight, Rocket, ShieldCheck, TrendingUp, Layers } from 'lucide-react';
+import { Calendar, CheckCircle2, ChevronRight, Rocket, ShieldCheck } from 'lucide-react';
 import { IMPLEMENTATION_ROADMAP } from '../data/mockData';
 
 export default function Roadmap() {
@@ -7,25 +7,26 @@ export default function Roadmap() {
 
   return (
     <section id="roadmap" className="section-wrapper" style={{
-      background: '#060B13',
-      position: 'relative'
+      background: '#FFFFFF',
+      borderTop: '1px solid #E2E8F0',
+      borderBottom: '1px solid #E2E8F0'
     }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">
-            <Calendar size={12} color="#00E5A3" />
-            <span>Implementation Roadmap (Slide 12)</span>
+          <div className="section-pill" style={{ background: '#DCFCE7', color: '#16A34A', borderColor: '#BBF7D0' }}>
+            <Calendar size={15} />
+            <span>4-Step Rollout Plan</span>
           </div>
           <h2 className="section-title">
-            Prove First. Scale Modularly.
+            Test First. Expand Step-by-Step.
           </h2>
           <p className="section-subtitle">
-            A practical, phased deployment model designed for low upfront risk, fast validation, and seamless national scaling.
+            A low-risk, step-by-step rollout plan designed to prove value on 10 road stretches before scaling across state highways.
           </p>
         </div>
 
-        {/* Horizontal Phased Timeline Navigator */}
+        {/* 4 Step Selector Cards */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
@@ -38,14 +39,13 @@ export default function Roadmap() {
               <div
                 key={idx}
                 onClick={() => setActivePhaseIndex(idx)}
-                className="glass-panel bracket-corner"
                 style={{
                   padding: '20px',
+                  borderRadius: '16px',
                   cursor: 'pointer',
-                  background: isSelected ? 'rgba(0, 240, 255, 0.15)' : 'rgba(8, 16, 28, 0.75)',
-                  border: isSelected ? '1.5px solid #00F0FF' : '1px solid rgba(255, 255, 255, 0.08)',
-                  boxShadow: isSelected ? '0 0 20px rgba(0, 240, 255, 0.25)' : 'none',
-                  transition: 'all 0.25s'
+                  background: isSelected ? '#EFF6FF' : '#F8FAFC',
+                  border: isSelected ? '2px solid #2563EB' : '1.5px solid #E2E8F0',
+                  boxShadow: isSelected ? '0 4px 12px rgba(37, 99, 235, 0.12)' : '0 1px 3px rgba(0,0,0,0.04)'
                 }}
               >
                 <div style={{
@@ -55,30 +55,22 @@ export default function Roadmap() {
                   marginBottom: '8px'
                 }}>
                   <span style={{
-                    fontSize: '11px',
-                    fontFamily: 'var(--font-mono)',
-                    color: isSelected ? '#00F0FF' : 'var(--text-muted)',
-                    fontWeight: 700
+                    fontSize: '12px',
+                    fontWeight: 800,
+                    color: isSelected ? '#2563EB' : '#64748B'
                   }}>
                     {item.phase}
                   </span>
-                  <span style={{
-                    fontSize: '10.5px',
-                    fontFamily: 'var(--font-mono)',
-                    padding: '2px 8px',
-                    borderRadius: '4px',
-                    background: isSelected ? 'rgba(0, 229, 163, 0.2)' : 'rgba(255, 255, 255, 0.06)',
-                    color: isSelected ? '#00E5A3' : 'var(--text-secondary)'
-                  }}>
+                  <span className={isSelected ? 'badge-blue' : 'badge-green'} style={{ fontSize: '11.5px' }}>
                     {item.duration}
                   </span>
                 </div>
 
-                <h3 style={{ fontSize: '18px', color: '#FFFFFF', marginBottom: '4px' }}>
+                <h3 style={{ fontSize: '17px', fontWeight: 800, color: '#0F172A', marginBottom: '4px' }}>
                   {item.name}
                 </h3>
 
-                <div style={{ fontSize: '11.5px', color: 'var(--text-secondary)' }}>
+                <div style={{ fontSize: '13px', color: '#64748B' }}>
                   {item.scope}
                 </div>
               </div>
@@ -88,10 +80,12 @@ export default function Roadmap() {
 
         {/* Selected Phase Detail Breakdown */}
         {IMPLEMENTATION_ROADMAP[activePhaseIndex] && (
-          <div className="glass-panel bracket-corner" style={{
-            padding: '36px',
-            background: 'rgba(8, 16, 28, 0.95)',
-            border: '1px solid rgba(0, 240, 255, 0.3)'
+          <div style={{
+            padding: '32px',
+            background: '#F8FAFC',
+            borderRadius: '20px',
+            border: '1.5px solid #E2E8F0',
+            boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
           }}>
             <div style={{
               display: 'flex',
@@ -100,57 +94,33 @@ export default function Roadmap() {
               justifyContent: 'space-between',
               gap: '16px',
               marginBottom: '24px',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-              paddingBottom: '18px'
+              borderBottom: '1px solid #E2E8F0',
+              paddingBottom: '16px'
             }}>
               <div>
-                <span style={{
-                  fontSize: '11px',
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--cyan-primary)',
-                  letterSpacing: '0.08em'
-                }}>
-                  PHASE OBJECTIVE // {IMPLEMENTATION_ROADMAP[activePhaseIndex].phase}
+                <span className="badge-blue" style={{ fontSize: '11px' }}>
+                  {IMPLEMENTATION_ROADMAP[activePhaseIndex].phase} GOAL
                 </span>
-                <h3 style={{ fontSize: '24px', color: '#FFFFFF', marginTop: '4px' }}>
+                <h3 style={{ fontSize: '22px', fontWeight: 800, color: '#0F172A', marginTop: '4px' }}>
                   {IMPLEMENTATION_ROADMAP[activePhaseIndex].objective}
                 </h3>
               </div>
 
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '12px',
-                fontFamily: 'var(--font-mono)',
-                fontSize: '12px'
-              }}>
-                <span style={{ color: 'var(--text-muted)' }}>TIMELINE:</span>
-                <span style={{ color: '#00F0FF', fontWeight: 700 }}>
-                  {IMPLEMENTATION_ROADMAP[activePhaseIndex].duration}
-                </span>
-                <span style={{ color: 'var(--text-muted)' }}>| SCOPE:</span>
-                <span style={{ color: '#00E5A3', fontWeight: 700 }}>
-                  {IMPLEMENTATION_ROADMAP[activePhaseIndex].scope}
-                </span>
+              <div style={{ fontSize: '13px', color: '#64748B' }}>
+                Timeline: <strong style={{ color: '#2563EB' }}>{IMPLEMENTATION_ROADMAP[activePhaseIndex].duration}</strong> • Scope: <strong style={{ color: '#16A34A' }}>{IMPLEMENTATION_ROADMAP[activePhaseIndex].scope}</strong>
               </div>
             </div>
 
-            {/* Deliverables List */}
-            <div style={{ marginBottom: '28px' }}>
-              <div style={{
-                fontSize: '11px',
-                fontFamily: 'var(--font-mono)',
-                color: '#00F0FF',
-                marginBottom: '14px',
-                letterSpacing: '0.06em'
-              }}>
-                KEY PHASE DELIVERABLES & ACTIVITIES
+            {/* Deliverables */}
+            <div style={{ marginBottom: '24px' }}>
+              <div style={{ fontSize: '13px', fontWeight: 700, color: '#0F172A', marginBottom: '12px' }}>
+                What We Deliver in This Step:
               </div>
 
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-                gap: '14px'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '12px'
               }}>
                 {IMPLEMENTATION_ROADMAP[activePhaseIndex].deliverables.map((deliv, i) => (
                   <div key={i} style={{
@@ -158,12 +128,12 @@ export default function Roadmap() {
                     alignItems: 'flex-start',
                     gap: '10px',
                     padding: '14px',
-                    borderRadius: '6px',
-                    background: 'rgba(6, 11, 19, 0.7)',
-                    border: '1px solid rgba(255, 255, 255, 0.06)'
+                    borderRadius: '10px',
+                    background: '#FFFFFF',
+                    border: '1px solid #E2E8F0'
                   }}>
-                    <CheckCircle2 size={16} color="#00E5A3" style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ fontSize: '13px', color: '#E2E8F0', lineHeight: 1.5 }}>
+                    <CheckCircle2 size={18} color="#16A34A" style={{ flexShrink: 0, marginTop: '1px' }} />
+                    <span style={{ fontSize: '14px', color: '#334155', lineHeight: 1.5 }}>
                       {deliv}
                     </span>
                   </div>
@@ -171,12 +141,12 @@ export default function Roadmap() {
               </div>
             </div>
 
-            {/* Guaranteed Outcome Box */}
+            {/* Guaranteed Outcome */}
             <div style={{
               padding: '18px 24px',
-              borderRadius: '8px',
-              background: 'linear-gradient(135deg, rgba(0, 240, 255, 0.1) 0%, rgba(0, 229, 163, 0.1) 100%)',
-              border: '1px solid rgba(0, 240, 255, 0.3)',
+              borderRadius: '12px',
+              background: '#F0FDF4',
+              border: '1.5px solid #BBF7D0',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -184,21 +154,16 @@ export default function Roadmap() {
               gap: '12px'
             }}>
               <div>
-                <div style={{ fontSize: '10.5px', fontFamily: 'var(--font-mono)', color: 'var(--cyan-primary)' }}>
-                  MEASURABLE PHASE OUTCOME
+                <div style={{ fontSize: '11px', fontWeight: 800, color: '#16A34A', textTransform: 'uppercase' }}>
+                  EXPECTED RESULT
                 </div>
-                <div style={{ fontSize: '14px', fontWeight: 600, color: '#FFFFFF', marginTop: '2px' }}>
+                <div style={{ fontSize: '15px', fontWeight: 700, color: '#15803D', marginTop: '2px' }}>
                   {IMPLEMENTATION_ROADMAP[activePhaseIndex].outcome}
                 </div>
               </div>
 
-              <span style={{
-                fontSize: '11px',
-                fontFamily: 'var(--font-mono)',
-                color: '#00E5A3',
-                fontWeight: 700
-              }}>
-                AUDIT-READY VERIFICATION
+              <span className="badge-green">
+                Zero Disruption to Field Operations
               </span>
             </div>
           </div>

@@ -1,47 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Cpu } from 'lucide-react';
+import { Menu, X, CheckCircle, Sparkles } from 'lucide-react';
 
 export default function Navbar({ onOpenDemo }) {
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
-
-      const sections = [
-        'hero', 'problem', 'why-us', 'ai-scan', 'command-center',
-        'road-ai', 'bridge-health', 'tunnel-safety', 'risk-engine',
-        'workflow', 'digital-twin', 'architecture', 'roadmap',
-        'monetisation', 'solution-pdf', 'contact'
-      ];
-      
-      const current = sections.find(section => {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          return rect.top <= 140 && rect.bottom >= 140;
-        }
-        return false;
-      });
-      if (current) setActiveSection(current);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Exactly the 8 headings requested by user (no install, no request demo)
+  // Friendly, straightforward navigation headings
   const navHeadings = [
-    { label: 'Solutions', target: '#command-center' },
-    { label: 'Marketplace', target: '#monetisation' },
-    { label: 'Industries', target: '#road-ai' },
-    { label: 'AI Platform', target: '#ai-scan' },
-    { label: 'Resources', target: '#solution-pdf' },
-    { label: 'About', target: '#why-us' },
-    { label: 'Experience Center', action: onOpenDemo, target: '#command-center' },
-    { label: 'Contact', target: '#contact' },
+    { label: 'What We Do', target: '#command-center' },
+    { label: 'How It Works', target: '#ai-scan' },
+    { label: 'Roads & Bridges', target: '#road-ai' },
+    { label: 'Repair Process', target: '#workflow' },
+    { label: 'Presentation Slides', target: '#solution-pdf' },
+    { label: 'About Us', target: '#why-us' },
+    { label: 'Interactive Demo', action: onOpenDemo, target: '#command-center', isHighlight: true },
+    { label: 'Contact Us', target: '#contact' },
   ];
 
   const handleNavClick = (item) => {
@@ -50,7 +22,7 @@ export default function Navbar({ onOpenDemo }) {
     } else if (item.target) {
       const el = document.querySelector(item.target);
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
+        el.scrollIntoView({ behavior: 'auto' });
       }
     }
     setMobileMenuOpen(false);
@@ -64,11 +36,9 @@ export default function Navbar({ onOpenDemo }) {
       right: 0,
       height: 'var(--nav-height)',
       zIndex: 100,
-      transition: 'all 0.3s ease',
-      background: scrolled ? 'rgba(6, 11, 19, 0.94)' : 'rgba(6, 11, 19, 0.75)',
-      backdropFilter: 'blur(16px)',
-      WebkitBackdropFilter: 'blur(16px)',
-      borderBottom: scrolled ? '1px solid rgba(0, 240, 255, 0.2)' : '1px solid rgba(255, 255, 255, 0.06)',
+      background: '#FFFFFF',
+      borderBottom: '1.5px solid #E2E8F0',
+      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
       display: 'flex',
       alignItems: 'center'
     }}>
@@ -78,91 +48,117 @@ export default function Navbar({ onOpenDemo }) {
         justifyContent: 'space-between',
         width: '100%'
       }}>
-        {/* Brand & Platform Identity */}
+        {/* Friendly Brand Logo */}
         <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
           <div style={{
-            width: '38px',
-            height: '38px',
-            borderRadius: '8px',
-            background: 'linear-gradient(135deg, rgba(0, 240, 255, 0.2) 0%, rgba(30, 136, 229, 0.2) 100%)',
-            border: '1px solid #00F0FF',
+            width: '42px',
+            height: '42px',
+            borderRadius: '10px',
+            background: 'linear-gradient(135deg, #2563EB 0%, #16A34A 100%)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 0 12px rgba(0, 240, 255, 0.4)'
+            boxShadow: '0 2px 6px rgba(37, 99, 235, 0.25)',
+            color: '#FFFFFF',
+            fontWeight: 800,
+            fontSize: '18px'
           }}>
-            <Cpu size={22} color="#00F0FF" />
+            IGT
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <span style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: '16.5px',
+                fontSize: '18px',
                 fontWeight: '800',
                 letterSpacing: '-0.02em',
-                color: '#FFFFFF',
+                color: '#0F172A',
                 whiteSpace: 'nowrap'
               }}>
-                INFRANITE <span style={{ color: '#00F0FF' }}>GLOBALTECH</span>
+                INFRANITE <span style={{ color: '#2563EB' }}>GLOBALTECH</span>
               </span>
               <span style={{
-                fontSize: '10px',
-                fontFamily: 'var(--font-mono)',
-                padding: '2px 6px',
-                borderRadius: '4px',
-                background: 'rgba(0, 229, 163, 0.15)',
-                color: '#00E5A3',
-                border: '1px solid rgba(0, 229, 163, 0.3)'
+                fontSize: '11px',
+                padding: '2px 8px',
+                borderRadius: '6px',
+                background: '#DCFCE7',
+                color: '#15803D',
+                fontWeight: 700
               }}>
-                IGT
+                InfraSight
               </span>
             </div>
             <div style={{
-              fontSize: '10px',
-              color: 'var(--text-muted)',
-              fontFamily: 'var(--font-mono)',
-              letterSpacing: '0.04em'
+              fontSize: '12px',
+              color: '#64748B',
+              fontWeight: 500
             }}>
-              Infrastructure Intelligence Platform
+              Simple & Smart Infrastructure Safety
             </div>
           </div>
         </a>
 
-        {/* Desktop Navigation Links (Only the 8 specified headings alone) */}
+        {/* Desktop Navigation Links */}
         <nav style={{
           display: 'none',
           alignItems: 'center',
-          gap: '20px'
+          gap: '12px'
         }} className="desktop-nav">
-          {navHeadings.map((item) => (
-            <button
-              key={item.label}
-              onClick={() => handleNavClick(item)}
-              style={{
-                background: 'none',
-                border: 'none',
-                padding: '6px 4px',
-                fontSize: '13.5px',
-                color: '#CBD5E1',
-                fontWeight: 500,
-                cursor: 'pointer',
-                transition: 'all 0.2s ease',
-                fontFamily: 'var(--font-body)',
-                letterSpacing: '0.01em',
-                whiteSpace: 'nowrap'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = '#00F0FF';
-                e.currentTarget.style.textShadow = '0 0 10px rgba(0, 240, 255, 0.5)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.color = '#CBD5E1';
-                e.currentTarget.style.textShadow = 'none';
-              }}
-            >
-              {item.label}
-            </button>
-          ))}
+          {navHeadings.map((item) => {
+            if (item.isHighlight) {
+              return (
+                <button
+                  key={item.label}
+                  onClick={() => handleNavClick(item)}
+                  style={{
+                    background: '#2563EB',
+                    color: '#FFFFFF',
+                    borderRadius: '8px',
+                    padding: '8px 16px',
+                    fontSize: '14px',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    boxShadow: '0 2px 4px rgba(37, 99, 235, 0.2)'
+                  }}
+                >
+                  <Sparkles size={14} />
+                  <span>{item.label}</span>
+                </button>
+              );
+            }
+
+            return (
+              <button
+                key={item.label}
+                onClick={() => handleNavClick(item)}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  padding: '8px 10px',
+                  fontSize: '14px',
+                  color: '#334155',
+                  fontWeight: 600,
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-body)',
+                  whiteSpace: 'nowrap',
+                  borderRadius: '6px'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = '#2563EB';
+                  e.currentTarget.style.background = '#EFF6FF';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = '#334155';
+                  e.currentTarget.style.background = 'transparent';
+                }}
+              >
+                {item.label}
+              </button>
+            );
+          })}
         </nav>
 
         {/* Mobile menu toggle */}
@@ -171,15 +167,16 @@ export default function Navbar({ onOpenDemo }) {
           style={{
             display: 'none',
             padding: '8px',
-            background: 'none',
-            border: 'none',
-            color: '#FFFFFF',
+            background: '#F1F5F9',
+            border: '1px solid #CBD5E1',
+            borderRadius: '8px',
+            color: '#0F172A',
             cursor: 'pointer'
           }}
           className="mobile-toggle"
           aria-label="Toggle navigation menu"
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
@@ -190,12 +187,13 @@ export default function Navbar({ onOpenDemo }) {
           top: 'var(--nav-height)',
           left: 0,
           right: 0,
-          background: 'rgba(6, 11, 19, 0.98)',
-          borderBottom: '1px solid rgba(0, 240, 255, 0.3)',
+          background: '#FFFFFF',
+          borderBottom: '2px solid #2563EB',
+          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.08)',
           padding: '20px 24px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '12px',
+          gap: '10px',
           maxHeight: 'calc(100vh - var(--nav-height))',
           overflowY: 'auto'
         }}>
@@ -204,13 +202,14 @@ export default function Navbar({ onOpenDemo }) {
               key={item.label}
               onClick={() => handleNavClick(item)}
               style={{
-                background: 'none',
-                border: 'none',
+                background: item.isHighlight ? '#2563EB' : 'transparent',
+                color: item.isHighlight ? '#FFFFFF' : '#1E293B',
                 textAlign: 'left',
                 fontSize: '15px',
-                color: '#CBD5E1',
-                padding: '10px 0',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                fontWeight: 600,
+                padding: '10px 14px',
+                borderRadius: '8px',
+                border: 'none',
                 cursor: 'pointer',
                 fontFamily: 'var(--font-body)'
               }}

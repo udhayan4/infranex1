@@ -1,316 +1,227 @@
 import React, { useState } from 'react';
-import { Database, AlertTriangle, GitFork, Cpu, ShieldAlert, Clock, EyeOff, Layers, CheckCircle2 } from 'lucide-react';
+import { AlertCircle, CheckCircle2, Clock, Eye, Layers, ShieldCheck, Car, HelpCircle, ArrowRight } from 'lucide-react';
 
 export default function ProblemSection() {
-  const [isConverged, setIsConverged] = useState(true);
-
-  const dataSources = [
-    { name: "CCTV Surveillance", type: "Video Feeds", icon: "📹" },
-    { name: "IoT Sensors", type: "Strain, Tilt, Vib", icon: "📡" },
-    { name: "Drone Inspections", type: "Aerial Imagery", icon: "🛸" },
-    { name: "Satellite Imagery", type: "GIS Earth Obs", icon: "🛰️" },
-    { name: "Inspection Reports", type: "PDF / Manual", icon: "📋" },
-    { name: "Maintenance Records", type: "Legacy ERP / SAP", icon: "🗄️" },
-    { name: "Traffic Data", type: "FASTag / Sensors", icon: "🚗" },
-    { name: "Weather & Climate", type: "Rainfall / Temp", icon: "⛈️" },
-    { name: "GIS Spatial Maps", type: "Chainage & Vector", icon: "🗺️" }
-  ];
+  const [viewMode, setViewMode] = useState('new'); // 'old' vs 'new'
 
   const painPoints = [
     {
-      icon: <Layers size={20} color="#FF3B57" />,
-      title: "Fragmented Data Silos",
-      desc: "Data lives isolated across different contractors, vendor tools, paper inspection diaries, and disparate software formats."
+      title: "People Walking on Busy Roads",
+      color: "#E11D48",
+      bg: "#FFE4E6",
+      desc: "Having workers walk along highways in the hot sun to spot cracks manually is dangerous, very slow, and easy to miss things."
     },
     {
-      icon: <Clock size={20} color="#FFB020" />,
-      title: "Reactive Maintenance",
-      desc: "Repairs happen only after structural distress, severe potholes, or safety incidents emerge — increasing repair costs exponentially."
+      title: "Fixing Too Late",
+      color: "#D97706",
+      bg: "#FEF3C7",
+      desc: "Repairs often happen only after large potholes break car tires or cause traffic jams, which costs 10x more to fix."
     },
     {
-      icon: <EyeOff size={20} color="#00F0FF" />,
-      title: "Slow Manual Inspection",
-      desc: "Walking highways or inspecting bridge soffits manually is dangerous, subjective, slow (weeks per corridor), and lacks baseline repeatability."
+      title: "Paper Files & Delay",
+      color: "#7C3AED",
+      bg: "#EDE9FE",
+      desc: "Inspection notes and paper files take weeks to travel from the road to the head office before a repair van is sent."
     },
     {
-      icon: <AlertTriangle size={20} color="#FF3B57" />,
-      title: "Delayed Risk Identification",
-      desc: "Subsurface cracks, bearing wear, and drainage clogs go unnoticed until major structural rehabilitation or emergency closure is required."
+      title: "Hard to Know What to Fix First",
+      color: "#2563EB",
+      bg: "#EFF6FF",
+      desc: "With thousands of miles of road, leaders struggle to know which damaged spots are most dangerous and need immediate budget."
     },
     {
-      icon: <GitFork size={20} color="#FFB020" />,
-      title: "Disconnected Asset Intelligence",
-      desc: "No unified digital twin connects roads, bridges, and tunnels into a single real-time spatial network view."
+      title: "Hidden Bridge Wear",
+      color: "#0284C7",
+      bg: "#E0F2FE",
+      desc: "Water leaks under bridges or tiny cracks in pillars often go unnoticed until emergency bridge closure is needed."
     },
     {
-      icon: <Cpu size={20} color="#00E5A3" />,
-      title: "Difficulty Prioritising Budgets",
-      desc: "Without AI risk scoring, maintenance funds are allocated by intuition or complaint volume rather than failure consequence."
+      title: "No Proof After Repairs",
+      color: "#16A34A",
+      bg: "#DCFCE7",
+      desc: "Hard to verify if the contractor actually filled the hole properly without sending another inspector back to the spot."
     }
   ];
 
   return (
     <section id="problem" className="section-wrapper" style={{
-      background: 'linear-gradient(180deg, #060B13 0%, #0A1322 50%, #060B13 100%)',
-      borderTop: '1px solid rgba(0, 240, 255, 0.08)',
-      borderBottom: '1px solid rgba(0, 240, 255, 0.08)'
+      background: '#FFFFFF',
+      borderTop: '1px solid #E2E8F0',
+      borderBottom: '1px solid #E2E8F0'
     }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">
-            <AlertTriangle size={12} color="#FFB020" />
-            <span>The Infrastructure Challenge</span>
+          <div className="section-pill" style={{ background: '#FEF3C7', color: '#D97706', borderColor: '#FDE68A' }}>
+            <HelpCircle size={15} />
+            <span>The Challenge & The Solution</span>
           </div>
           <h2 className="section-title">
-            Infrastructure Data Exists Everywhere. <br />
-            <span style={{ color: '#FF3B57' }}>Infrastructure Intelligence Does Not.</span>
+            Why Road Repairs Are Slow Today — <br />
+            <span style={{ color: '#2563EB' }}>And How We Make It Simple.</span>
           </h2>
           <p className="section-subtitle">
-            Highway authorities and consultants generate millions of gigabytes of visual, sensor, and spatial records.
-            Yet without automated AI convergence, infrastructure decisions remain dangerously reactive.
+            Traditionally, inspecting highways takes weeks of manual walking.
+            Our smart system spots problems automatically from car dashcams and drones in minutes.
           </p>
         </div>
 
-        {/* Interactive Data Convergence Sandbox */}
-        <div className="glass-panel bracket-corner" style={{
-          padding: '36px',
-          marginBottom: '56px',
-          position: 'relative',
-          overflow: 'hidden'
+        {/* Interactive Comparison Box */}
+        <div style={{
+          background: '#F8FAFC',
+          borderRadius: '20px',
+          border: '1.5px solid #E2E8F0',
+          padding: '32px',
+          marginBottom: '48px',
+          boxShadow: '0 4px 16px rgba(0, 0, 0, 0.04)'
         }}>
-          {/* Controls */}
+          {/* Switch Buttons */}
           <div style={{
             display: 'flex',
             flexWrap: 'wrap',
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: '16px',
-            marginBottom: '32px',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+            marginBottom: '28px',
+            borderBottom: '1px solid #E2E8F0',
             paddingBottom: '20px'
           }}>
             <div>
-              <div style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '18px',
-                fontWeight: 700,
-                color: '#FFFFFF'
-              }}>
-                Interactive Architecture Simulation
-              </div>
-              <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
-                Toggle between legacy fragmented silos and the unified InfraSight AI neural layer.
-              </div>
+              <h3 style={{ fontSize: '20px', color: '#0F172A', fontWeight: 800 }}>
+                Compare the Difference
+              </h3>
+              <p style={{ fontSize: '14px', color: '#64748B', margin: 0 }}>
+                Click below to see the Old Way vs the New Infranite Way.
+              </p>
             </div>
 
-            {/* Toggle Mode */}
             <div style={{
               display: 'inline-flex',
-              background: 'rgba(6, 11, 19, 0.9)',
+              background: '#FFFFFF',
               padding: '4px',
-              borderRadius: '8px',
-              border: '1px solid rgba(0, 240, 255, 0.2)'
+              borderRadius: '10px',
+              border: '1.5px solid #CBD5E1'
             }}>
               <button
-                onClick={() => setIsConverged(false)}
+                onClick={() => setViewMode('old')}
                 style={{
-                  padding: '8px 16px',
-                  borderRadius: '6px',
-                  fontSize: '13px',
-                  fontFamily: 'var(--font-mono)',
-                  fontWeight: 600,
-                  color: !isConverged ? '#FF3B57' : '#94A3B8',
-                  background: !isConverged ? 'rgba(255, 59, 87, 0.15)' : 'transparent',
-                  border: !isConverged ? '1px solid rgba(255, 59, 87, 0.3)' : 'none',
-                  transition: 'all 0.2s'
+                  padding: '8px 18px',
+                  borderRadius: '8px',
+                  fontSize: '14px',
+                  fontWeight: 700,
+                  background: viewMode === 'old' ? '#FFE4E6' : 'transparent',
+                  color: viewMode === 'old' ? '#E11D48' : '#64748B',
+                  border: 'none',
+                  cursor: 'pointer'
                 }}
               >
-                Fragmented Silos (Legacy)
+                The Old Way (Slow)
               </button>
               <button
-                onClick={() => setIsConverged(true)}
+                onClick={() => setViewMode('new')}
                 style={{
-                  padding: '8px 16px',
-                  borderRadius: '6px',
-                  fontSize: '13px',
-                  fontFamily: 'var(--font-mono)',
-                  fontWeight: 600,
-                  color: isConverged ? '#00F0FF' : '#94A3B8',
-                  background: isConverged ? 'rgba(0, 240, 255, 0.15)' : 'transparent',
-                  border: isConverged ? '1px solid rgba(0, 240, 255, 0.4)' : 'none',
-                  transition: 'all 0.2s'
+                  padding: '8px 18px',
+                  borderRadius: '8px',
+                  fontSize: '14px',
+                  fontWeight: 700,
+                  background: viewMode === 'new' ? '#2563EB' : 'transparent',
+                  color: viewMode === 'new' ? '#FFFFFF' : '#64748B',
+                  border: 'none',
+                  cursor: 'pointer'
                 }}
               >
-                InfraSight AI (Converged)
+                The New Infranite Way (Fast & Simple)
               </button>
             </div>
           </div>
 
-          {/* Interactive Flow Visual */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: isConverged ? '1fr auto 1fr' : 'repeat(auto-fit, minmax(180px, 1fr))',
-            gap: '24px',
-            alignItems: 'center',
-            minHeight: '300px'
-          }}>
-            {/* Left Sources */}
+          {/* Side-by-Side Content */}
+          {viewMode === 'old' ? (
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))',
-              gap: '12px'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '20px'
             }}>
-              {dataSources.map((ds, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    background: isConverged ? 'rgba(10, 22, 38, 0.8)' : 'rgba(40, 16, 24, 0.6)',
-                    border: isConverged ? '1px solid rgba(0, 240, 255, 0.2)' : '1px solid rgba(255, 59, 87, 0.3)',
-                    borderRadius: '8px',
-                    padding: '12px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '4px',
-                    transition: 'all 0.4s ease',
-                    transform: isConverged ? 'none' : `translate(${(idx % 3 - 1) * 6}px, ${(idx % 2 - 1) * 6}px)`
-                  }}
-                >
-                  <div style={{ fontSize: '20px' }}>{ds.icon}</div>
-                  <div style={{ fontSize: '13px', fontWeight: 600, color: '#FFFFFF' }}>{ds.name}</div>
-                  <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>{ds.type}</div>
-                </div>
-              ))}
+              <div style={{ background: '#FFFFFF', borderRadius: '12px', padding: '20px', border: '1.5px solid #FECDD3' }}>
+                <div style={{ fontSize: '24px', marginBottom: '8px' }}>🚶‍♂️</div>
+                <h4 style={{ fontSize: '16px', color: '#E11D48', fontWeight: 700, marginBottom: '6px' }}>1. Slow Manual Walking</h4>
+                <p style={{ fontSize: '14px', color: '#64748B', margin: 0 }}>Workers have to walk in traffic along highway shoulders with measuring tapes.</p>
+              </div>
+
+              <div style={{ background: '#FFFFFF', borderRadius: '12px', padding: '20px', border: '1.5px solid #FECDD3' }}>
+                <div style={{ fontSize: '24px', marginBottom: '8px' }}>📝</div>
+                <h4 style={{ fontSize: '16px', color: '#E11D48', fontWeight: 700, marginBottom: '6px' }}>2. Paper Reports & Delays</h4>
+                <p style={{ fontSize: '14px', color: '#64748B', margin: 0 }}>Notes are written in notebooks. It takes 2 to 3 weeks for repair approvals.</p>
+              </div>
+
+              <div style={{ background: '#FFFFFF', borderRadius: '12px', padding: '20px', border: '1.5px solid #FECDD3' }}>
+                <div style={{ fontSize: '24px', marginBottom: '8px' }}>⚠️</div>
+                <h4 style={{ fontSize: '16px', color: '#E11D48', fontWeight: 700, marginBottom: '6px' }}>3. Potholes Grow Deeper</h4>
+                <p style={{ fontSize: '14px', color: '#64748B', margin: 0 }}>By the time the van arrives, rain has made the pothole 3 times bigger.</p>
+              </div>
             </div>
-
-            {/* Middle Pipeline Hub (Visible in Converged Mode) */}
-            {isConverged && (
-              <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                padding: '24px',
-                background: 'linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(30, 136, 229, 0.1) 100%)',
-                border: '1px solid #00F0FF',
-                borderRadius: '16px',
-                boxShadow: '0 0 35px rgba(0, 240, 255, 0.25)',
-                minWidth: '220px',
-                textAlign: 'center'
-              }}>
-                <div style={{
-                  width: '56px',
-                  height: '56px',
-                  borderRadius: '50%',
-                  background: 'rgba(0, 240, 255, 0.2)',
-                  border: '1px solid #00F0FF',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  marginBottom: '12px',
-                  boxShadow: '0 0 15px #00F0FF'
-                }}>
-                  <Cpu size={28} color="#00F0FF" />
-                </div>
-                <div style={{
-                  fontFamily: 'var(--font-heading)',
-                  fontSize: '18px',
-                  fontWeight: 800,
-                  color: '#FFFFFF'
-                }}>
-                  InfraSight <span style={{ color: '#00F0FF' }}>AI</span>
-                </div>
-                <div style={{
-                  fontSize: '11px',
-                  color: '#00E5A3',
-                  fontFamily: 'var(--font-mono)',
-                  marginTop: '4px'
-                }}>
-                  Multi-Modal Neural Fusion
-                </div>
-                <div style={{
-                  fontSize: '12px',
-                  color: '#94A3B8',
-                  marginTop: '8px',
-                  lineHeight: 1.4
-                }}>
-                  Ingests, normalises & correlates 9 disparate data pipelines in real time.
-                </div>
+          ) : (
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '20px'
+            }}>
+              <div style={{ background: '#FFFFFF', borderRadius: '12px', padding: '20px', border: '1.5px solid #BBF7D0' }}>
+                <div style={{ fontSize: '24px', marginBottom: '8px' }}>🚗</div>
+                <h4 style={{ fontSize: '16px', color: '#16A34A', fontWeight: 700, marginBottom: '6px' }}>1. Car Drives & Spots Automatically</h4>
+                <p style={{ fontSize: '14px', color: '#475569', margin: 0 }}>Regular patrol cars with cameras drive at normal speed and spot all potholes automatically.</p>
               </div>
-            )}
 
-            {/* Right Output Intelligence (Visible in Converged Mode) */}
-            {isConverged && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                <div style={{
-                  padding: '14px 18px',
-                  borderRadius: '8px',
-                  background: 'rgba(0, 229, 163, 0.1)',
-                  border: '1px solid rgba(0, 229, 163, 0.3)'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#00E5A3', fontWeight: 600, fontSize: '14px' }}>
-                    <CheckCircle2 size={16} /> Automated Defect Classification
-                  </div>
-                  <div style={{ fontSize: '12px', color: '#94A3B8', marginTop: '4px' }}>
-                    Cracks, potholes, spalling, water leaks pinpointed with sub-meter GIS coordinates.
-                  </div>
-                </div>
-
-                <div style={{
-                  padding: '14px 18px',
-                  borderRadius: '8px',
-                  background: 'rgba(0, 240, 255, 0.1)',
-                  border: '1px solid rgba(0, 240, 255, 0.3)'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#00F0FF', fontWeight: 600, fontSize: '14px' }}>
-                    <CheckCircle2 size={16} /> Unified Digital Twin Health Index
-                  </div>
-                  <div style={{ fontSize: '12px', color: '#94A3B8', marginTop: '4px' }}>
-                    Single-pane-of-glass overview across every road, bridge pier, and tunnel lining.
-                  </div>
-                </div>
-
-                <div style={{
-                  padding: '14px 18px',
-                  borderRadius: '8px',
-                  background: 'rgba(255, 176, 32, 0.1)',
-                  border: '1px solid rgba(255, 176, 32, 0.3)'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#FFB020', fontWeight: 600, fontSize: '14px' }}>
-                    <CheckCircle2 size={16} /> Predictive Maintenance Prioritisation
-                  </div>
-                  <div style={{ fontSize: '12px', color: '#94A3B8', marginTop: '4px' }}>
-                    Ranks interventions by failure risk & consequence to maximize maintenance ROI.
-                  </div>
-                </div>
+              <div style={{ background: '#FFFFFF', borderRadius: '12px', padding: '20px', border: '1.5px solid #BBF7D0' }}>
+                <div style={{ fontSize: '24px', marginBottom: '8px' }}>📱</div>
+                <h4 style={{ fontSize: '16px', color: '#16A34A', fontWeight: 700, marginBottom: '6px' }}>2. Instant Phone Alert to Repair Van</h4>
+                <p style={{ fontSize: '14px', color: '#475569', margin: 0 }}>The repair team gets the exact GPS map point and hole size on their mobile phone in seconds.</p>
               </div>
-            )}
-          </div>
+
+              <div style={{ background: '#FFFFFF', borderRadius: '12px', padding: '20px', border: '1.5px solid #BBF7D0' }}>
+                <div style={{ fontSize: '24px', marginBottom: '8px' }}>✅</div>
+                <h4 style={{ fontSize: '16px', color: '#16A34A', fontWeight: 700, marginBottom: '6px' }}>3. Fixed Fast & Checked by Photo</h4>
+                <p style={{ fontSize: '14px', color: '#475569', margin: 0 }}>Potholes are fixed within 24 hours. A photo taken after repair confirms the road is flat and safe.</p>
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* 6 Core Pain Points Grid */}
+        {/* 6 Core Problems & Simple Solutions */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '20px'
         }}>
           {painPoints.map((item, index) => (
-            <div key={index} className="glass-panel" style={{ padding: '24px' }}>
+            <div key={index} style={{
+              background: '#FFFFFF',
+              border: '1.5px solid #E2E8F0',
+              borderRadius: '16px',
+              padding: '24px',
+              boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)'
+            }}>
               <div style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '8px',
-                background: 'rgba(6, 11, 19, 0.8)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
+                width: '44px',
+                height: '44px',
+                borderRadius: '10px',
+                background: item.bg,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginBottom: '16px'
+                marginBottom: '16px',
+                color: item.color,
+                fontWeight: 800,
+                fontSize: '18px'
               }}>
-                {item.icon}
+                {index + 1}
               </div>
-              <h3 style={{ fontSize: '17px', marginBottom: '8px' }}>{item.title}</h3>
-              <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)' }}>{item.desc}</p>
+              <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#0F172A', marginBottom: '8px' }}>
+                {item.title}
+              </h3>
+              <p style={{ fontSize: '14.5px', color: '#64748B', lineHeight: 1.5, margin: 0 }}>
+                {item.desc}
+              </p>
             </div>
           ))}
         </div>

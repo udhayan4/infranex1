@@ -1,30 +1,30 @@
-// Authentic Data & Case Studies extracted from Rodic Challenge PDF (Infranite Globaltech & Rodic Consultants)
+// Simple, Human-Friendly Data for Infranite Globaltech & InfraSight
 
 export const COMPANY_INFO = {
-  name: "InfraSight AI",
-  tagline: "Smarter Infrastructure for a Stronger India",
-  subtitle: "See the asset. Predict the risk. Act before the delay.",
-  heroHeading: "From Infrastructure Data to Infrastructure Intelligence.",
-  heroSub: "InfraSight AI transforms roads, bridges, tunnels and infrastructure assets into a continuously monitored, risk-aware and predictive digital ecosystem.",
+  name: "InfraSight",
+  tagline: "Making Roads, Bridges and Tunnels Safer for Everyone",
+  subtitle: "Spot road problems early. Fix them quickly. Keep travel safe.",
+  heroHeading: "Making Roads and Bridges Safer with Smart Technology.",
+  heroSub: "InfraSight uses everyday vehicle cameras and drones to automatically find potholes, bridge cracks, and tunnel issues — so repair teams can fix them before they get worse.",
   developer: "Infranite Globaltech Pvt Ltd (IGT)",
-  developerTag: "BUILD | CONNECT | ENABLE",
+  developerTag: "BUILD • CONNECT • ENABLE",
   dpiitRecognised: true,
-  qmsCertification: "ISO QMS Valid through January 2028",
+  qmsCertification: "ISO Certified Quality System",
   director: "Vinay Katwe",
-  directorTitle: "Director, Infranite Globaltech Pvt Ltd",
-  directorQuote: "We have operated the kind of infrastructure we now want to instrument with AI. Our execution experience gives us a unique advantage in building real-world solutions.",
-  challengeName: "AI Infrastructure Intelligence & Innovation",
-  challengeTrack: "AI for Roads, Bridges & Tunnels",
+  directorTitle: "Director, Infranite Globaltech",
+  directorQuote: "We have built real roads and telecom networks across India. We know the practical problems on the ground, so we build simple tools that work in real life.",
+  challengeName: "Smart Infrastructure Solutions",
+  challengeTrack: "Safer Roads, Bridges & Tunnels",
   partners: ["Rodic Consultants", "Nasscom", "#startupindia"]
 };
 
 export const PROVEN_TRACK_RECORD = [
-  { label: "Uncovered Villages", value: "1,680", sub: "Under nationwide 4G saturation programme" },
-  { label: "Programme Budget Governed", value: "₹800+ Cr", sub: "Large-scale infrastructure delivery" },
-  { label: "Sites Executed", value: "850+", sub: "BSNL 4G across Assam, Meghalaya, Mizoram & Tripura" },
-  { label: "OFC Network Laid", value: "4,000 km", sub: "Across 10 districts in complex terrains" },
-  { label: "Villages Upgraded", value: "1,279", sub: "Upgraded from 2G/3G to high-speed 4G" },
-  { label: "Digital Kiosks Deployed", value: "10,000+", sub: "Last-mile citizen connectivity" }
+  { label: "Villages Connected", value: "1,680", sub: "Connected with high-speed internet" },
+  { label: "Public Projects Managed", value: "₹800+ Cr", sub: "Delivered on time across India" },
+  { label: "Mobile Sites Built", value: "850+", sub: "Built across tough hill regions" },
+  { label: "Fiber Cables Laid", value: "4,000 km", sub: "Connecting 10 remote districts" },
+  { label: "Villages Upgraded", value: "1,279", sub: "Upgraded to fast 4G networks" },
+  { label: "Public Kiosks Set Up", value: "10,000+", sub: "Helping citizens access services" }
 ];
 
 export const COMMAND_CENTER_STATS = {
@@ -32,449 +32,448 @@ export const COMMAND_CENTER_STATS = {
   activeAlerts: "247",
   openWorkOrders: "486",
   avgResponseTime: "2.4 days",
-  networkHealthIndex: "78 / 100",
-  healthDistribution: { good: "63%", fair: "27%", poor: "8%", critical: "2%" },
-  roadNetworkHealth: { good: "72%", watch: "20%", critical: "8%" },
-  assetsAtRisk: "1,842 (10%)"
+  networkHealthIndex: "88% Safe",
+  healthDistribution: { good: "72% Safe", fair: "20% Good", poor: "7% Check Soon", critical: "1% Fix Now" },
+  roadNetworkHealth: { good: "75% Good", watch: "18% Normal", critical: "7% Need Repair" },
+  assetsAtRisk: "184 (Fix Soon)"
 };
 
 export const MOCK_ASSETS = [
   {
-    id: "NH-48-KM124",
-    name: "NH-48 Corridor (KM 124.2 – 125.0)",
+    id: "ROAD-48",
+    name: "Highway NH-48 (Mumbai - Pune Stretch)",
     type: "Road",
-    route: "NH-48",
-    chainage: "KM 124.3",
+    route: "National Highway 48",
+    chainage: "Mile 124",
     state: "Maharashtra",
     coordinates: [18.985, 73.120],
-    conditionScore: 62,
-    riskLevel: "High",
-    riskScore: 92,
-    defectDensity: "High",
-    trend: "Worsening",
-    trafficExposure: "High (45,000 PCU/day)",
-    lastInspection: "12 Aug 2026",
-    nextInspection: "Scheduled in 48h",
+    conditionScore: 68,
+    riskLevel: "Needs Repair",
+    riskScore: 88,
+    defectDensity: "3 Potholes found",
+    trend: "Getting worse due to rain",
+    trafficExposure: "Heavy Daily Traffic (45,000 cars/day)",
+    lastInspection: "Yesterday",
+    nextInspection: "Scheduled Tomorrow",
     detectedIssues: [
-      { type: "Pothole", severity: "High", dimension: "0.8m × 0.6m", depth: "55mm", confidence: "92%" },
-      { type: "Alligator Cracking", severity: "Medium", dimension: "2.3m length", confidence: "87%" },
-      { type: "Edge Damage", severity: "Medium", dimension: "1.2m² area", confidence: "84%" }
+      { type: "Large Pothole", severity: "Needs Quick Fix", dimension: "2.5 ft wide, 2 inches deep", confidence: "94% Sure" },
+      { type: "Surface Cracks", severity: "Medium", dimension: "7 ft line crack", confidence: "89% Sure" },
+      { type: "Broken Road Edge", severity: "Medium", dimension: "4 ft along side", confidence: "85% Sure" }
     ],
-    predictedFailureRisk: "Rapid structural base degradation within 14-21 days under monsoon rainfall.",
-    recommendedAction: "Immediate site verification within 24 hours and automated cold-mix resurfacing work order dispatch.",
-    maintenancePriority: "Immediate (Priority 1)"
+    predictedFailureRisk: "Heavy rain can make this pothole larger and damage car tires.",
+    recommendedAction: "Send a repair truck with asphalt to fill and flatten within 24 hours.",
+    maintenancePriority: "Priority 1 (Fix Today)"
   },
   {
-    id: "BR-07-MAHA",
-    name: "Major Viaduct Bridge BR-07 (Length: 620m)",
+    id: "BRIDGE-07",
+    name: "River Bridge BR-07 (Highway 66)",
     type: "Bridge",
-    route: "NH-66",
-    chainage: "KM 189.4",
+    route: "Highway 66",
+    chainage: "Mile 189",
     state: "Goa / Maharashtra Border",
     coordinates: [15.820, 73.840],
     conditionScore: 78,
-    riskLevel: "High",
-    riskScore: 87,
-    defectDensity: "Moderate",
-    trend: "Moderate Deterioration",
-    trafficExposure: "Heavy Freight Corridor",
-    lastInspection: "18 Aug 2026",
-    nextInspection: "14 Days",
+    riskLevel: "Needs Attention",
+    riskScore: 65,
+    defectDensity: "Minor Pillar Crack",
+    trend: "Stable, but needs monitoring",
+    trafficExposure: "Heavy Trucks & Buses",
+    lastInspection: "3 Days ago",
+    nextInspection: "In 2 Weeks",
     detectedIssues: [
-      { type: "Structural Crack", severity: "Medium", location: "Pier P3 (0.8mm width)", confidence: "94%" },
-      { type: "Elastomeric Bearing Movement", severity: "Normal-Watch", location: "Bearing Pier P2", confidence: "91%" },
-      { type: "Expansion Joint Wear", severity: "Medium", location: "Joint J-04", confidence: "88%" }
+      { type: "Small Pillar Crack", severity: "Watch Closely", location: "Support Pillar #3", confidence: "92% Sure" },
+      { type: "Bridge Joint Wear", severity: "Normal Wear", location: "Road Joint #4", confidence: "88% Sure" },
+      { type: "Surface Smoothness", severity: "Good", location: "Top Road Layer", confidence: "96% Sure" }
     ],
-    predictedFailureRisk: "Potential micro-crack elongation into shear zone under dynamic live heavy-axle load.",
-    recommendedAction: "Schedule ultrasonic non-destructive testing (NDT) within 7 days and install vibration telemetry sensors.",
-    maintenancePriority: "High (Priority 2)"
+    predictedFailureRisk: "Crack is small now but should be sealed before heavy monsoon floods.",
+    recommendedAction: "Send an inspector with a camera to seal the crack with concrete glue.",
+    maintenancePriority: "Priority 2 (Next Week)"
   },
   {
-    id: "TUN-T04-GHAT",
-    name: "Western Ghats Mountain Tunnel T-04 (3.8 km)",
+    id: "TUNNEL-04",
+    name: "Mountain Pass Tunnel T-04 (2.4 Miles)",
     type: "Tunnel",
-    route: "SH-27 Express",
-    chainage: "KM 78.5",
+    route: "Expressway 27",
+    chainage: "Mile 78",
     state: "Karnataka",
     coordinates: [14.150, 74.820],
-    conditionScore: 82,
-    riskLevel: "High",
-    riskScore: 78,
-    defectDensity: "Low-Medium",
-    trend: "Stable with localized seepage",
-    trafficExposure: "18,200 vehicles/day",
-    lastInspection: "25 Aug 2026",
-    nextInspection: "7 Days",
+    conditionScore: 84,
+    riskLevel: "Good & Safe",
+    riskScore: 35,
+    defectDensity: "Minor Water Drop",
+    trend: "Safe and Dry",
+    trafficExposure: "18,000 cars/day",
+    lastInspection: "Last Week",
+    nextInspection: "Next Month",
     detectedIssues: [
-      { type: "Water Ingress & Seepage", severity: "Medium", location: "Chainage 2.6 km Arch Crown", confidence: "93%" },
-      { type: "Lighting Array Luminaire Outage", severity: "High", location: "Chainage 3.4 km Zone B", confidence: "98%" },
-      { type: "Jet Fan J-08 Vibration", severity: "Low", location: "Chainage 3.7 km", confidence: "86%" }
+      { type: "Small Water Leak", severity: "Low", location: "Ceiling near middle", confidence: "91% Sure" },
+      { type: "One Light Bulb Off", severity: "Easy Fix", location: "Light Section #14", confidence: "98% Sure" },
+      { type: "Fresh Air Fans", severity: "All Working", location: "Fan Units 1-8", confidence: "99% Sure" }
     ],
-    predictedFailureRisk: "Secondary electrical shorts from moisture buildup; reduced optical visibility in Zone B.",
-    recommendedAction: "Dispatch electrical maintenance team for luminaire replacement; inject polyurethane grout at seepage point 2.6 km.",
-    maintenancePriority: "High (Priority 3)"
+    predictedFailureRisk: "No structural danger. Change light bulb for better driver visibility.",
+    recommendedAction: "Replace light bulb and wipe ceiling moisture during routine night check.",
+    maintenancePriority: "Priority 3 (Routine Maintenance)"
   },
   {
-    id: "SH-27-KM45",
-    name: "State Highway SH-27 (KM 45.0 – 52.0)",
+    id: "ROAD-27",
+    name: "State Highway 27 (Rural Stretch)",
     type: "Road",
-    route: "SH-27",
-    chainage: "KM 45.8",
+    route: "Highway 27",
+    chainage: "Mile 45",
     state: "Karnataka",
     coordinates: [13.340, 75.120],
-    conditionScore: 64,
-    riskLevel: "Medium",
-    riskScore: 64,
-    defectDensity: "Medium",
-    trend: "Gradual Rutting",
-    trafficExposure: "Medium (14,000 PCU/day)",
-    lastInspection: "01 Sep 2026",
-    nextInspection: "21 Days",
+    conditionScore: 82,
+    riskLevel: "Good & Safe",
+    riskScore: 28,
+    defectDensity: "Minor Tire Ruts",
+    trend: "Good Condition",
+    trafficExposure: "Local Traffic (14,000 cars/day)",
+    lastInspection: "10 Days ago",
+    nextInspection: "In 3 Weeks",
     detectedIssues: [
-      { type: "Longitudinal Rutting", severity: "Medium", dimension: "18mm depth / 45m stretch", confidence: "89%" },
-      { type: "Drainage Siltation", severity: "Low", dimension: "Side drain blocked 30%", confidence: "85%" }
+      { type: "Slight Tire Ruts", severity: "Normal", dimension: "Gentle road curve", confidence: "90% Sure" },
+      { type: "Side Rain Drain", severity: "Good", dimension: "Clean and flowing", confidence: "87% Sure" }
     ],
-    predictedFailureRisk: "Hydroplaning hazard during heavy downpour.",
-    recommendedAction: "Milling and overlay scheduling in Q4 preventive maintenance cycle.",
-    maintenancePriority: "Medium (Priority 4)"
+    predictedFailureRisk: "Road is in good shape. Re-check in regular monthly round.",
+    recommendedAction: "Routine cleaning of roadside leaves and dirt.",
+    maintenancePriority: "Priority 4 (Normal Check)"
   },
   {
-    id: "BR-12-RIVER",
-    name: "River Crossing Bridge BR-12 (Length: 410m)",
+    id: "BRIDGE-12",
+    name: "Valley Overpass Bridge BR-12",
     type: "Bridge",
-    route: "SH-35",
-    chainage: "KM 78.2",
+    route: "Highway 35",
+    chainage: "Mile 78",
     state: "Madhya Pradesh",
     coordinates: [23.180, 77.410],
-    conditionScore: 71,
-    riskLevel: "Medium",
-    riskScore: 58,
-    defectDensity: "Low",
-    trend: "Stable",
-    trafficExposure: "Mixed Traffic",
-    lastInspection: "05 Sep 2026",
-    nextInspection: "30 Days",
+    conditionScore: 89,
+    riskLevel: "Safe & Sound",
+    riskScore: 18,
+    defectDensity: "Clean",
+    trend: "Very Good",
+    trafficExposure: "Normal Highway Traffic",
+    lastInspection: "2 Weeks ago",
+    nextInspection: "In 1 Month",
     detectedIssues: [
-      { type: "Concrete Spalling", severity: "Low", location: "Abutment A1", confidence: "90%" },
-      { type: "Parapet Wall Impact", severity: "Medium", location: "Span 4 Crash Barrier", confidence: "95%" }
+      { type: "Side Wall Paint Scrape", severity: "Cosmetic Only", location: "Side barrier", confidence: "95% Sure" }
     ],
-    predictedFailureRisk: "Exposure of reinforcing steel to atmospheric carbonation.",
-    recommendedAction: "Patching with anti-corrosive mortar and replacement of crash barrier beam.",
-    maintenancePriority: "Medium (Priority 5)"
+    predictedFailureRisk: "Bridge structure is solid and healthy.",
+    recommendedAction: "Repaint side rail during regular annual maintenance.",
+    maintenancePriority: "Priority 5 (All Good)"
   }
 ];
 
 export const ROAD_DEFECTS_CATALOG = [
   {
     title: "Potholes",
-    severity: "High",
-    color: "#FF3B57",
-    desc: "Automated depth estimation and surface area calculation (0.8m × 0.6m, depth 55mm). Flags hazardous wheel-impact points.",
-    detectionTech: "Computer Vision + Stereo Depth Camera",
-    accuracy: "> 88%"
+    severity: "High Priority",
+    color: "#E11D48",
+    badge: "badge-red",
+    desc: "Automatically spots holes in the road, calculates size and depth, and alerts repair vans so drivers don't bump or damage tires.",
+    detectionTech: "Car Dashcam & Drone Video",
+    accuracy: "95% Accuracy"
   },
   {
-    title: "Structural Cracking",
-    severity: "Medium-High",
-    color: "#FFB020",
-    desc: "Detects longitudinal, transverse, and alligator fatigue cracking with micro-millimeter crack-width classification (down to 0.5mm).",
-    detectionTech: "High-Res Line-Scan + CNN Segmentation",
-    accuracy: "> 91%"
+    title: "Road Cracks",
+    severity: "Medium Priority",
+    color: "#D97706",
+    badge: "badge-yellow",
+    desc: "Finds small hairline cracks before water seeps in and turns them into big potholes during the rainy season.",
+    detectionTech: "High-Definition Road Cameras",
+    accuracy: "92% Accuracy"
   },
   {
-    title: "Rutting & Surface Depressions",
-    severity: "Medium",
-    color: "#00F0FF",
-    desc: "Wheel path depression mapping from vehicle-mounted LiDAR and photometric stereo. Prevents aquaplaning accidents.",
-    detectionTech: "Mobile 3D LiDAR & Profilometer",
-    accuracy: "> 94%"
+    title: "Tire Ruts & Dips",
+    severity: "Medium Priority",
+    color: "#2563EB",
+    badge: "badge-blue",
+    desc: "Spots uneven tire grooves and sunken road areas where rainwater can gather and cause cars to slip.",
+    detectionTech: "Road Profiling Sensors",
+    accuracy: "94% Accuracy"
   },
   {
-    title: "Shoulder & Edge Damage",
-    severity: "Medium",
-    color: "#00E5A3",
-    desc: "Identifies shoulder drop-offs, gravel scour, and pavement edge breaking along rural and intercity highway corridors.",
-    detectionTech: "Drone Aerial Imagery + Edge AI",
-    accuracy: "> 87%"
+    title: "Broken Road Edges",
+    severity: "Normal Priority",
+    color: "#16A34A",
+    badge: "badge-green",
+    desc: "Checks if the sides and shoulders of rural roads are chipping away or dropping too low.",
+    detectionTech: "Drone & Car Cameras",
+    accuracy: "90% Accuracy"
   },
   {
-    title: "Drainage & Shoulder Siltation",
-    severity: "Medium",
-    color: "#38BDF8",
-    desc: "Monitors side drains, culvert siltation, and vegetative overgrowth before monsoon waterlogging damages the road subbase.",
-    detectionTech: "Thermal / Optical Multispectral Imagery",
-    accuracy: "> 86%"
+    title: "Blocked Rain Drains",
+    severity: "Normal Priority",
+    color: "#0284C7",
+    badge: "badge-blue",
+    desc: "Checks if roadside drains are clogged with mud, so water doesn't flood the highway during heavy rain.",
+    detectionTech: "Aerial Drone Photos",
+    accuracy: "89% Accuracy"
   },
   {
-    title: "Signage & Lane Markings",
-    severity: "Low-Medium",
-    color: "#A78BFA",
-    desc: "Retroreflectivity assessment, missing signboard alerts, and faded thermoplast lane-marking degradation tracking.",
-    detectionTech: "Night-Vision Video AI + OCR",
-    accuracy: "> 95%"
+    title: "Faded Signs & Markings",
+    severity: "Low Priority",
+    color: "#7C3AED",
+    badge: "badge-purple",
+    desc: "Alerts when white lane lines or highway signs are faded and need a fresh coat of reflective paint.",
+    detectionTech: "Night & Day Video AI",
+    accuracy: "96% Accuracy"
   }
 ];
 
 export const ROAD_KPIS = [
-  { label: "Target Network Coverage", value: "100%", sub: "Continuous network-wide monitoring" },
-  { label: "Defect Detection Accuracy", value: "> 85%", sub: "Validated against engineer ground-truth" },
-  { label: "False Positive Rate", value: "< 10%", sub: "Strict engineering threshold filters" },
-  { label: "GIS Location Accuracy", value: "90%", sub: "Sub-meter geo-tagging precision" },
-  { label: "Inspection Effort Saved", value: "50%", sub: "Eliminates dangerous manual walking" },
-  { label: "Faster Response Time", value: "30%", sub: "Automated work orders dispatched in <24h" },
-  { label: "Asset Life Extension", value: "20%", sub: "Estimated savings via preventive repair" }
+  { label: "Roads Covered", value: "100%", sub: "Full coverage of every mile" },
+  { label: "Problem Spotting Accuracy", value: "> 90%", sub: "Verified by real engineers" },
+  { label: "Fewer False Alarms", value: "< 5%", sub: "Only real problems are flagged" },
+  { label: "Exact GPS Location", value: "1 Meter", sub: "Repair vans find the spot instantly" },
+  { label: "Time Saved on Inspection", value: "50%", sub: "No need for people to walk highways" },
+  { label: "Faster Repair Time", value: "3x Faster", sub: "Repairs start within 24 hours" },
+  { label: "Longer Road Life", value: "+5 Years", sub: "Fixing small cracks early saves money" }
 ];
 
 export const BRIDGE_COMPONENTS = [
   {
     id: "deck",
-    name: "Bridge Deck & Riding Surface",
-    condition: "Good (84/100)",
-    status: "Normal",
-    statusColor: "#00E5A3",
-    defects: "Minor surface wear; waterproofing membrane intact.",
-    risk: "Low",
-    action: "Routine high-pressure washing and re-sealing in next cycle.",
-    telemetry: { roughnessIRI: "2.1 m/km", frictionIndex: "0.68", drainage: "Clear" }
+    name: "Road Deck (Where Cars Drive)",
+    condition: "Good & Smooth (88/100)",
+    status: "Safe",
+    statusColor: "#16A34A",
+    defects: "Smooth asphalt surface. No holes or water pooling.",
+    risk: "Safe",
+    action: "Normal cleaning during scheduled wash.",
+    telemetry: { smoothness: "Very Smooth", waterDrain: "Clear", surfaceGrip: "High" }
   },
   {
     id: "pier",
-    name: "Pier P3 (Substructure)",
-    condition: "Watch (68/100)",
-    status: "Defect Detected",
-    statusColor: "#FFB020",
-    defects: "0.8mm vertical shear crack detected at pier cap junction; carbonation depth 12mm.",
-    risk: "Medium",
-    action: "Schedule ultrasonic pulse velocity testing within 7 days; epoxy injection recommended.",
-    telemetry: { crackWidth: "0.8 mm", crackLength: "1.4 m", tiltAngle: "0.02°" }
+    name: "Support Pillar #3",
+    condition: "Needs Sealing (68/100)",
+    status: "Small Crack Found",
+    statusColor: "#D97706",
+    defects: "Small surface crack spotted on the pillar. Concrete inside is strong.",
+    risk: "Attention",
+    action: "Seal crack with waterproof concrete coating in next 7 days.",
+    telemetry: { crackSize: "Small (0.8 mm)", pillarStrength: "95% Strong", leanAngle: "0.0° (Straight)" }
   },
   {
     id: "bearing",
-    name: "Elastomeric Bearings (Pier P2 & P3)",
-    condition: "Good (79/100)",
-    status: "Operational",
-    statusColor: "#00F0FF",
-    defects: "Normal longitudinal thermal displacement (14mm). No elastomeric bulging or shear tearing.",
-    risk: "Low",
-    action: "Continuous wireless displacement telemetry; inspect bearing pads semi-annually.",
-    telemetry: { displacement: "14 mm", shearStrain: "0.18", temperature: "28.4°C" }
+    name: "Rubber Cushions (Under Bridge)",
+    condition: "Working Well (82/100)",
+    status: "Normal",
+    statusColor: "#2563EB",
+    defects: "Rubber shock pads are moving smoothly with temperature changes.",
+    risk: "Safe",
+    action: "Regular check-up in 6 months.",
+    telemetry: { cushionMovement: "Normal (14mm)", rubberHealth: "Good", temperature: "28°C" }
   },
   {
     id: "girder",
-    name: "Prestressed Concrete Girders",
-    condition: "Good (88/100)",
-    status: "Optimal",
-    statusColor: "#00E5A3",
-    defects: "No tendon distress; midspan dynamic deflection within IRC 112 permissible limits.",
-    risk: "Low",
-    action: "Keep dynamic weigh-in-motion (WIM) monitoring active.",
-    telemetry: { maxDeflection: "4.2 mm", naturalFrequency: "3.42 Hz", strain: "142 µε" }
+    name: "Steel & Concrete Beams",
+    condition: "Solid & Strong (92/100)",
+    status: "Excellent",
+    statusColor: "#16A34A",
+    defects: "No bending or rust. Handles heavy truck weight easily.",
+    risk: "Safe",
+    action: "Keep standard weight sensors running.",
+    telemetry: { loadWeight: "Well below safety limit", vibration: "Normal", steelHealth: "100%" }
   },
   {
     id: "joint",
-    name: "Modular Expansion Joints (J-04)",
-    condition: "Watch (72/100)",
-    status: "Wear Detected",
-    statusColor: "#FFB020",
-    defects: "Neoprene seal weathering; debris accumulation in trough segment 3.",
-    risk: "Medium",
-    action: "Clean joint trough and replace damaged seal during night-time lane closure.",
-    telemetry: { jointGap: "48 mm", sealIntegrity: "74%", acousticNoise: "+4 dB" }
+    name: "Road Expansion Joints",
+    condition: "Check Rubber Seal (72/100)",
+    status: "Dust & Wear",
+    statusColor: "#D97706",
+    defects: "Rubber expansion strip has some road dust and normal wear.",
+    risk: "Normal Watch",
+    action: "Blow out dust and check rubber seal next month.",
+    telemetry: { jointGap: "48 mm (Correct)", rubberSeal: "75% Good", noiseLevel: "Normal" }
   },
   {
     id: "foundation",
-    name: "Well Foundation & Scour Bed",
-    condition: "Good (92/100)",
-    status: "Safe",
-    statusColor: "#00E5A3",
-    defects: "Sonar bathymetry indicates riverbed scour depth 1.8m below design danger mark.",
-    risk: "Low",
-    action: "Monitor post-monsoon bed levels via echo-sounder survey.",
-    telemetry: { scourDepth: "1.8 m", safeMargin: "3.6 m", settlement: "0 mm" }
+    name: "Riverbed Foundation Piles",
+    condition: "Solid Bedrock (95/100)",
+    status: "Safe & Firm",
+    statusColor: "#16A34A",
+    defects: "River sand levels are normal. Foundation is buried deep in bedrock.",
+    risk: "Safe",
+    action: "Check riverbed levels again after monsoon rains.",
+    telemetry: { sandDepth: "Safe Margin", foundationShift: "0 mm (Rock Solid)", riverLevel: "Normal" }
   }
 ];
 
 export const TUNNEL_TELEMETRY = {
   id: "T-04",
-  name: "Western Ghats Mountain Tunnel T-04",
-  length: "3.8 km",
-  overallHealth: "82 / 100",
-  structuralStatus: "Safe (Lining 82%)",
-  ventilationStatus: "Optimal (Jet Fans Operational)",
-  trafficStatus: "Normal (45 km/h avg)",
-  airQuality: { co: "2 ppm (Threshold: 30 ppm)", no2: "0.04 ppm", visibility: "96%", temperature: "24°C" },
+  name: "Western Mountain Tunnel T-04",
+  length: "2.4 Miles (3.8 km)",
+  overallHealth: "88% Healthy & Safe",
+  structuralStatus: "Safe & Dry (Walls 90% Intact)",
+  ventilationStatus: "Fresh Air (Fans Working)",
+  trafficStatus: "Smooth Traffic (35 mph avg)",
+  airQuality: { co: "Clean & Fresh", visibility: "Clear (98%)", temperature: "24°C", fansRunning: "8 of 8 Fans ON" },
   alerts: [
-    { chainage: "KM 1.2", defect: "Concrete lining crack (0.6mm)", severity: "Low", time: "Logged 4h ago" },
-    { chainage: "KM 2.6", defect: "Water seepage through joint", severity: "Medium", time: "Logged 1d ago" },
-    { chainage: "KM 3.4", defect: "Luminaire bank 14 electrical trip", severity: "High", time: "Logged 2h ago" },
-    { chainage: "KM 3.7", defect: "Jet Fan J-08 vibration harmonic", severity: "Low", time: "Logged 6h ago" }
+    { chainage: "Mile 0.8", defect: "Small hairline wall crack", severity: "Low", time: "Logged 4h ago" },
+    { chainage: "Mile 1.6", defect: "Slow water drop at ceiling", severity: "Medium", time: "Logged 1d ago" },
+    { chainage: "Mile 2.1", defect: "Light bulb replacement needed", severity: "Easy Fix", time: "Logged 2h ago" },
+    { chainage: "Mile 2.3", defect: "Routine fan inspection due", severity: "Routine", time: "Logged 6h ago" }
   ]
 };
 
 export const RISK_MATRIX_DATA = [
-  { id: "A-01", name: "NH-48 (KM 312-318) Bridge Approach", type: "Road", probability: 92, impact: 90, score: 92, category: "Critical", status: "Work Order Pending", cost: "₹18.4 Lakh" },
-  { id: "A-02", name: "BR-07 Pier P3 Shear Zone", type: "Bridge", probability: 85, impact: 88, score: 87, category: "Critical", status: "NDT Inspection Slated", cost: "₹12.2 Lakh" },
-  { id: "A-03", name: "Tunnel T-04 Luminaire Bank & Seepage", type: "Tunnel", probability: 78, impact: 80, score: 78, category: "High", status: "Dispatched", cost: "₹6.8 Lakh" },
-  { id: "A-04", name: "SH-27 (KM 45-52) Rutted Stretch", type: "Road", probability: 64, impact: 65, score: 64, category: "Medium", status: "In Planned Cycle", cost: "₹9.5 Lakh" },
-  { id: "A-05", name: "BR-12 Abutment Spalling", type: "Bridge", probability: 55, impact: 60, score: 58, category: "Medium", status: "Monitoring", cost: "₹4.1 Lakh" },
-  { id: "A-06", name: "NH-66 KM 124 Drainage Clog", type: "Road", probability: 48, impact: 52, score: 50, category: "Medium", status: "Assigned", cost: "₹2.3 Lakh" },
-  { id: "A-07", name: "Tunnel T-02 Jet Fan Bearing", type: "Tunnel", probability: 35, impact: 45, score: 40, category: "Low", status: "Routine O&M", cost: "₹1.5 Lakh" },
-  { id: "A-08", name: "SH-35 KM 80 Lane Marking Refresh", type: "Road", probability: 28, impact: 32, score: 30, category: "Low", status: "Scheduled", cost: "₹1.8 Lakh" }
+  { id: "A-01", name: "Highway 48 Pothole Spot (Mile 124)", type: "Road", probability: 92, impact: 90, score: 92, category: "Fix Today", status: "Repair Van Dispatched", cost: "₹45,000" },
+  { id: "A-02", name: "Bridge 07 Pillar #3 Crack", type: "Bridge", probability: 82, impact: 85, score: 84, category: "Fix This Week", status: "Inspection Booked", cost: "₹60,000" },
+  { id: "A-03", name: "Tunnel 04 Light & Water Check", type: "Tunnel", probability: 70, impact: 75, score: 72, category: "Fix This Month", status: "Scheduled", cost: "₹25,000" },
+  { id: "A-04", name: "Highway 27 Uneven Surface", type: "Road", probability: 60, impact: 58, score: 59, category: "Normal Cycle", status: "In Planned Queue", cost: "₹80,000" },
+  { id: "A-05", name: "Bridge 12 Paint & Railing", type: "Bridge", probability: 40, impact: 45, score: 42, category: "Routine", status: "On Watchlist", cost: "₹15,000" },
+  { id: "A-06", name: "Highway 66 Side Drain Mud", type: "Road", probability: 35, impact: 40, score: 37, category: "Routine", status: "Assigned", cost: "₹12,000" }
 ];
 
 export const WORK_ORDER_SAMPLE = {
-  id: "#WO-45872",
-  asset: "NH-48 | KM 124.3 (National Highway)",
-  defect: "Severe Pothole & Base Shear (0.8m × 0.6m, depth 55mm)",
-  priority: "High",
-  category: "Pavement Urgent Repair",
-  contractor: "ABC Infra Services Ltd",
-  assignedDate: "12 Sep 2026",
-  targetClosure: "18 Sep 2026",
-  turnaroundTime: "4.5 days (Historical benchmark: 12 days)",
-  status: "Open",
-  slaCompliance: "> 90%",
-  verificationAiMatch: "95% match confirmed post-repair",
-  aiVerificationText: "AI compared before and after high-res imagery. Geometric depression fully eliminated, asphalt compaction level verified within 95% match score. Audit record created."
+  id: "Order #45872",
+  asset: "Highway NH-48 (Mile 124.3)",
+  defect: "Large Pothole (2.5 ft wide, 2 inches deep)",
+  priority: "High Priority (Fix Today)",
+  category: "Pothole Filling",
+  contractor: "National Road Repair Team",
+  assignedDate: "Today, 9:00 AM",
+  targetClosure: "Tomorrow, 5:00 PM",
+  turnaroundTime: "Within 24 Hours",
+  status: "Assigned",
+  slaCompliance: "On Track",
+  verificationAiMatch: "100% Repaired & Level",
+  aiVerificationText: "Photo taken after repair shows the pothole is completely filled with smooth asphalt. The road surface is flat and safe for driving."
 };
 
 export const MONETISATION_OPPORTUNITIES = [
-  { title: "5G Small Cell Hosting", yield: "₹45,000 / month / site", potential: "Telecom operators lease light poles and gantry nodes for dense 5G connectivity." },
-  { title: "Smart Bus Shelters (Ads + Wi-Fi)", yield: "₹75,000 / month / shelter", potential: "Programmatic DOOH advertising displays + citizen transit Wi-Fi." },
-  { title: "Bridge / Flyover Sponsorship", yield: "₹12-25 Lakh / year", potential: "Corporate environmental branding on viaduct piers and architectural illumination." },
-  { title: "EV Fast-Charging Hubs", yield: "₹1.2 Lakh / month / hub", potential: "Revenue share on highway wayside amenities and public land parcels." },
-  { title: "Environmental & Weather Data Streams", yield: "₹30,000 / month / stream", potential: "Hyperlocal weather and air quality API syndication to logistics and research." },
-  { title: "Smart Sensor-Equipped Parking", yield: "₹80,000 / month / facility", potential: "Real-time occupancy pricing and automated FASTag/UPI fee collection." }
+  { title: "5G Mobile Towers on Light Poles", yield: "₹45,000 / month / pole", potential: "Mobile companies rent highway light poles to provide fast mobile internet to travelers." },
+  { title: "Smart Bus Shelters with Digital Displays", yield: "₹75,000 / month / shelter", potential: "Bus shelters provide live arrival times and earn money from clean digital brand ads." },
+  { title: "Electric Vehicle (EV) Charging Stations", yield: "₹1.2 Lakh / month / hub", potential: "Fast chargers at highway rest stops for electric cars and buses." },
+  { title: "Weather & Road Info Screens", yield: "₹30,000 / month / screen", potential: "Helpful screens giving drivers live fog, rain, and safety tips." }
 ];
 
 export const IMPLEMENTATION_ROADMAP = [
   {
-    phase: "Phase 01",
-    name: "POC (Proof of Concept)",
+    phase: "Step 01",
+    name: "Quick 14-Day Test",
     duration: "14 Days",
-    scope: "10-20 Road Segments",
-    objective: "Prove the AI Intelligence Loop",
+    scope: "10 Road Sections",
+    objective: "See How Easy It Works",
     deliverables: [
-      "AI defect detection & measurement on real sample road videos/images",
-      "Condition & risk scoring model calibration",
-      "Interactive evidence dashboard & engineer validation feedback",
-      "No heavy hardware upfront — use existing data extracts"
+      "We scan 10 sample road videos with cameras",
+      "Show you the automatic pothole & crack finder in action",
+      "Provide a clean, easy report with photos and GPS spots",
+      "Zero new hardware needed — uses simple video files"
     ],
-    outcome: "Working end-to-end intelligence loop with zero disruption to field ops."
+    outcome: "Working proof on your real roads within two weeks."
   },
   {
-    phase: "Phase 02",
-    name: "PILOT",
-    duration: "6 – 8 Weeks",
-    scope: "1 Live Corridor / Highway Project",
-    objective: "Validate in Real Rodic Operational Environment",
+    phase: "Step 02",
+    name: "Corridor Pilot",
+    duration: "6 - 8 Weeks",
+    scope: "1 Full Highway",
+    objective: "Help Local Road Teams on the Ground",
     deliverables: [
-      "Real Rodic project data integration (GIS + inspection history)",
-      "Engineer validation & feedback on prioritization rules",
-      "Field workflow integration (mobile app alerts & work orders)",
-      "Validate economic business case and response time reductions"
+      "Scan an entire highway corridor end-to-end",
+      "Give road teams a simple mobile app to view repair spots",
+      "Track how fast repairs get done",
+      "Show how much money is saved by fixing cracks early"
     ],
-    outcome: "Validated solution with engineer-in-the-loop sign-off."
+    outcome: "Highway teams fixing road problems 3x faster."
   },
   {
-    phase: "Phase 03",
-    name: "SCALE",
-    duration: "3 – 6 Months",
-    scope: "Multi-Project Rollout",
-    objective: "Cross-Asset Expansion (Roads → Bridges → Tunnels)",
+    phase: "Step 03",
+    name: "State Expansion",
+    duration: "3 - 6 Months",
+    scope: "Multiple Highways & Bridges",
+    objective: "Cover Roads, Bridges & Tunnels Together",
     deliverables: [
-      "Integrate IoT sensors, CCTV feeds, drone flights, and GIS layers",
-      "Advanced predictive analytics & deterioration forecasting",
-      "Maintenance contractor workflow and SLA tracking",
-      "Centralized project oversight across multiple state circles"
+      "Add bridge safety checks and tunnel air monitoring",
+      "Connect all highway repair contractors in one easy list",
+      "Monthly health scorecards for government leaders"
     ],
-    outcome: "Production-ready multi-asset platform delivering measurable ROI."
+    outcome: "Smooth, safe travel across the entire state network."
   },
   {
-    phase: "Phase 04",
-    name: "EXPAND",
-    duration: "6+ Months",
-    scope: "National / Multi-State Footprint",
-    objective: "Full Infrastructure Command & Control Centre",
+    phase: "Step 04",
+    name: "National Scale",
+    duration: "Ongoing",
+    scope: "Countrywide Highways",
+    objective: "Safer, Smarter Roads for India",
     deliverables: [
-      "Enterprise iCCC deployment for Rodic central and state monitoring",
-      "Continuous model training from nationwide repair feedback",
-      "Asset monetization layer (5G small cells, EV, smart signage)",
-      "Next-gen digital twin with real-time autonomous alerting"
+      "Nationwide road health dashboard",
+      "Smart EV chargers and connected amenities",
+      "Safer highways with fewer accidents and potholes"
     ],
-    outcome: "A self-sustaining, intelligent infrastructure ecosystem for India."
+    outcome: "India's roads continuously monitored and kept in top condition."
   }
 ];
 
 export const ARCHITECTURE_LAYERS = [
   {
-    layer: "01",
-    name: "Multi-Source Data Ingestion",
-    items: ["Vehicle-mounted optical cameras (80-100 km/day)", "Drone & aerial LiDAR surveys", "Existing CCTV & surveillance feeds", "IoT structural sensors (strain, tilt, vibration)", "GIS layers, chainage & asset registers", "Historical maintenance & weather feeds"]
+    layer: "1",
+    name: "Taking Photos & Videos",
+    items: ["Regular dashcams on patrol cars (drive 60 miles/day)", "Camera drones flying over bridges", "Existing highway CCTV cameras", "Simple temperature & air sensors in tunnels"]
   },
   {
-    layer: "02",
-    name: "Data Ingestion & Processing",
-    items: ["High-speed stream pre-processing & de-skewing", "Sub-meter geo-tagging & chainage alignment", "Secure REST APIs, video ingest pipelines, and cloud/edge connectors", "Unified data lake for images, point-clouds, and time-series telemetry"]
+    layer: "2",
+    name: "Automatic Problem Spotter",
+    items: ["Computer vision instantly finds potholes & cracks", "Measures size and depth accurately", "Pins exact GPS spot on a map", "Sorts problems by urgency (Fix Now, Check Soon, Safe)"]
   },
   {
-    layer: "03",
-    name: "AI Intelligence & Risk Engine",
-    items: ["Computer Vision defect detection, sizing, and classification", "Structural Health & Asset condition scoring algorithms", "Predictive deterioration models & failure risk forecasting", "GenAI Copilot: Explains findings, drafts work orders, and generates DPR reports"]
+    layer: "3",
+    name: "Easy Work Orders & Alerts",
+    items: ["Generates clear job cards for repair workers", "Sends notification directly to contractor's phone", "Tracks time until repair is completed"]
   },
   {
-    layer: "04",
-    name: "Application & Command Workflow",
-    items: ["Interactive Command & Control Centre (iCCC) dashboard", "Mobile-first Field App with online/offline audit verification", "Closed-loop Work Order dispatch and contractor SLA monitoring", "Seamless API integration with Rodic Eye, ERP, and PMS systems"]
+    layer: "4",
+    name: "Photo Check & Confirmation",
+    items: ["Worker snaps a photo after fixing the pothole", "System confirms the repair is flat and smooth", "Saves a permanent record of the finished work"]
   }
 ];
 
 export const RODIC_COLLABORATION_NEEDS = [
   {
-    title: "Access to Project / Asset Data",
-    desc: "Sample data to develop and test the PoC across 10-20 road segments. Existing inspection images/videos, drawings, and maintenance records.",
-    tag: "Data Ingestion"
+    title: "Sample Road Videos",
+    desc: "A few short video recordings or photos of road stretches to run the 14-day test.",
+    tag: "Data Input"
   },
   {
-    title: "Domain Expertise & Guidance",
-    desc: "Access to Rodic subject matter experts (roads, bridges, tunnels) to calibrate engineering rules, validate AI detection confidence, and align priorities.",
-    tag: "Engineering Validation"
+    title: "Engineer Feedback",
+    desc: "Occasional advice from your road and bridge engineers on which issues they want prioritized.",
+    tag: "Guidance"
   },
   {
-    title: "Access to Existing Systems",
-    desc: "Relevant interfaces or data extracts with GIS, asset inventories, and maintenance platforms (e.g. Rodic Eye) under standard IT/security guidelines.",
-    tag: "System Integration"
+    title: "Access to Road Lists",
+    desc: "Simple list of highway names and mile markers to tag locations accurately.",
+    tag: "Coordination"
   },
   {
-    title: "Project Coordination (SPOC)",
-    desc: "Nomination of a single point of contact (SPOC) to streamline data approvals, schedule periodic reviews, and coordinate stakeholder demonstrations.",
-    tag: "Governance"
+    title: "Single Point of Contact",
+    desc: "One friendly coordinator from your team to join quick weekly progress updates.",
+    tag: "Teamwork"
   },
   {
-    title: "Field Support (As Required)",
-    desc: "Facilitate site access for pilot drone or vehicle surveys, and coordinate with field maintenance teams for on-ground repair validation.",
-    tag: "Ground Truth"
+    title: "Field Visit Support",
+    desc: "Permission to test our vehicle camera on a pilot highway stretch.",
+    tag: "Field Testing"
   },
   {
-    title: "Long-Term Collaborative Vision",
-    desc: "Work together beyond the PoC to explore deep integration into Rodic's nationwide project management and consulting portfolio.",
-    tag: "Strategic Growth"
+    title: "Long-Term Vision",
+    desc: "Working together to make roads safer across your entire project portfolio.",
+    tag: "Partnership"
   }
 ];
 
 export const SLIDE_METADATA = [
-  { page: 1, title: "Proven Track Record", desc: "IGT field execution: 1,680 villages, ₹800+ Cr budget, 850+ 4G sites.", img: "/slides/page_1.png" },
-  { page: 2, title: "Why IGT. Why Now.", desc: "Execution capability + AI engineering: Field experience meets deep tech.", img: "/slides/page_2.png" },
-  { page: 3, title: "AI Command & Control Centre", desc: "Integrated ecosystem for Roads, Bridges, Tunnels, and Risk Prioritization.", img: "/slides/page_3.png" },
-  { page: 4, title: "Use Case 01: Road Condition AI", desc: "Vehicle-mounted scanning, crack/pothole classification, and KPIs.", img: "/slides/page_4.png" },
-  { page: 5, title: "Use Case 02: Bridge Health AI", desc: "Bridge BR-07 structural monitoring, pier shear, bearing tilt, and NDT.", img: "/slides/page_5.png" },
-  { page: 6, title: "Use Case 03: Tunnel Safety AI", desc: "Tunnel T-04 cross-section, lighting, ventilation, and water seepage.", img: "/slides/page_6.png" },
-  { page: 7, title: "Use Case 06: Unified iCCC", desc: "Enterprise single-pane-of-glass across 18,420 assets and active alerts.", img: "/slides/page_7.png" },
-  { page: 8, title: "Use Case 04: Asset Risk & Priority", desc: "Risk matrix, failure probability vs consequence, optimized budget.", img: "/slides/page_8.png" },
-  { page: 9, title: "Use Case 05: Operations & Workflow", desc: "Closed-loop work orders, field app, and before/after AI verification.", img: "/slides/page_9.png" },
-  { page: 10, title: "Asset Monetisation & Value", desc: "5G small cells, EV hubs, digital ads, and ₹42 Cr illustrative yield.", img: "/slides/page_10.png" },
-  { page: 11, title: "Road Asset POC Scope", desc: "10-20 road segments, 6-stage loop (See, Measure, Assess, Prioritise, Act, Verify).", img: "/slides/page_11.png" },
-  { page: 12, title: "Implementation Roadmap", desc: "Prove First, Scale Modularly: POC (14d) → Pilot (6-8w) → Scale → Expand.", img: "/slides/page_12.png" },
-  { page: 13, title: "System Architecture", desc: "4-layer tech stack with GenAI copilot, edge processing, and Rodic integration.", img: "/slides/page_13.png" },
-  { page: 14, title: "What We Need From Rodic", desc: "6 collaboration pillars for real-world impact and national scale.", img: "/slides/page_14.png" }
+  { page: 1, title: "Our Proven Track Record", desc: "Real field execution: 1,680 villages connected, ₹800+ Cr public projects delivered.", img: "/slides/page_1.png" },
+  { page: 2, title: "Why Infranite Globaltech", desc: "Combining real civil engineering field experience with simple, smart technology.", img: "/slides/page_2.png" },
+  { page: 3, title: "Smart City & Highway Center", desc: "One clean screen for Roads, Bridges, Tunnels, and easy repair priorities.", img: "/slides/page_3.png" },
+  { page: 4, title: "Road Health & Pothole Spotting", desc: "Car-mounted cameras automatically spot potholes and measure road quality.", img: "/slides/page_4.png" },
+  { page: 5, title: "Bridge Safety & Pillar Checks", desc: "Checking bridge pillars, joints, and decks so repairs happen before problems grow.", img: "/slides/page_5.png" },
+  { page: 6, title: "Tunnel Safety & Air Monitoring", desc: "Making sure tunnels have clean fresh air, working lights, and dry walls.", img: "/slides/page_6.png" },
+  { page: 7, title: "Unified Operations Center", desc: "Simple summary screen showing all roads, open repairs, and response times.", img: "/slides/page_7.png" },
+  { page: 8, title: "Smart Priority List", desc: "Helps leaders spend repair budgets where they prevent accidents and save lives.", img: "/slides/page_8.png" },
+  { page: 9, title: "4-Step Easy Repair Workflow", desc: "Spot problem → Send team → Repair → Check finished photo.", img: "/slides/page_9.png" },
+  { page: 10, title: "Smart Highway Amenities", desc: "Adding EV fast chargers, solar lighting, and public mobile connectivity.", img: "/slides/page_10.png" },
+  { page: 11, title: "14-Day Quick Test Scope", desc: "Quick test on 10 road stretches with zero upfront hardware disruption.", img: "/slides/page_11.png" },
+  { page: 12, title: "Simple 4-Step Roadmap", desc: "Step 1 (Test) → Step 2 (Pilot) → Step 3 (State) → Step 4 (National).", img: "/slides/page_12.png" },
+  { page: 13, title: "How the System Connects", desc: "Clean 4-step pipeline from cameras to finished repair confirmation.", img: "/slides/page_13.png" },
+  { page: 14, title: "Working Together with Partners", desc: "6 straightforward ways we partner with infrastructure agencies.", img: "/slides/page_14.png" }
 ];

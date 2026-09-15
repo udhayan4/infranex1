@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Truck, Eye, Shield, Activity, TrendingUp, AlertCircle, CheckCircle2, ChevronRight, BarChart3 } from 'lucide-react';
+import { Truck, Eye, Shield, Activity, TrendingUp, AlertCircle, CheckCircle2, ChevronRight } from 'lucide-react';
 import { ROAD_DEFECTS_CATALOG, ROAD_KPIS } from '../data/mockData';
 
 export default function ConditionIntelligence() {
@@ -7,55 +7,65 @@ export default function ConditionIntelligence() {
 
   const pipelineStages = [
     {
-      num: "01",
-      title: "Asset & Data Capture",
-      sub: "Multi-Source, Network-Wide",
-      desc: "Vehicle-mounted high-speed cameras (80-100 km/day), aerial drone surveys along high-risk corridors, and mobile LiDAR."
+      num: "1",
+      title: "Take Road Video",
+      sub: "Normal Driving",
+      color: "#2563EB",
+      bg: "#EFF6FF",
+      desc: "A dashcam mounted on a regular patrol car or a camera drone captures high-quality video as it drives along the highway."
     },
     {
-      num: "02",
-      title: "AI Analysis & Detection",
-      sub: "Computer Vision at Scale",
-      desc: "Deep neural networks automatically segment and measure potholes, longitudinal cracks, rutting, and shoulder drop-offs."
+      num: "2",
+      title: "Spot All Damage",
+      sub: "Instant Detection",
+      color: "#16A34A",
+      bg: "#F0FDF4",
+      desc: "The system automatically circles potholes, cracks, and broken shoulders without any manual effort."
     },
     {
-      num: "03",
-      title: "Condition & Risk Assessment",
-      sub: "From Data to Intelligence",
-      desc: "Calculates unified Road Condition Index (0-100) weighted by traffic density, axle loads, and monsoon deterioration forecasts."
+      num: "3",
+      title: "Measure Size & Depth",
+      sub: "Exact Dimensions",
+      color: "#D97706",
+      bg: "#FEF3C7",
+      desc: "Calculates exact width, length, and depth so road engineers know exactly how much asphalt is needed to fill it."
     },
     {
-      num: "04",
-      title: "Maintenance Planning",
-      sub: "Prioritise, Schedule, Execute",
-      desc: "Auto-generates geo-tagged digital work orders with estimated Bill of Quantities (BOQ) and contractor SLA deadlines."
+      num: "4",
+      title: "Send Work Order",
+      sub: "To Repair Van's Phone",
+      color: "#7C3AED",
+      bg: "#FAF5FF",
+      desc: "Sends a clear digital job card with exact GPS pin to the nearest highway repair contractor."
     },
     {
-      num: "05",
-      title: "Continuous Monitoring",
-      sub: "Learn, Verify & Improve",
-      desc: "AI audits post-repair imagery with computer vision to verify repair quality and continuously re-trains models."
+      num: "5",
+      title: "Photo Verification",
+      sub: "Quality Check",
+      color: "#E11D48",
+      bg: "#FFE4E6",
+      desc: "The worker takes a photo after repairing the hole. The system verifies that the asphalt is smooth and flat."
     }
   ];
 
   return (
     <section id="road-ai" className="section-wrapper" style={{
-      background: '#060B13',
-      position: 'relative'
+      background: '#FFFFFF',
+      borderTop: '1px solid #E2E8F0',
+      borderBottom: '1px solid #E2E8F0'
     }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
-          <div className="section-pill">
-            <Truck size={12} color="#00F0FF" />
-            <span>Use Case 01</span>
+          <div className="section-pill" style={{ background: '#DBEAFE', color: '#2563EB', borderColor: '#BFDBFE' }}>
+            <Truck size={15} />
+            <span>Road Safety & Potholes</span>
           </div>
           <h2 className="section-title">
-            AI Road Condition & Maintenance Intelligence
+            Finding Road Problems Before They Get Worse
           </h2>
           <p className="section-subtitle">
-            From periodic manual inspection to proactive, continuous, data-driven highway intelligence.
-            Detect distress early, size defects accurately, and extend pavement lifecycles.
+            From periodic manual walking to quick, automatic detection. Spot potholes, cracks, and drainage blocks in seconds.
           </p>
         </div>
 
@@ -64,91 +74,67 @@ export default function ConditionIntelligence() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
           gap: '16px',
-          marginBottom: '56px'
+          marginBottom: '48px'
         }}>
           {pipelineStages.map((stage, idx) => (
-            <div key={idx} className="glass-panel bracket-corner" style={{ padding: '20px' }}>
+            <div key={idx} style={{
+              background: stage.bg,
+              border: `1.5px solid ${stage.color}40`,
+              borderRadius: '16px',
+              padding: '20px'
+            }}>
               <div style={{
-                display: 'flex',
+                display: 'inline-flex',
                 alignItems: 'center',
-                justifyContent: 'space-between',
-                marginBottom: '10px'
+                justifyContent: 'center',
+                width: '32px',
+                height: '32px',
+                borderRadius: '50%',
+                background: stage.color,
+                color: '#FFFFFF',
+                fontWeight: 800,
+                fontSize: '14px',
+                marginBottom: '12px'
               }}>
-                <span style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '18px',
-                  fontWeight: 800,
-                  color: '#00F0FF'
-                }}>
-                  {stage.num}
-                </span>
-                <span className="status-dot"></span>
+                {stage.num}
               </div>
-              <h3 style={{ fontSize: '15px', color: '#FFFFFF', marginBottom: '4px' }}>{stage.title}</h3>
-              <div style={{ fontSize: '11px', color: 'var(--cyan-primary)', fontFamily: 'var(--font-mono)', marginBottom: '8px' }}>
+              <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#0F172A', marginBottom: '4px' }}>
+                {stage.title}
+              </h3>
+              <div style={{ fontSize: '12px', fontWeight: 700, color: stage.color, marginBottom: '8px' }}>
                 {stage.sub}
               </div>
-              <p style={{ fontSize: '12px', color: 'var(--text-secondary)', lineHeight: 1.5 }}>{stage.desc}</p>
+              <p style={{ fontSize: '13px', color: '#475569', lineHeight: 1.5, margin: 0 }}>
+                {stage.desc}
+              </p>
             </div>
           ))}
         </div>
 
-        {/* Interactive Defect Analysis Sandbox */}
-        <div className="glass-panel bracket-corner" style={{
+        {/* Interactive Defect Catalog */}
+        <div style={{
+          background: '#F8FAFC',
+          borderRadius: '20px',
+          border: '1.5px solid #E2E8F0',
           padding: '32px',
-          marginBottom: '56px',
-          background: 'rgba(8, 15, 27, 0.85)'
+          marginBottom: '48px'
         }}>
-          <div style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '16px',
-            marginBottom: '28px',
-            borderBottom: '1px solid rgba(0, 240, 255, 0.15)',
-            paddingBottom: '16px'
-          }}>
-            <div>
-              <div style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: '18px',
-                fontWeight: 700,
-                color: '#FFFFFF'
-              }}>
-                Interactive Defect Catalog & Neural Detection
-              </div>
-              <div style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>
-                Select a pavement distress category to inspect automated measurement algorithms and telemetry.
-              </div>
-            </div>
-
-            {/* Case Study Callout Badge */}
-            <div style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '6px 14px',
-              borderRadius: '6px',
-              background: 'rgba(255, 59, 87, 0.12)',
-              border: '1px solid rgba(255, 59, 87, 0.3)',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '11px',
-              color: '#FF3B57'
-            }}>
-              <span>LIVE STUDY: NH-66 KM 124.2 – 125.0</span>
-              <span style={{ fontWeight: 700 }}>CONDITION: 62/100</span>
-            </div>
+          <div style={{ marginBottom: '24px', borderBottom: '1px solid #E2E8F0', paddingBottom: '16px' }}>
+            <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#0F172A' }}>
+              Common Road Problems We Spot Automatically
+            </h3>
+            <p style={{ fontSize: '14px', color: '#64748B', margin: 0 }}>
+              Click any problem below to see how it is detected and measured:
+            </p>
           </div>
 
-          {/* Defect Tabs & Details Split */}
           <div style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1.2fr',
             gap: '24px',
             alignItems: 'start'
           }} className="defect-split-layout">
-            {/* Left: Defect Selector Tabs */}
+            {/* Left Tabs */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
               {ROAD_DEFECTS_CATALOG.map((item, index) => {
                 const isActive = activeDefect.title === item.title;
@@ -158,142 +144,96 @@ export default function ConditionIntelligence() {
                     onClick={() => setActiveDefect(item)}
                     style={{
                       padding: '14px 18px',
-                      borderRadius: '8px',
+                      borderRadius: '12px',
                       cursor: 'pointer',
-                      background: isActive ? 'rgba(0, 240, 255, 0.12)' : 'rgba(6, 11, 19, 0.7)',
-                      border: isActive ? '1px solid #00F0FF' : '1px solid rgba(255, 255, 255, 0.06)',
+                      background: isActive ? '#FFFFFF' : '#F1F5F9',
+                      border: isActive ? `2px solid ${item.color}` : '1.5px solid #E2E8F0',
+                      boxShadow: isActive ? '0 4px 12px rgba(0,0,0,0.06)' : 'none',
                       display: 'flex',
                       alignItems: 'center',
-                      justifyContent: 'space-between',
-                      transition: 'all 0.2s'
+                      justifyContent: 'space-between'
                     }}
                   >
                     <div>
-                      <div style={{ fontSize: '14px', fontWeight: 600, color: isActive ? '#00F0FF' : '#FFFFFF' }}>
+                      <div style={{ fontSize: '15px', fontWeight: 700, color: isActive ? item.color : '#0F172A' }}>
                         {item.title}
                       </div>
-                      <div style={{ fontSize: '11px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>
+                      <div style={{ fontSize: '12.5px', color: '#64748B' }}>
                         {item.detectionTech}
                       </div>
                     </div>
 
                     <div style={{ textAlign: 'right' }}>
-                      <span style={{
-                        fontSize: '10px',
-                        fontFamily: 'var(--font-mono)',
-                        padding: '2px 6px',
-                        borderRadius: '3px',
-                        background: `${item.color}20`,
-                        color: item.color,
-                        fontWeight: 700
-                      }}>
+                      <span className={item.badge}>
                         {item.severity}
                       </span>
-                      <div style={{ fontSize: '11px', color: 'var(--emerald-success)', fontFamily: 'var(--font-mono)', marginTop: '4px' }}>
-                        {item.accuracy}
-                      </div>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Right: Active Defect Inspector Card */}
+            {/* Right Card */}
             <div style={{
-              background: 'rgba(6, 11, 19, 0.9)',
-              border: '1px solid rgba(0, 240, 255, 0.2)',
-              borderRadius: '10px',
+              background: '#FFFFFF',
+              border: '1.5px solid #E2E8F0',
+              borderRadius: '16px',
               padding: '24px',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.04)',
               display: 'flex',
               flexDirection: 'column',
               gap: '16px'
             }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span style={{
-                  fontSize: '11px',
-                  fontFamily: 'var(--font-mono)',
-                  color: 'var(--cyan-primary)',
-                  letterSpacing: '0.08em'
-                }}>
-                  NEURAL DETECTION TELEMETRY
+                <span className={activeDefect.badge}>
+                  {activeDefect.severity}
                 </span>
-                <span style={{
-                  fontSize: '11px',
-                  fontFamily: 'var(--font-mono)',
-                  padding: '2px 8px',
-                  borderRadius: '4px',
-                  background: 'rgba(0, 229, 163, 0.15)',
-                  color: '#00E5A3',
-                  border: '1px solid rgba(0, 229, 163, 0.3)'
-                }}>
-                  VALIDATED IN POC
+                <span style={{ fontSize: '13px', color: '#16A34A', fontWeight: 700 }}>
+                  {activeDefect.accuracy}
                 </span>
               </div>
 
-              <h3 style={{ fontSize: '20px', color: '#FFFFFF' }}>{activeDefect.title}</h3>
+              <h3 style={{ fontSize: '22px', fontWeight: 800, color: '#0F172A' }}>
+                {activeDefect.title}
+              </h3>
 
-              <p style={{ fontSize: '13.5px', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+              <p style={{ fontSize: '15px', color: '#475569', lineHeight: 1.6 }}>
                 {activeDefect.desc}
               </p>
 
-              {/* Technical Parameters */}
               <div style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
+                gridTemplateColumns: '1fr 1fr',
                 gap: '12px',
                 paddingTop: '12px',
-                borderTop: '1px solid rgba(255, 255, 255, 0.08)'
+                borderTop: '1px solid #E2E8F0'
               }}>
-                <div style={{ padding: '10px', background: 'rgba(10, 20, 36, 0.6)', borderRadius: '6px' }}>
-                  <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>SENSOR / INPUT</div>
-                  <div style={{ fontSize: '12px', fontWeight: 600, color: '#FFFFFF', marginTop: '2px' }}>{activeDefect.detectionTech}</div>
+                <div style={{ padding: '12px', background: '#F8FAFC', borderRadius: '8px' }}>
+                  <div style={{ fontSize: '11px', color: '#64748B', fontWeight: 700 }}>CAMERA INPUT</div>
+                  <div style={{ fontSize: '13.5px', fontWeight: 700, color: '#0F172A', marginTop: '2px' }}>{activeDefect.detectionTech}</div>
                 </div>
 
-                <div style={{ padding: '10px', background: 'rgba(10, 20, 36, 0.6)', borderRadius: '6px' }}>
-                  <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>DETECTION ACCURACY</div>
-                  <div style={{ fontSize: '12px', fontWeight: 600, color: '#00E5A3', marginTop: '2px' }}>{activeDefect.accuracy}</div>
-                </div>
-
-                <div style={{ padding: '10px', background: 'rgba(10, 20, 36, 0.6)', borderRadius: '6px' }}>
-                  <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>SEVERITY LEVEL</div>
-                  <div style={{ fontSize: '12px', fontWeight: 600, color: activeDefect.color, marginTop: '2px' }}>{activeDefect.severity}</div>
-                </div>
-
-                <div style={{ padding: '10px', background: 'rgba(10, 20, 36, 0.6)', borderRadius: '6px' }}>
-                  <div style={{ fontSize: '10px', color: 'var(--text-muted)', fontFamily: 'var(--font-mono)' }}>GIS PRECISION</div>
-                  <div style={{ fontSize: '12px', fontWeight: 600, color: '#00F0FF', marginTop: '2px' }}>Sub-meter (&plusmn;0.8m)</div>
-                </div>
-              </div>
-
-              {/* AI Value Addition Loop */}
-              <div style={{
-                background: 'rgba(0, 240, 255, 0.05)',
-                border: '1px solid rgba(0, 240, 255, 0.15)',
-                borderRadius: '6px',
-                padding: '12px'
-              }}>
-                <div style={{ fontSize: '10px', fontFamily: 'var(--font-mono)', color: '#00F0FF', marginBottom: '4px' }}>
-                  AI VALUE ADDITION LOOP (SLIDE 04)
-                </div>
-                <div style={{ fontSize: '12px', color: '#CBD5E1' }}>
-                  <strong>See</strong> (detect) &rarr; <strong>Measure</strong> (dimensions) &rarr; <strong>Understand</strong> (condition) &rarr; <strong>Predict</strong> (failure) &rarr; <strong>Prioritise</strong> (budget) &rarr; <strong>Learn</strong> (continuous).
+                <div style={{ padding: '12px', background: '#F8FAFC', borderRadius: '8px' }}>
+                  <div style={{ fontSize: '11px', color: '#64748B', fontWeight: 700 }}>ACCURACY RATE</div>
+                  <div style={{ fontSize: '13.5px', fontWeight: 700, color: '#16A34A', marginTop: '2px' }}>{activeDefect.accuracy}</div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Authentic KPIs Grid (Slide 4) */}
+        {/* Real-World KPIs */}
         <div>
           <div style={{
-            fontSize: '13px',
-            fontFamily: 'var(--font-mono)',
-            color: 'var(--cyan-primary)',
-            letterSpacing: '0.08em',
-            marginBottom: '16px',
-            textAlign: 'center'
+            fontSize: '14px',
+            fontWeight: 700,
+            color: '#2563EB',
+            textAlign: 'center',
+            marginBottom: '20px',
+            textTransform: 'uppercase',
+            letterSpacing: '0.04em'
           }}>
-            BENCHMARK MAINTENANCE PARAMETERS / KPIS (RODIC CHALLENGE SLIDE 04)
+            Key Benefits for Highway Agencies & Travelers
           </div>
 
           <div style={{
@@ -302,12 +242,12 @@ export default function ConditionIntelligence() {
             gap: '14px'
           }}>
             {ROAD_KPIS.map((kpi, idx) => (
-              <div key={idx} className="metric-hud bracket-corner" style={{ padding: '16px' }}>
-                <div className="metric-hud-value" style={{ fontSize: '1.8rem', color: '#00F0FF' }}>
+              <div key={idx} className="metric-hud" style={{ padding: '18px' }}>
+                <div className="metric-hud-value" style={{ fontSize: '1.9rem', color: '#2563EB' }}>
                   {kpi.value}
                 </div>
-                <div className="metric-hud-label" style={{ fontSize: '11px' }}>{kpi.label}</div>
-                <div className="metric-hud-sub" style={{ fontSize: '11px', color: 'var(--text-secondary)' }}>{kpi.sub}</div>
+                <div className="metric-hud-label" style={{ fontSize: '12px' }}>{kpi.label}</div>
+                <div className="metric-hud-sub" style={{ fontSize: '12px' }}>{kpi.sub}</div>
               </div>
             ))}
           </div>
