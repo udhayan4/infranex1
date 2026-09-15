@@ -33,8 +33,8 @@ export default function AiScanSection() {
           </p>
         </div>
 
-        {/* Scanner Container */}
-        <div style={{
+          {/* Scanner Container */}
+        <div className="scanner-container-card" style={{
           background: '#F8FAFC',
           borderRadius: '20px',
           border: '1.5px solid #E2E8F0',
@@ -65,7 +65,7 @@ export default function AiScanSection() {
           </div>
 
           {/* Interactive Visual Comparison Stage */}
-          <div style={{
+          <div className="scanner-stage" style={{
             position: 'relative',
             height: '380px',
             borderRadius: '14px',
@@ -258,7 +258,7 @@ export default function AiScanSection() {
           {/* 5 Simple Step Pills */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
             gap: '12px',
             marginTop: '28px',
             paddingTop: '20px',
@@ -285,6 +285,17 @@ export default function AiScanSection() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .scanner-container-card {
+            padding: 16px !important;
+          }
+          .scanner-stage {
+            height: 280px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

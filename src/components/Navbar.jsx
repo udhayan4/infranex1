@@ -69,11 +69,11 @@ export default function Navbar({ onOpenPdf }) {
         justifyContent: 'space-between',
         width: '100%'
       }}>
-        {/* Brand Logo & Name (No InfraSight) */}
-        <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+        {/* Brand Logo & Name (Responsive) */}
+        <a href="#hero" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none', minWidth: 0 }}>
           <div style={{
-            width: '40px',
-            height: '40px',
+            width: '38px',
+            height: '38px',
             borderRadius: '10px',
             background: 'linear-gradient(135deg, #2563EB 0%, #16A34A 100%)',
             display: 'flex',
@@ -82,15 +82,16 @@ export default function Navbar({ onOpenPdf }) {
             boxShadow: '0 2px 6px rgba(37, 99, 235, 0.25)',
             color: '#FFFFFF',
             fontWeight: 800,
-            fontSize: '17px'
+            fontSize: '16px',
+            flexShrink: 0
           }}>
             IGT
           </div>
-          <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <div style={{ minWidth: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
               <span style={{
                 fontFamily: 'var(--font-heading)',
-                fontSize: '17.5px',
+                fontSize: 'clamp(14px, 3.8vw, 17.5px)',
                 fontWeight: '800',
                 letterSpacing: '-0.02em',
                 color: '#0F172A',
@@ -99,20 +100,25 @@ export default function Navbar({ onOpenPdf }) {
                 INFRANITE <span style={{ color: '#2563EB' }}>GLOBALTECH</span>
               </span>
               <span style={{
-                fontSize: '11px',
-                padding: '2px 7px',
+                fontSize: '10px',
+                padding: '2px 6px',
                 borderRadius: '6px',
                 background: '#EFF6FF',
                 color: '#2563EB',
-                fontWeight: 700
+                fontWeight: 700,
+                display: 'inline-block',
+                flexShrink: 0
               }}>
                 AI Tech
               </span>
             </div>
-            <div style={{
-              fontSize: '11.5px',
+            <div className="brand-subline" style={{
+              fontSize: '11px',
               color: '#64748B',
-              fontWeight: 500
+              fontWeight: 500,
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
             }}>
               AI Infrastructure Intelligence & Innovation
             </div>
@@ -123,7 +129,7 @@ export default function Navbar({ onOpenPdf }) {
         <nav style={{
           display: 'none',
           alignItems: 'center',
-          gap: '8px',
+          gap: '6px',
           position: 'relative'
         }} className="desktop-nav">
           {navHeadings.map((item) => {
@@ -252,7 +258,8 @@ export default function Navbar({ onOpenPdf }) {
             border: '1px solid #CBD5E1',
             borderRadius: '8px',
             color: '#0F172A',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            flexShrink: 0
           }}
           className="mobile-toggle"
           aria-label="Toggle navigation menu"
@@ -270,30 +277,66 @@ export default function Navbar({ onOpenPdf }) {
           right: 0,
           background: '#FFFFFF',
           borderBottom: '2px solid #2563EB',
-          boxShadow: '0 8px 20px rgba(0, 0, 0, 0.08)',
-          padding: '20px 24px',
+          boxShadow: '0 8px 24px rgba(0, 0, 0, 0.12)',
+          padding: '16px 20px',
           display: 'flex',
           flexDirection: 'column',
-          gap: '8px',
+          gap: '6px',
           maxHeight: 'calc(100vh - var(--nav-height))',
           overflowY: 'auto'
         }}>
-          {navHeadings.map((item) => (
+          {/* Solutions Accordion Section in Mobile Menu */}
+          <div style={{
+            background: '#F8FAFC',
+            borderRadius: '10px',
+            padding: '12px 14px',
+            border: '1px solid #E2E8F0',
+            marginBottom: '4px'
+          }}>
+            <div style={{
+              fontSize: '12px',
+              fontWeight: 800,
+              color: '#2563EB',
+              textTransform: 'uppercase',
+              marginBottom: '8px'
+            }}>
+              Solutions (14-Page PDF Deck)
+            </div>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+              {pdfSolutions.map((sol, i) => (
+                <button
+                  key={i}
+                  onClick={() => handleSolutionSelect(sol)}
+                  style={{
+                    background: sol.isPdf ? '#EFF6FF' : '#FFFFFF',
+                    border: sol.isPdf ? '1px solid #BFDBFE' : '1px solid #E2E8F0',
+                    textAlign: 'left',
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    fontSize: '13px',
+                    fontWeight: 700,
+                    color: sol.isPdf ? '#2563EB' : '#1E293B'
+                  }}
+                >
+                  {sol.title}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Other 7 Navigation Headings */}
+          {navHeadings.filter(h => !h.hasDropdown).map((item) => (
             <button
               key={item.label}
-              onClick={() => {
-                if (item.hasDropdown) {
-                  handleSolutionSelect(pdfSolutions[0]);
-                } else {
-                  handleNavClick(item.target);
-                }
-              }}
+              onClick={() => handleNavClick(item.target)}
               style={{
                 background: 'transparent',
                 color: '#1E293B',
                 textAlign: 'left',
                 fontSize: '15px',
-                fontWeight: 600,
+                fontWeight: 700,
                 padding: '10px 14px',
                 borderRadius: '8px',
                 border: 'none',
@@ -313,6 +356,9 @@ export default function Navbar({ onOpenPdf }) {
         }
         @media (max-width: 959px) {
           .mobile-toggle { display: block !important; }
+        }
+        @media (max-width: 580px) {
+          .brand-subline { display: none !important; }
         }
       `}</style>
     </header>

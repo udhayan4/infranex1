@@ -28,34 +28,37 @@ export default function PdfModal({ isOpen, onClose }) {
       overflow: 'hidden'
     }}>
       {/* Modal Header */}
-      <div style={{
-        height: '64px',
+      <div className="pdf-modal-header" style={{
+        minHeight: '56px',
         background: '#FFFFFF',
         borderBottom: '1.5px solid #E2E8F0',
-        padding: '0 24px',
+        padding: '8px 16px',
         display: 'flex',
+        flexWrap: 'wrap',
         alignItems: 'center',
         justifyContent: 'space-between',
+        gap: '8px',
         flexShrink: 0
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div style={{
-            width: '36px',
-            height: '36px',
+            width: '32px',
+            height: '32px',
             borderRadius: '8px',
             background: '#EFF6FF',
             border: '1px solid #BFDBFE',
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            flexShrink: 0
           }}>
-            <FileText size={20} color="#2563EB" />
+            <FileText size={18} color="#2563EB" />
           </div>
           <div>
-            <div style={{ fontSize: '16px', fontWeight: 800, color: '#0F172A' }}>
+            <div style={{ fontSize: '14px', fontWeight: 800, color: '#0F172A', lineHeight: 1.2 }}>
               Official Presentation Slides
             </div>
-            <div style={{ fontSize: '12px', color: '#64748B' }}>
+            <div style={{ fontSize: '11px', color: '#64748B' }}>
               Infranite Globaltech (IGT) • 14 Slides
             </div>
           </div>
@@ -66,15 +69,15 @@ export default function PdfModal({ isOpen, onClose }) {
           display: 'flex',
           background: '#F1F5F9',
           borderRadius: '8px',
-          padding: '3px',
+          padding: '2px',
           border: '1px solid #CBD5E1'
         }}>
           <button
             onClick={() => setViewMode('slides')}
             style={{
-              padding: '6px 14px',
+              padding: '5px 10px',
               borderRadius: '6px',
-              fontSize: '13px',
+              fontSize: '12px',
               fontWeight: 700,
               background: viewMode === 'slides' ? '#2563EB' : 'transparent',
               color: viewMode === 'slides' ? '#FFFFFF' : '#475569',
@@ -82,17 +85,17 @@ export default function PdfModal({ isOpen, onClose }) {
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
-              gap: '6px'
+              gap: '4px'
             }}
           >
-            <Layers size={14} /> Slides ({currentSlide + 1}/14)
+            <Layers size={13} /> Slides ({currentSlide + 1}/14)
           </button>
           <button
             onClick={() => setViewMode('embed')}
             style={{
-              padding: '6px 14px',
+              padding: '5px 10px',
               borderRadius: '6px',
-              fontSize: '13px',
+              fontSize: '12px',
               fontWeight: 700,
               background: viewMode === 'embed' ? '#2563EB' : 'transparent',
               color: viewMode === 'embed' ? '#FFFFFF' : '#475569',
@@ -100,28 +103,28 @@ export default function PdfModal({ isOpen, onClose }) {
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
-              gap: '6px'
+              gap: '4px'
             }}
           >
-            <Layout size={14} /> Full PDF Frame
+            <Layout size={13} /> Full PDF
           </button>
         </div>
 
         {/* Action Controls */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <a
             href="/Rodic-Challenge.pdf"
             download="Rodic-Challenge-InfraSightAI.pdf"
             className="btn-secondary"
-            style={{ padding: '6px 14px', fontSize: '13px' }}
+            style={{ padding: '5px 10px', fontSize: '12px' }}
           >
-            <Download size={14} /> Download PDF
+            <Download size={13} /> PDF
           </a>
 
           <button
             onClick={onClose}
             style={{
-              padding: '6px 14px',
+              padding: '5px 10px',
               borderRadius: '8px',
               background: '#FFE4E6',
               border: '1px solid #FECDD3',
@@ -130,12 +133,12 @@ export default function PdfModal({ isOpen, onClose }) {
               display: 'flex',
               alignItems: 'center',
               gap: '4px',
-              fontSize: '13px',
+              fontSize: '12px',
               fontWeight: 700
             }}
             id="close-pdf-modal-btn"
           >
-            <X size={16} /> Close
+            <X size={15} /> Close
           </button>
         </div>
       </div>
@@ -150,40 +153,42 @@ export default function PdfModal({ isOpen, onClose }) {
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'space-between',
-            padding: '20px'
+            padding: '12px'
           }}>
             {/* Header */}
             <div style={{
               display: 'flex',
+              flexWrap: 'wrap',
               alignItems: 'center',
               justifyContent: 'space-between',
               width: '100%',
               maxWidth: '1100px',
-              marginBottom: '10px'
+              marginBottom: '8px',
+              gap: '8px'
             }}>
               <div>
-                <span className="badge-blue" style={{ fontSize: '12px' }}>
+                <span className="badge-blue" style={{ fontSize: '11px', padding: '2px 8px' }}>
                   SLIDE {activeSlide.page} OF 14
                 </span>
-                <span style={{ fontSize: '16px', fontWeight: 800, color: '#0F172A', marginLeft: '10px' }}>
+                <span style={{ fontSize: '14px', fontWeight: 800, color: '#0F172A', marginLeft: '8px' }}>
                   {activeSlide.title}
                 </span>
               </div>
 
-              <div style={{ display: 'flex', gap: '8px' }}>
+              <div style={{ display: 'flex', gap: '6px' }}>
                 <button
                   onClick={prevSlide}
                   className="btn-secondary"
-                  style={{ padding: '6px 14px', fontSize: '13px' }}
+                  style={{ padding: '5px 10px', fontSize: '12px' }}
                 >
-                  <ChevronLeft size={16} /> Prev Slide
+                  <ChevronLeft size={15} /> Prev
                 </button>
                 <button
                   onClick={nextSlide}
                   className="btn-primary"
-                  style={{ padding: '6px 14px', fontSize: '13px' }}
+                  style={{ padding: '5px 10px', fontSize: '12px' }}
                 >
-                  Next Slide <ChevronRight size={16} />
+                  Next <ChevronRight size={15} />
                 </button>
               </div>
             </div>
@@ -193,7 +198,7 @@ export default function PdfModal({ isOpen, onClose }) {
               flex: 1,
               width: '100%',
               maxWidth: '1100px',
-              maxHeight: 'calc(100vh - 200px)',
+              maxHeight: 'calc(100vh - 160px)',
               background: '#FFFFFF',
               borderRadius: '12px',
               border: '1.5px solid #CBD5E1',
@@ -218,22 +223,24 @@ export default function PdfModal({ isOpen, onClose }) {
             {/* Thumbnails */}
             <div style={{
               display: 'flex',
-              gap: '6px',
+              gap: '4px',
               overflowX: 'auto',
-              maxWidth: '1100px',
+              maxWidth: '100%',
               width: '100%',
-              paddingTop: '12px',
-              justifyContent: 'center'
+              paddingTop: '8px',
+              justifyContent: 'flex-start',
+              WebkitOverflowScrolling: 'touch'
             }}>
               {SLIDE_METADATA.map((s, idx) => (
                 <button
                   key={s.page}
                   onClick={() => setCurrentSlide(idx)}
                   style={{
-                    width: '32px',
-                    height: '32px',
+                    width: '28px',
+                    height: '28px',
+                    minWidth: '28px',
                     borderRadius: '6px',
-                    fontSize: '12px',
+                    fontSize: '11px',
                     fontWeight: 700,
                     background: currentSlide === idx ? '#2563EB' : '#FFFFFF',
                     color: currentSlide === idx ? '#FFFFFF' : '#475569',

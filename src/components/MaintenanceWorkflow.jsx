@@ -166,7 +166,7 @@ export default function MaintenanceWorkflow() {
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
               gap: '16px'
-            }}>
+            }} className="before-after-grid">
               {/* Before */}
               <div style={{
                 position: 'relative',
@@ -268,6 +268,14 @@ export default function MaintenanceWorkflow() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 540px) {
+          .before-after-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

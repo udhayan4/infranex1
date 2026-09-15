@@ -111,24 +111,24 @@ export default function Hero({ onOpenPdf }) {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(230px, 1fr))',
-          gap: '20px'
-        }}>
+          gap: '16px'
+        }} className="hero-metrics-grid">
           {/* Card 1 */}
           <div style={{
             background: '#FFFFFF',
             borderRadius: '16px',
-            padding: '24px',
+            padding: '20px 24px',
             border: '1.5px solid #BFDBFE',
             boxShadow: '0 4px 12px rgba(37, 99, 235, 0.08)'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#2563EB' }}>ROADS & BRIDGES MONITORED</span>
-              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#2563EB' }}></div>
+              <span style={{ fontSize: '12px', fontWeight: 700, color: '#2563EB' }}>ROADS & BRIDGES MONITORED</span>
+              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#2563EB', flexShrink: 0 }}></div>
             </div>
-            <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#0F172A', lineHeight: 1.1 }}>
+            <div style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', fontWeight: 800, color: '#0F172A', lineHeight: 1.1 }}>
               18,420+
             </div>
-            <div style={{ fontSize: '13.5px', color: '#64748B', marginTop: '4px' }}>
+            <div style={{ fontSize: '13px', color: '#64748B', marginTop: '4px' }}>
               Road stretches, bridges and tunnels monitored
             </div>
           </div>
@@ -137,18 +137,18 @@ export default function Hero({ onOpenPdf }) {
           <div style={{
             background: '#FFFFFF',
             borderRadius: '16px',
-            padding: '24px',
+            padding: '20px 24px',
             border: '1.5px solid #BBF7D0',
             boxShadow: '0 4px 12px rgba(22, 163, 74, 0.08)'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#16A34A' }}>ACCURACY IN SPOTTING HOLES</span>
-              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#16A34A' }}></div>
+              <span style={{ fontSize: '12px', fontWeight: 700, color: '#16A34A' }}>ACCURACY IN SPOTTING HOLES</span>
+              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#16A34A', flexShrink: 0 }}></div>
             </div>
-            <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#16A34A', lineHeight: 1.1 }}>
+            <div style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', fontWeight: 800, color: '#16A34A', lineHeight: 1.1 }}>
               95%
             </div>
-            <div style={{ fontSize: '13.5px', color: '#64748B', marginTop: '4px' }}>
+            <div style={{ fontSize: '13px', color: '#64748B', marginTop: '4px' }}>
               Accurately spots potholes, cracks & broken edges
             </div>
           </div>
@@ -157,18 +157,18 @@ export default function Hero({ onOpenPdf }) {
           <div style={{
             background: '#FFFFFF',
             borderRadius: '16px',
-            padding: '24px',
+            padding: '20px 24px',
             border: '1.5px solid #FEF08A',
             boxShadow: '0 4px 12px rgba(217, 119, 6, 0.08)'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#D97706' }}>FASTER REPAIR DISPATCH</span>
-              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#D97706' }}></div>
+              <span style={{ fontSize: '12px', fontWeight: 700, color: '#D97706' }}>FASTER REPAIR DISPATCH</span>
+              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#D97706', flexShrink: 0 }}></div>
             </div>
-            <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#D97706', lineHeight: 1.1 }}>
+            <div style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', fontWeight: 800, color: '#D97706', lineHeight: 1.1 }}>
               &lt; 24 Hours
             </div>
-            <div style={{ fontSize: '13.5px', color: '#64748B', marginTop: '4px' }}>
+            <div style={{ fontSize: '13px', color: '#64748B', marginTop: '4px' }}>
               Sends automatic work orders directly to repair teams
             </div>
           </div>
@@ -177,23 +177,37 @@ export default function Hero({ onOpenPdf }) {
           <div style={{
             background: '#FFFFFF',
             borderRadius: '16px',
-            padding: '24px',
+            padding: '20px 24px',
             border: '1.5px solid #DDD6FE',
             boxShadow: '0 4px 12px rgba(124, 58, 237, 0.08)'
           }}>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: '#7C3AED' }}>FINISHED REPAIR CHECK</span>
-              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#7C3AED' }}></div>
+              <span style={{ fontSize: '12px', fontWeight: 700, color: '#7C3AED' }}>FINISHED REPAIR CHECK</span>
+              <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: '#7C3AED', flexShrink: 0 }}></div>
             </div>
-            <div style={{ fontSize: '2.4rem', fontWeight: 800, color: '#7C3AED', lineHeight: 1.1 }}>
+            <div style={{ fontSize: 'clamp(1.8rem, 4vw, 2.4rem)', fontWeight: 800, color: '#7C3AED', lineHeight: 1.1 }}>
               100% Checked
             </div>
-            <div style={{ fontSize: '13.5px', color: '#64748B', marginTop: '4px' }}>
+            <div style={{ fontSize: '13px', color: '#64748B', marginTop: '4px' }}>
               Before-and-after photo check guarantees quality
             </div>
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .hero-metrics-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 10px !important;
+          }
+        }
+        @media (max-width: 420px) {
+          .hero-metrics-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
